@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `concepts`
 --
 
-DROP DATABASE savemywallet;
+DROP DATABASE IF EXISTS savemywallet;
 CREATE DATABASE savemywallet;
 use savemywallet;
 
