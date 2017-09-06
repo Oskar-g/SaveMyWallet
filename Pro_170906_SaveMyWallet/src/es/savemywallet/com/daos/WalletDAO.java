@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import es.savemywallet.com.beans.User;
+import es.savemywallet.com.beans.Wallet;
 import es.savemywallet.com.interfaces.IWalletDAO;
 
 public class WalletDAO implements IWalletDAO {
