@@ -24,13 +24,14 @@ public class User {
 	 * @param email
 	 * @param password
 	 */
-	public User(int idUser, String name, String surname, String email, String password) {
+	public User(int idUser, String nameUser, String surname, String email, String password) {
 		this.idUser = idUser;
 		this.nameUser = nameUser;
 		this.surname = surname;
 		this.email = email;
 		this.password = password;
 	}
+		
 
 	/*
 	 * -----------------------------------------------------------------------

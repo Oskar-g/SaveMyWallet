@@ -12,14 +12,14 @@ public class Concept {
 	/**
 	 * Default Constructor
 	 */
-	
+	public Concept() {}
 	
 	/**
 	 * Constructor
 	 * @param idConcept
 	 * @param name
 	 */
-	public Concept(String idConcept, String name) {
+	public Concept(String idConcept, String nameConcept) {
 		super();
 		this.idConcept = idConcept;
 		this.nameConcept = nameConcept;
@@ -50,8 +50,9 @@ public class Concept {
 		this.idConcept = idConcept;
 	}
 	
-	public void setName(String name) {
-		this.nameConcept = nameConcept;
 
+	public void setNameConcept(String nameConcept) {
+
+		this.nameConcept = nameConcept;
 	}
 }
