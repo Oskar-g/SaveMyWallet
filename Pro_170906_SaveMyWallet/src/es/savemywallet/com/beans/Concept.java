@@ -24,6 +24,7 @@ public class Concept {
 		this.idConcept = idConcept;
 		this.nameConcept = nameConcept;
 	}
+	
 
 	/*
 	 * -----------------------------------------------------------------------
@@ -49,8 +50,9 @@ public class Concept {
 		this.idConcept = idConcept;
 	}
 	
-	public void setNameConcept(String nameConcept) {
-		this.nameConcept = nameConcept;
 
+	public void setNameConcept(String nameConcept) {
+
+		this.nameConcept = nameConcept;
 	}
 }

@@ -64,6 +64,7 @@ public class Wallet {
 		this.user = user;
 	}
 
+
 	public void setNameConcept(String nameWallet) {
 		this.nameWallet = nameWallet;
 	}
