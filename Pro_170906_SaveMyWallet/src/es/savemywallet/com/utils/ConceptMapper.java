@@ -14,9 +14,9 @@ public class ConceptMapper implements RowMapper<Concept> {
 		Concept concept = new Concept();
 		
 		concept.setIdConcept(rs.getInt("id_concept"));
-		concept.getNameConcept(rs.getString("name_wallet"));
+		concept.setNameConcept(rs.getString("name_concept"));
 			
-		return null;
+		return concept;
 	}
 	
 
