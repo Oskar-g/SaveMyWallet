@@ -17,7 +17,7 @@ public class MovementService implements IMovementService {
 	private MovementDAO movementDAO;
 	
 	/**
-	 * Contructor
+	 * Constructor
 	 */
 	public MovementService(){
 		
