@@ -2,19 +2,39 @@ package es.savemywallet.com.daos;
 
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import es.savemywallet.com.beans.User;
 import es.savemywallet.com.interfaces.IUserDAO;
+import es.savemywallet.com.utils.UserMapper;
 
 public class UserDAO implements IUserDAO {
 
+	private DataSource dataSource;
+	private JdbcTemplate JdbcTemplateObject;
+	
 	@Override
-	public User findByPrimaryId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public User findByPrimaryId(int idUser) {
+		
+		User aux = null;
+		
+		try{
+			
+			String sql = "SELECT * FROM users WHERE id_user = ?";
+			aux = JdbcTemplateObject.queryForObject(sql, new Object[] {idUser}, new UserMapper());
+			
+		}catch(Exception e){
+			
+			e.printStackTrace();
+		}
+		
+		return aux;
 	}
 
 	@Override
-	public void delete(int id) {
+	public void delete(int idUser) {
 		// TODO Auto-generated method stub
 		
 	}
