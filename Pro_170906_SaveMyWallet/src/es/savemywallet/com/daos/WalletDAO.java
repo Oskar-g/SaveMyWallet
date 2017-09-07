@@ -1,6 +1,8 @@
 package es.savemywallet.com.daos;
 
+import java.util.ArrayList;
 import java.util.List;
+
 
 import javax.sql.DataSource;
 
@@ -27,7 +29,6 @@ public class WalletDAO implements IWalletDAO {
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 	
-	
 	/**
 	 * 
 	 * Method find by primary id_user
@@ -53,19 +54,6 @@ public class WalletDAO implements IWalletDAO {
 		try{
 			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getIdUser(), wallet.getName(), wallet.getDescripcion());
 		}catch(Exception e){
-			System.out.println(e);
-		}
-	}
-	
-	/**
-	 * Method update wallet
-	 */
-	@Override
-	public void update(Wallet wallet) {
-		String SQL = "UPDATE wallets SET id_user = ?, name_wallet = ?, description = ? WHERE id_wallet = ?";
-		try{
-			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getIdUser(), wallet.getName(), wallet.getDescripcion());
-		}catch(Exception e){			
 			System.out.println(e);
 		}
 	}
@@ -98,5 +86,6 @@ public class WalletDAO implements IWalletDAO {
 		}
 		return listWallet;
 	}
+	
 
 }
