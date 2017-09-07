@@ -25,6 +25,9 @@ public class MovementService implements IMovementService {
 		movementDAO = (MovementDAO) context.getBean("movementDAO");
 	}
 	
+	/**
+	 * Method fin by primary id_concept
+	 */
 	@Override
 	public Movement findByPrimaryIdMovement(int idMovement) {
 		
@@ -32,24 +35,36 @@ public class MovementService implements IMovementService {
 		return auxMovement;
 	}
 
+	/**
+	 * Method add concept
+	 */
 	@Override
 	public void addMovement(Movement movement) {
 
 		movementDAO.add(movement);		
 	}
 
+	/**
+	 * Method update concept
+	 */
 	@Override
 	public void updateMovement(Movement movement) {
 		
 		movementDAO.update(movement);		
 	}
-
+	
+	/**
+	 * Method delete id_concept
+	 */
 	@Override
 	public void deleteMovement(int idMovement) {
 		
 		movementDAO.delete(idMovement);		
 	}
 
+	/**
+	 * Method list concept
+	 */
 	@Override
 	public List<Movement> listMovement() {
 		
