@@ -1,6 +1,9 @@
 package es.savemywallet.com.daos;
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> refs/remotes/origin/Roach
 import java.util.List;
 
 
@@ -52,7 +55,7 @@ public class WalletDAO implements IWalletDAO {
 	public void add(Wallet wallet) {
 		String SQL = "INSERT INTO wallets (id_wallet, id_user, name_wallet, description) VALUES (?,?,?,?)";
 		try{
-			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getIdUser(), wallet.getName(), wallet.getDescripcion());
+			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getIdUser(), wallet.getNameWallet(), wallet.getDescripcion());
 		}catch(Exception e){
 			System.out.println(e);
 		}
@@ -71,6 +74,19 @@ public class WalletDAO implements IWalletDAO {
 		}
 	}
 	
+	/**
+	 * Method update wallet
+	 */
+	@Override
+	public void update(Wallet wallet) {
+		String SQL = "UPDATE wallets SET id_user = ?, name_wallet = ?, description = ? WHERE id_wallet = ?";
+		try{
+			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getDescripcion());
+		}catch(Exception e){			
+			System.out.println(e);
+		}
+		
+	}
 	
 	/**
 	 * Method list wallets
@@ -86,6 +102,5 @@ public class WalletDAO implements IWalletDAO {
 		}
 		return listWallet;
 	}
-	
 
 }
