@@ -9,9 +9,9 @@ import es.savemywallet.com.beans.Wallet;
 public interface IWalletService {
 	
 	@Transactional
-	public Wallet findByPrimaryIdWallet(Wallet wallet);
+	public Wallet findByPrimaryIdWallet(int wallet);
 	public void addWallet(Wallet wallet);
 	public void updateWallet(Wallet wallet);
-	public void deleteWallet(Wallet wallet);
+	public void deleteWallet(int wallet);
 	public List<Wallet> listWallet();
 }
