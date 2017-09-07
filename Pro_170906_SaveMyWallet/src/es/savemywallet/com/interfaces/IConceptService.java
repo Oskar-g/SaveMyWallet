@@ -10,10 +10,10 @@ import es.savemywallet.com.beans.Movement;
 public interface IConceptService {
 	
 	@Transactional
-	public Concept findByPrimaryIdMovement(Concept concept);
+	public Concept findByPrimaryIdMovement(int idConcept);
 	public void addConcept(Concept concept);
 	public void updateConcept(Concept concept);
-	public void deleteConcept(Concept concept);
+	public void deleteConcept(int idConcept);
 	public List<Concept> listConcept();
 }
 

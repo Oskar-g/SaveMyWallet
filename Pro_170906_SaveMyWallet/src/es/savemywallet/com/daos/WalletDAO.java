@@ -29,15 +29,14 @@ public class WalletDAO implements IWalletDAO {
 	}
 	
 	/**
-	 * 
 	 * Method find by primary id_wallet
 	 */
 	@Override
-	public Wallet findByPrimaryId(Wallet wallet) {
+	public Wallet findByPrimaryId(int idWallet) {
 		Wallet auxWallet = null;
 		try{
 			String SQL = "SELECT * FROM wallets WHERE id_wallet = ?";
-			auxWallet = jdbcTemplateObject.queryForObject(SQL, new Object[]{wallet.getIdWallet()}, new WalletMapper());
+			auxWallet = jdbcTemplateObject.queryForObject(SQL, new Object[]{idWallet}, new WalletMapper());
 		}catch(Exception e){
 			System.out.println(e);
 		}
@@ -58,13 +57,13 @@ public class WalletDAO implements IWalletDAO {
 	}
 	
 	/**
-	 * Method delete wallet
+	 * Method delete id_wallet
 	 */
 	@Override
-	public void delete(Wallet wallet) {
+	public void delete(int idWallet) {
 		String SQL = "DELETE FROM wallets WHERE id_wallet = ?";
 		try{
-			jdbcTemplateObject.update(SQL, wallet.getIdWallet());
+			jdbcTemplateObject.update(SQL, idWallet);
 		}catch(Exception e){
 			System.out.println(e);
 		}
