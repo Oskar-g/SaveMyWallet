@@ -6,7 +6,7 @@ public class Concept {
 	 * Properties
 	 */
 	
-	private String idConcept;
+	private int idConcept;
 	private String nameConcept;
 		
 	/**
@@ -22,7 +22,7 @@ public class Concept {
 	 * @param idConcept
 	 * @param name
 	 */
-	public Concept(String idConcept, String nameConcept) {
+	public Concept(int idConcept, String nameConcept) {
 		super();
 		this.idConcept = idConcept;
 		this.nameConcept = nameConcept;
@@ -35,7 +35,7 @@ public class Concept {
 	 * -----------------------------------------------------------------------
 	 */
 	
-	public String getIdConcept() {
+	public int getIdConcept() {
 		return idConcept;
 	}
 	
@@ -49,13 +49,12 @@ public class Concept {
 	 * -----------------------------------------------------------------------
 	 */
 	
-	public void setIdConcept(String idConcept) {
+	public void setIdConcept(int idConcept) {
 		this.idConcept = idConcept;
 	}
 	
 
 	public void setNameConcept(String nameConcept) {
-
 		this.nameConcept = nameConcept;
 	}
 }

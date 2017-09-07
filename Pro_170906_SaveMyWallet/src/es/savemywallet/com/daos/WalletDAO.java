@@ -30,7 +30,7 @@ public class WalletDAO implements IWalletDAO {
 	
 	/**
 	 * 
-	 * Method find by primary id_user
+	 * Method find by primary id_wallet
 	 */
 	@Override
 	public Wallet findByPrimaryId(Wallet wallet) {
@@ -43,7 +43,7 @@ public class WalletDAO implements IWalletDAO {
 		}
 		return auxWallet;
 	}
-	
+
 	/**
 	 * Method add wallet
 	 */
