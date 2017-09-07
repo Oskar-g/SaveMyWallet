@@ -34,11 +34,11 @@ public class ConceptDAO implements IConceptDAO {
 	 * Method find by primary id_concept
 	 */
 	@Override
-	public Concept findByPrimaryId(Concept concept) {
+	public Concept findByPrimaryId(int idConcept) {
 		Concept aux = null;
 		try{
 			String sql = "SELECT * FROM concepts WHERE id_concept = ?";
-			aux = jdbcTemplateObject.queryForObject(sql, new Object[] {concept.getIdConcept()}, new ConceptMapper());
+			aux = jdbcTemplateObject.queryForObject(sql, new Object[] {idConcept}, new ConceptMapper());
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -49,11 +49,11 @@ public class ConceptDAO implements IConceptDAO {
 	 * Method delete concept
 	 */
 	@Override
-	public void delete(Concept concept) {
+	public void delete(int idConcept) {
 		String sql = "DELETE FROM concepts WHERE id_concept = ?";
 		try{
-			jdbcTemplateObject.update(sql, concept);
-			System.out.println("deleted record with id = " + concept);
+			jdbcTemplateObject.update(sql, idConcept);
+			System.out.println("deleted record with id = " + idConcept);
 		}catch (Exception e) {
 			System.out.println("excepcion " + e);
 		}
