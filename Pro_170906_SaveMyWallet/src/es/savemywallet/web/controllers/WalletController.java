@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class ExampleController {
+public class WalletController {
 
 	/*
 	 * @RequestMapping(value="/link", method = RequestMethod.POST) public
@@ -28,54 +28,36 @@ public class ExampleController {
 	 * 
 	 * return new ModelAndView(jspfile); }
 	 */
-	@RequestMapping(value = "/main")
-	public ModelAndView index() {
-		String jspfile = "test";
-		// Content
-
-		return new ModelAndView(jspfile);
-	}
 
 	@RequestMapping(value = "/login")
 	public ModelAndView login() {
+		//crear wallet
+		
+		
 		String jspfile = "login";
 		return new ModelAndView(jspfile);
 	}
 	
-	@RequestMapping(value = "/logout")
-	public ModelAndView login(HttpSession sesion, HttpServletResponse rs) {
-		
-		//Destroy session aqui
-		
-		String jspfile = "login";
-		return new ModelAndView(jspfile);
-	}
-
-	@RequestMapping(value = "/do_login", method = RequestMethod.GET, produces = "application/json")
-	@ResponseBody
+	
+	@RequestMapping(value = "/do_login", method = RequestMethod.POST)
 	public String doLogin(HttpSession sesion, HttpServletResponse rs, 
+	//Aplicar (crear) wallet en base de datos
+			
+			//name del input
 			@RequestParam("user") String user,
 			@RequestParam("password") String pass) {
 
 		Map<String, Object> response = new HashMap<String, Object>();
 
-		
-		//Sustituir este if con un si el usuario encontrado con el dao es null
 		if (!user.equals("roger") && !pass.equals("trolasho")) {
 			response.put("response", "error");
-
-		
-		
 		} else {
 			response.put("response", "success");
 			response.put("url", "main.html");
-			//Generar sesion usuario
 		}
 
 		String json = JSON_Encode.parse(response);
 		System.out.println(json);
 		return json;
 	}
-	/*
-	*/
 }
