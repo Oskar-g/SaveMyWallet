@@ -22,4 +22,20 @@
 		<property name="password" value="laskdjlaskjdas"/>
 	</bean>
 	
+	<bean id="userDAO" class="es.savemywallet.com.daos.UserDAO">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="walletDAO" class="es.savemywallet.com.daos.WalletDAO">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="movementDAO" class="es.savemywallet.com.daos.MovementDAO">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="conceptDAO" class="es.savemywallet.com.daos.ConceptDAO">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
 </beans>

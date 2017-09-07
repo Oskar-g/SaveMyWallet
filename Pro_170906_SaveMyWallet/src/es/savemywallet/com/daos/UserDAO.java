@@ -59,7 +59,7 @@ public class UserDAO implements IUserDAO {
 		
 		try{
 			
-			JdbcTemplateObject.update(sql,user.getIdUser(), user.getName(), user.getSurname(), user.getEmail(), user.getPassword());
+			JdbcTemplateObject.update(sql,user.getIdUser(), user.getNameUser(), user.getSurname(), user.getEmail(), user.getPassword());
 			System.out.println("created record");
 			
 		}catch (Exception e) {
@@ -76,7 +76,7 @@ public class UserDAO implements IUserDAO {
 		
 		try{
 			
-			JdbcTemplateObject.update(sql, user.getName(), user.getSurname(), user.getEmail(), user.getPassword(), user.getIdUser());
+			JdbcTemplateObject.update(sql, user.getNameUser(), user.getSurname(), user.getEmail(), user.getPassword(), user.getIdUser());
 			System.out.println("updated record with id = " + user.getIdUser());
 			
 		}catch (Exception e) {

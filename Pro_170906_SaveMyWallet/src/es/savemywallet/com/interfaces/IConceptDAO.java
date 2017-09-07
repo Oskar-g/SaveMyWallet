@@ -3,7 +3,6 @@ package es.savemywallet.com.interfaces;
 import java.util.List;
 
 import es.savemywallet.com.beans.Concept;
-import es.savemywallet.com.beans.User;
 
 public interface IConceptDAO {
 

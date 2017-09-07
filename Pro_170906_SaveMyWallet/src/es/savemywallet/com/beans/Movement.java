@@ -9,10 +9,10 @@ public class Movement {
 	 */
 	
 	private int idMovement;
-	private Date date;
-	private String quantity;
-	private String idWallet;
-	private String idConcept;
+	private Date dateMovement;
+	private double quantity;
+	private int idWallet;
+	private int idConcept;
 	private Wallet wallet;
 	private Concept concept;
 	
@@ -24,7 +24,6 @@ public class Movement {
 	
 	public Movement() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
@@ -36,10 +35,10 @@ public class Movement {
 	 * @param idConcept
 	 */
 	
-		public Movement(int idMovement, Date date, String quantity, String idWallet, String idConcept) {
+	public Movement(int idMovement, Date dateMovement, double quantity, int idWallet, int idConcept) {
 		super();
 		this.idMovement = idMovement;
-		this.date = date;
+		this.dateMovement = dateMovement;
 		this.quantity = quantity;
 		this.idWallet = idWallet;
 		this.idConcept = idConcept;
@@ -55,11 +54,11 @@ public class Movement {
 		 * @param wallet
 		 * @param concept
 		 */
-		public Movement(int idMovement, Date date, String quantity, String idWallet, String idConcept, Wallet wallet,
+		public Movement(int idMovement, Date dateMovement, double quantity, int idWallet, int idConcept, Wallet wallet,
 				Concept concept) {
 			super();
 			this.idMovement = idMovement;
-			this.date = date;
+			this.dateMovement = dateMovement;
 			this.quantity = quantity;
 			this.idWallet = idWallet;
 			this.idConcept = idConcept;
@@ -78,18 +77,18 @@ public class Movement {
 		return idMovement;
 	}
 
-	public String getIdConcept() {
+	public int getIdConcept() {
 		return idConcept;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getDateMovement() {
+		return dateMovement;
 	}
-	public String getIdWallet() {
+	public int getIdWallet() {
 		return idWallet;
 	}
 
-	public String getQuantity() {
+	public double getQuantity() {
 		return quantity;
 	}
 	
@@ -102,24 +101,24 @@ public class Movement {
 	
 	
 
-	public void setQuantity(String quantity) {
+	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
 
-	public void setIdWallet(String idWallet) {
+	public void setIdWallet(int idWallet) {
 		this.idWallet = idWallet;
 	}
 
-	public void setIdConcept(String idConcept) {
-		idConcept = idConcept;
+	public void setIdConcept(int idConcept) {
+		this.idConcept = idConcept;
 	}
 	
 	public void setIdMovement(int idMovement) {
 		this.idMovement = idMovement;
 	}
 	
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDateMovement(Date dateMovement) {
+		this.dateMovement = dateMovement;
 	}
 
 }
