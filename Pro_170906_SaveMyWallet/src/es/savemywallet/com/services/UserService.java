@@ -36,6 +36,12 @@ public class UserService implements IUserService {
 		User auxUser = userDAO.findByPrimaryId(idUser);
 		return auxUser;
 	}
+	
+	@Override
+	public User findUser(String user, String password) {
+		User aux = userDAO.findUser(user, password);
+		return aux;
+	}
 
 	/**
 	 * Method addUSer
@@ -69,5 +75,8 @@ public class UserService implements IUserService {
 		List<User> listUser = userDAO.list();
 		return listUser;
 	}
+
+
+
 
 }
