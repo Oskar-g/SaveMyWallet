@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import es.savemywallet.com.beans.Movement;
 
 public interface IMovementService {
-	
+
 	@Transactional
 	public Movement findByPrimaryIdMovement(int idMovement);
 	public void addMovement(Movement movement);
