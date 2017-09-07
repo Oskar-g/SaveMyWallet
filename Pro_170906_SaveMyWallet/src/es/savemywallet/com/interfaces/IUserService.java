@@ -1,4 +1,4 @@
-package es.savemywallet.com.services;
+package es.savemywallet.com.interfaces;
 
 import java.util.List;
 
