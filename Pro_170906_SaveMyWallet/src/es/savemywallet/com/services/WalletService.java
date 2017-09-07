@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import es.savemywallet.com.beans.Wallet;
 import es.savemywallet.com.interfaces.IWalletDAO;
+import es.savemywallet.com.interfaces.IWalletService;
 
 public class WalletService implements IWalletService {
 	
