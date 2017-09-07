@@ -6,7 +6,7 @@ public class User {
 	 * Properties
 	 */
 	private int idUser;
-	private String name;
+	private String nameUser;
 	private String surname;
 	private String email;
 	private String password;
@@ -26,7 +26,7 @@ public class User {
 	 */
 	public User(int idUser, String name, String surname, String email, String password) {
 		this.idUser = idUser;
-		this.name = name;
+		this.nameUser = nameUser;
 		this.surname = surname;
 		this.email = email;
 		this.password = password;
@@ -41,8 +41,8 @@ public class User {
 		return idUser;
 	}
 
-	public String getName() {
-		return name;
+	public String getNameUser() {
+		return nameUser;
 	}
 
 	public String getSurname() {
@@ -66,8 +66,8 @@ public class User {
 		this.idUser = idUser;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNameUser(String nameUser) {
+		this.nameUser = nameUser;
 	}
 
 	public void setSurname(String surname) {
