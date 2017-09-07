@@ -30,90 +30,78 @@ public class ConceptDAO implements IConceptDAO {
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 	
+	/**
+	 * Method find by primary id_concept
+	 */
 	@Override
 	public Concept findByPrimaryId(Concept concept) {
 		Concept aux = null;
 		try{
 			String sql = "SELECT * FROM concepts WHERE id_concept = ?";
 			aux = jdbcTemplateObject.queryForObject(sql, new Object[] {concept.getIdConcept()}, new ConceptMapper());
-			
 		}catch(Exception e){
-			
 			e.printStackTrace();
 		}
-		
 		return aux;
 	}
 
+	/**
+	 * Method delete concept
+	 */
 	@Override
 	public void delete(Concept concept) {
-		
-		String sql = "DELETE FROM users WHERE id_user = ?";
-		
+		String sql = "DELETE FROM concepts WHERE id_concept = ?";
 		try{
-			
-			JdbcTemplateObject.update(sql, concept);
-			
+			jdbcTemplateObject.update(sql, concept);
 			System.out.println("deleted record with id = " + concept);
-			
 		}catch (Exception e) {
-			
 			System.out.println("excepcion " + e);
 		}
 	}
 
+	/**
+	 * Method add concept
+	 */
 	@Override
-	public int add(Concept concept) {
-		
-		System.out.println("dao " + concept.toString());
-		String sql = "INSERT INTO users VALUES (?, ?, ?, ?, ?)";
-		int result = -1;
+	public void add(Concept concept) {
+		String sql = "INSERT INTO users VALUES (?, ?)";
 		
 		try{
-			
-			JdbcTemplateObject.update(sql,concept.getIdUser(), concept.getName(), concept.getSurname(), concept.getEmail(), concept.getPassword());
+			jdbcTemplateObject.update(sql,concept.getIdConcept(), concept.getNameConcept());
 			System.out.println("created record");
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		return result;	
 	}
 
+	/**
+	 * Method update concept
+	 */
 	@Override
 	public void update(Concept concept) {
-
-		String sql = "UPDATE users SET name_user = ?, surname = ?, email = ?, password = ? WHERE id_user = ?;";
-		
+		String sql = "UPDATE concepts SET name_concept= ?, WHERE id_concept=?;";
 		try{
-			
-			JdbcTemplateObject.update(sql, concept.getName(), concept.getSurname(), concept.getEmail(), concept.getPassword(), concept.getIdUser());
-			System.out.println("updated record with id = " + concept.getIdUser());
-			
+			jdbcTemplateObject.update(sql, concept.getNameConcept(), concept.getIdConcept());
+			System.out.println("updated record with id = " + concept.getIdConcept());
 		}catch (Exception e) {
-
 			System.out.println("excepcion " + e);
 		}
 	}
-
+	
+	/**
+	 * Method list concepts
+	 */
 	@Override
-	public List<User> list() {
-		
+	public List<Concept> list() {
 		String sql = "SELECT * FROM concepts";
-		
-		List<User>concepts = null;
-		
+		List<Concept> listConcepts = null;
 		try{
-			
-			concepts = (List<User>)JdbcTemplateObject.query(sql, new ConceptMapper());
-			
+			listConcepts = (List<Concept>)jdbcTemplateObject.query(sql, new ConceptMapper());
 		}catch (Exception e) {
-			
 			System.out.println("excepcion " + e);
 		}
-		
-		return concepts;
+		return listConcepts;
 	}
 }
 
