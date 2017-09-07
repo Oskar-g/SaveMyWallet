@@ -8,7 +8,7 @@ import es.savemywallet.com.interfaces.IConceptService;
 public class ConceptService implements IConceptService {
 
 	@Override
-	public Concept findByPrimaryIdMovement(Concept concept) {
+	public Concept findByPrimaryIdMovement(int idConcept) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -26,7 +26,7 @@ public class ConceptService implements IConceptService {
 	}
 
 	@Override
-	public void deleteConcept(Concept concept) {
+	public void deleteConcept(int idConcept) {
 		// TODO Auto-generated method stub
 		
 	}
