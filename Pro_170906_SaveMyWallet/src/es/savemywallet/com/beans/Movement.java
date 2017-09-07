@@ -1,5 +1,7 @@
 package es.savemywallet.com.beans;
 
+import java.util.Date;
+
 public class Movement {
 	
 	/**
@@ -7,9 +9,9 @@ public class Movement {
 	 */
 	
 	private int idMovement;
-	private int idUser;
-	private User user;
-	private String name;
-	private String descripcion;
+	private Date date;
+	private String quantity;
+	private String idWallet;
+	private String IdConcept;
 
 }
