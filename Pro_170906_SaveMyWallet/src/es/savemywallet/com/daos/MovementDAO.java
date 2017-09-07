@@ -10,7 +10,6 @@ import es.savemywallet.com.beans.*;
 
 import es.savemywallet.com.interfaces.IMovementDAO;
 import es.savemywallet.com.utils.MovementMapper;
-import es.savemywallet.com.utils.UserMapper;
 
 public class MovementDAO implements IMovementDAO{
 
