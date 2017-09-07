@@ -25,10 +25,10 @@
             	},
             type: "get",
             success: function (json) {
+            	console.log(json);
             	if (json.response == "success")
             		window.location.replace(json.url);
             	
-            	console.log(json.response);
            		wrong_login();
            		return false;
             },
