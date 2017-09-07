@@ -7,17 +7,24 @@ public class Concept {
 	 */
 	
 	private String idConcept;
-	private String name;
+	private String nameConcept;
 		
 	/**
 	 * Default Constructor
 	 */
 	
+	
+	/**
+	 * Constructor
+	 * @param idConcept
+	 * @param name
+	 */
 	public Concept(String idConcept, String name) {
 		super();
 		this.idConcept = idConcept;
-		this.name = name;
+		this.nameConcept = nameConcept;
 	}
+	
 
 	/*
 	 * -----------------------------------------------------------------------
@@ -29,8 +36,8 @@ public class Concept {
 		return idConcept;
 	}
 	
-	public String getName() {
-		return name;
+	public String getNameConcept() {
+		return nameConcept;
 	}
 	
 	/*
@@ -44,7 +51,7 @@ public class Concept {
 	}
 	
 	public void setName(String name) {
-		this.name = name;
+		this.nameConcept = nameConcept;
 
 	}
 }
