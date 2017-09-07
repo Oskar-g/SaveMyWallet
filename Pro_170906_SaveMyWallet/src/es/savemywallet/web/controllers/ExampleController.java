@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ExampleController {
 
-	
+	/*
 	@RequestMapping(value = "/main")
 	public ModelAndView index() {
 		String jspfile = "test";
@@ -26,4 +26,5 @@ public class ExampleController {
 
 		return new ModelAndView(jspfile);
 	}
+	*/
 }

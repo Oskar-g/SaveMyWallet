@@ -25,10 +25,8 @@ public class WalletController {
 		return new Wallet();
 	}
 
-	@RequestMapping(value = "/main", method = RequestMethod.POST)
-	public ModelAndView listWallet( 
-			@RequestParam("id_user") String user,
-			@RequestParam("name_wallet") String nameWallet) {
+	@RequestMapping(value = "/main")
+	public ModelAndView listWallet() {
 		WalletService walletService = new WalletService();
 		List<Wallet> list = walletService.listWallet();
 		ModelAndView modelAndView = new ModelAndView("listWallet");
