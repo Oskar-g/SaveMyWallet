@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form:form method="post" action="do_wallet.html" commandName="datasWallet">
- 	 <c:forEach items="${lista}" var="producto">
- 	 	<input type="button" value="Click me" onclick="msg()">
- 	 </c:forEach>
-	</form:form>
-
+	<h1>Registrado con exito</h1>
 </body>
 </html>
