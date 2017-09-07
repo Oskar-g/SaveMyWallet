@@ -19,7 +19,7 @@ public class Wallet {
 	public Wallet (){}
 
 
-	public Wallet(int idWallet, int idUser, User user, String name, String descripcion) {
+	public Wallet(int idWallet, int idUser, User user, String nameWallet, String descripcion) {
 		super();
 		this.idWallet = idWallet;
 		this.idUser = idUser;
@@ -64,7 +64,8 @@ public class Wallet {
 		this.user = user;
 	}
 
-	public void setNameWallet(String nameWallet) {
+
+	public void setNameConcept(String nameWallet) {
 		this.nameWallet = nameWallet;
 	}
 
