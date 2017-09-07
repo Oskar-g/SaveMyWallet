@@ -28,41 +28,36 @@ public class WalletDAO implements IWalletDAO {
 		this.dataSource = dataSource;
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
-	
-	
-	/**
-	 * Method find by primary id_user
-	 */
+
 	@Override
-	public User findByPrimaryId(int idWallet) {
+	public Wallet findByPrimaryId(int idWallet) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
 	@Override
 	public void delete(int idWallet) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public int add(User user) {
+	public int add(Wallet wallet) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public void update(User user) {
+	public void update(Wallet wallet) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public List<Wallet> list() {
-		List<Wallet> list = new ArrayList<Wallet>();		
 		// TODO Auto-generated method stub
-		return list;
+		return null;
 	}
+	
 
 }

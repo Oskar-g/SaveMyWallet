@@ -7,11 +7,9 @@ import es.savemywallet.com.beans.Wallet;
 
 public interface IWalletDAO {
 	
-	public User findByPrimaryId(int idWallet);
+	public Wallet findByPrimaryId(int idWallet);
 	public void delete(int idWallet);
-	public int add(User user);
-	public void update(User user);
+	public int add(Wallet wallet);
+	public void update(Wallet wallet);
 	public List<Wallet> list();
-	User findByPrimaryId(int idWallet);
-	void delete(int idWallet);
 }
