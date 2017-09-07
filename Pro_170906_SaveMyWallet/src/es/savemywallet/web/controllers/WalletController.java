@@ -36,7 +36,7 @@ public class WalletController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value = "/registerWallet", method = RequestMethod.GET)
+	@RequestMapping(value = "/register_wallet", method = RequestMethod.GET)
 	public ModelAndView accesWallet() {
 		String jspfile = "registerWallet";
 		return new ModelAndView(jspfile);
@@ -54,6 +54,31 @@ public class WalletController {
 		wallet.setNameWallet(nameWallet);
 		wallet.setDescripcion(descriptionWallet);
 		walletService.addWallet(wallet);
+		return new ModelAndView("fin");
+	}
+	
+	@RequestMapping(value = "/update_wallet", method = RequestMethod.POST)
+	public ModelAndView updateWallet(HttpServletRequest request,
+			@RequestParam("nameWallet") String nameWallet,
+			@RequestParam("descriptionWallet") String descriptionWallet){
+		HttpSession session = request.getSession(true);
+		User user = (User) session.getAttribute("user");
+		WalletService walletService = new WalletService();
+		Wallet wallet = new Wallet();
+		wallet.setIdUser(user.getIdUser());
+		wallet.setNameWallet(nameWallet);
+		wallet.setDescripcion(descriptionWallet);
+		walletService.updateWallet(wallet);
+		return new ModelAndView("fin");
+	}
+	
+	@RequestMapping(value = "/delete_wallet", method = RequestMethod.POST)
+	public ModelAndView deleteteWallet(HttpServletRequest request,
+			@RequestParam("idWallet") int idWallet){
+		HttpSession session = request.getSession(true);
+		User user = (User) session.getAttribute("user");
+		WalletService walletService = new WalletService();
+		walletService.deleteWallet(idWallet);;
 		return new ModelAndView("fin");
 	}
 }
