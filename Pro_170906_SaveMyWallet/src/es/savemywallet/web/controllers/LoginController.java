@@ -1,40 +1,22 @@
 package es.savemywallet.web.controllers;
 
-import es.savemywallet.com.utils.Item;
-import es.savemywallet.com.utils.JSON_Encode;
-
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import es.savemywallet.com.utils.JSON_Encode;
+
 @Controller
-public class ExampleController {
-
-	/*
-	 * @RequestMapping(value="/link", method = RequestMethod.POST) public
-	 * ModelAndView registrarProducto(@ModelAttribute("dataObject")Object
-	 * objeto){ String jspfile = "test"; //Content
-	 * 
-	 * return new ModelAndView(jspfile); }
-	 */
-	@RequestMapping(value = "/main")
-	public ModelAndView index() {
-		String jspfile = "test";
-		// Content
-
-		return new ModelAndView(jspfile);
-	}
+public class LoginController {
 
 	@RequestMapping(value = "/login")
 	public ModelAndView login() {
@@ -42,15 +24,6 @@ public class ExampleController {
 		return new ModelAndView(jspfile);
 	}
 	
-	@RequestMapping(value = "/logout")
-	public ModelAndView login(HttpSession sesion, HttpServletResponse rs) {
-		
-		//Destroy session aqui
-		
-		String jspfile = "login";
-		return new ModelAndView(jspfile);
-	}
-
 	@RequestMapping(value = "/do_login", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public String doLogin(HttpSession sesion, HttpServletResponse rs, 
@@ -76,6 +49,4 @@ public class ExampleController {
 		System.out.println(json);
 		return json;
 	}
-	/*
-	*/
 }
