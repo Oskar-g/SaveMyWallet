@@ -13,7 +13,6 @@ public class ConceptMapper implements RowMapper<Concept> {
 	public Concept mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Concept concept = new Concept();
 		
-		concept.setIdConcept(rs.getInt("id_concept"));
 		concept.setNameConcept(rs.getString("name_concept"));
 			
 		return concept;

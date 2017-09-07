@@ -9,10 +9,10 @@ import es.savemywallet.com.beans.Concept;
 public interface IConceptService {
 	
 	@Transactional
-	public Concept findByPrimaryIdConcept(int idConcept);
+	public Concept findConcept(Concept concept);
 	public void addConcept(Concept concept);
 	public void updateConcept(Concept concept);
-	public void deleteConcept(int idConcept);
+	public void deleteConcept(Concept concept);
 	public List<Concept> listConcept();
 }
 
