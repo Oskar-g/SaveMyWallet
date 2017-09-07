@@ -13,7 +13,11 @@ public class Concept {
 	 * Default Constructor
 	 */
 	
-	
+	public Concept() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * Constructor
 	 * @param idConcept
