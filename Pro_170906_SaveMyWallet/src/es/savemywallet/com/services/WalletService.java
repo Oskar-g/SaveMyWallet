@@ -30,7 +30,7 @@ public class WalletService implements IWalletService {
 	 * Method fin by primary id_wallet
 	 */
 	@Override
-	public Wallet findByPrimaryIdWallet(Wallet wallet) {
+	public Wallet findByPrimaryIdWallet(int wallet) {
 		Wallet auxWallet = walletDAO.findByPrimaryId(wallet);
 		return auxWallet;
 	}
@@ -55,7 +55,7 @@ public class WalletService implements IWalletService {
 	 * Method delete wallet
 	 */
 	@Override
-	public void deleteWallet(Wallet wallet) {
+	public void deleteWallet(int wallet) {
 		walletDAO.delete(wallet);
 	}
 	

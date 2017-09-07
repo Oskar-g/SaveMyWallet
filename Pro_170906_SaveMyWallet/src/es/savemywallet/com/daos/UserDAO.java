@@ -11,7 +11,10 @@ import es.savemywallet.com.interfaces.IUserDAO;
 import es.savemywallet.com.utils.UserMapper;
 
 public class UserDAO implements IUserDAO {
-
+	
+	/**
+	 * Properties
+	 */
 	private DataSource dataSource;
 	private JdbcTemplate JdbcTemplateObject;
 	
@@ -24,41 +27,38 @@ public class UserDAO implements IUserDAO {
 		this.JdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 	
+	/**
+	 * Method find by primary id_user
+	 */
 	@Override
 	public User findByPrimaryId(int idUser) {
-		
 		User aux = null;
-		
 		try{
-			
 			String sql = "SELECT * FROM users WHERE id_user = ?";
 			aux = JdbcTemplateObject.queryForObject(sql, new Object[] {idUser}, new UserMapper());
-			
 		}catch(Exception e){
-			
 			e.printStackTrace();
 		}
-		
 		return aux;
 	}
 
+	/**
+	 * Method delete id_user
+	 */
 	@Override
 	public void delete(int idUser) {
-		
 		String sql = "DELETE FROM users WHERE id_user = ?";
-		
 		try{
-			
 			JdbcTemplateObject.update(sql, idUser);
-			
 			System.out.println("deleted record with id = " + idUser);
-			
-		}catch (Exception e) {
-			
+		}catch (Exception e) {		
 			System.out.println("excepcion " + e);
 		}
 	}
 
+	/**
+	 * Method add user
+	 */
 	@Override
 	public void add(User user) {
 		
@@ -74,39 +74,34 @@ public class UserDAO implements IUserDAO {
 			e.printStackTrace();
 		}	
 	}
-
+	
+	/**
+	 * Method update user
+	 */
 	@Override
 	public void update(User user) {
-
-		String sql = "UPDATE users SET name_user = ?, surname = ?, email = ?, password = ? WHERE id_user = ?;";
-		
+		String sql = "UPDATE users SET name_user = ?, surname = ?, email = ?, password = ? WHERE id_user = ?";
 		try{
-			
 			JdbcTemplateObject.update(sql, user.getNameUser(), user.getSurname(), user.getEmail(), user.getPassword(), user.getIdUser());
 			System.out.println("updated record with id = " + user.getIdUser());
-			
 		}catch (Exception e) {
-
 			System.out.println("excepcion " + e);
 		}
 	}
 
+	
+	/**
+	 * Method list wallets
+	 */
 	@Override
 	public List<User> list() {
-		
 		String sql = "SELECT * FROM users";
-		
 		List<User>users = null;
-		
 		try{
-			
 			users = (List<User>)JdbcTemplateObject.query(sql, new UserMapper());
-			
 		}catch (Exception e) {
-			
 			System.out.println("excepcion " + e);
 		}
-		
 		return users;
 	}
 }
