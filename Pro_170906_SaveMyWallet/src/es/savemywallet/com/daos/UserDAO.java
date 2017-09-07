@@ -15,6 +15,15 @@ public class UserDAO implements IUserDAO {
 	private DataSource dataSource;
 	private JdbcTemplate JdbcTemplateObject;
 	
+	/**
+	 * Setter
+	 * @param dataSource
+	 */
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+		this.JdbcTemplateObject = new JdbcTemplate(dataSource);
+	}
+	
 	@Override
 	public User findByPrimaryId(int idUser) {
 		
@@ -51,12 +60,11 @@ public class UserDAO implements IUserDAO {
 	}
 
 	@Override
-	public int add(User user) {
+	public void add(User user) {
 		
 		System.out.println("dao " + user.toString());
 		String sql = "INSERT INTO users VALUES (?, ?, ?, ?, ?)";
-		int result = -1;
-		
+				
 		try{
 			
 			JdbcTemplateObject.update(sql,user.getIdUser(), user.getNameUser(), user.getSurname(), user.getEmail(), user.getPassword());
@@ -64,9 +72,7 @@ public class UserDAO implements IUserDAO {
 			
 		}catch (Exception e) {
 			e.printStackTrace();
-		}
-		
-		return result;	
+		}	
 	}
 
 	@Override
