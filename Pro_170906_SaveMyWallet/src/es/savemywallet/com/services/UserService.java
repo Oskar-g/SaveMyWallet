@@ -19,7 +19,7 @@ public class UserService implements IUserService {
 	private IUserDAO userDAO;
 	
 	/**
-	 * Contructor
+	 * Constructor
 	 */
 	public UserService() {
 		super();

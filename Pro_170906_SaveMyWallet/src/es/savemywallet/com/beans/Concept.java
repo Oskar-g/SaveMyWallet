@@ -5,26 +5,19 @@ public class Concept {
 	/**
 	 * Properties
 	 */
-	
-	private int idConcept;
 	private String nameConcept;
 		
 	/**
 	 * Default Constructor
 	 */	
-	public Concept() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public Concept() {}
 
 	/**
 	 * Constructor
 	 * @param idConcept
 	 * @param name
 	 */
-	public Concept(int idConcept, String nameConcept) {
-		super();
-		this.idConcept = idConcept;
+	public Concept(String nameConcept) {
 		this.nameConcept = nameConcept;
 	}
 	
@@ -35,9 +28,6 @@ public class Concept {
 	 * -----------------------------------------------------------------------
 	 */
 	
-	public int getIdConcept() {
-		return idConcept;
-	}
 	
 	public String getNameConcept() {
 		return nameConcept;
@@ -48,11 +38,6 @@ public class Concept {
 	 * Setters
 	 * -----------------------------------------------------------------------
 	 */
-	
-	public void setIdConcept(int idConcept) {
-		this.idConcept = idConcept;
-	}
-	
 
 	public void setNameConcept(String nameConcept) {
 		this.nameConcept = nameConcept;
