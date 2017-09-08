@@ -37,8 +37,31 @@ public class UserDAO implements IUserDAO {
 			String sql = "SELECT * FROM users WHERE id_user = ?";
 			aux = JdbcTemplateObject.queryForObject(sql, new Object[] {idUser}, new UserMapper());
 		}catch(Exception e){
-			e.printStackTrace();
+			
+			System.out.println("excepcion " + e);
 		}
+		return aux;
+	}
+	
+	/**
+	 * Method find User
+	 */
+	@Override
+	public User findUser(String user, String password) {
+		
+		User aux = null;
+		
+		try{
+			
+			String sql = "SELECT * FROM users WHERE (name_user = ? OR email = ?) AND password = md5(?)";
+								
+			aux = JdbcTemplateObject.queryForObject(sql, new Object[] {user,user,password}, new UserMapper());
+	
+		}catch(Exception e){
+			
+			System.out.println("excepcion " + e);
+		}
+		
 		return aux;
 	}
 

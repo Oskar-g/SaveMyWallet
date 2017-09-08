@@ -29,9 +29,9 @@ public class ConceptService implements IConceptService {
 	 * Method fin by primary id_concept
 	 */
 	@Override
-	public Concept findByPrimaryIdConcept(int idConcept) {
-		// TODO Auto-generated method stub
-		return null;
+	public Concept findConcept(Concept concept) {
+		Concept aux = conceptDAO.findByPrimaryId(concept);
+		return aux;
 	}
 
 	/**
@@ -54,8 +54,8 @@ public class ConceptService implements IConceptService {
 	 * Method delete id_concept
 	 */
 	@Override
-	public void deleteConcept(int idConcept) {
-		conceptDAO.delete(idConcept);		
+	public void deleteConcept(Concept concept) {
+		conceptDAO.delete(concept);		
 	}
 
 	/**

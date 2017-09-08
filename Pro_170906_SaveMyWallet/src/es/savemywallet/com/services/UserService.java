@@ -19,7 +19,7 @@ public class UserService implements IUserService {
 	private IUserDAO userDAO;
 	
 	/**
-	 * Contructor
+	 * Constructor
 	 */
 	public UserService() {
 		super();
@@ -35,6 +35,12 @@ public class UserService implements IUserService {
 	public User findByPrimaryIdUSer(int idUser) {
 		User auxUser = userDAO.findByPrimaryId(idUser);
 		return auxUser;
+	}
+	
+	@Override
+	public User findUser(String user, String password) {
+		User aux = userDAO.findUser(user, password);
+		return aux;
 	}
 
 	/**
@@ -69,5 +75,8 @@ public class UserService implements IUserService {
 		List<User> listUser = userDAO.list();
 		return listUser;
 	}
+
+
+
 
 }
