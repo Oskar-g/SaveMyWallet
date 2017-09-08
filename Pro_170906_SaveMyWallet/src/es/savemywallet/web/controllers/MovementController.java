@@ -16,7 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import es.savemywallet.com.beans.Movement;
 import es.savemywallet.com.beans.User;
+import es.savemywallet.com.beans.Wallet;
 import es.savemywallet.com.services.MovementService;
+import es.savemywallet.com.services.WalletService;
+import es.savemywallet.com.utils.TemplateLoader;
 
 
 @Controller
@@ -29,38 +32,52 @@ public class MovementController {
 		return new Movement();
 	}
 	
-	@RequestMapping(value = "/movement")
-	public ModelAndView listMovement() {
+	@RequestMapping(value = {"/movement","/","/list_movement"})
+	public ModelAndView listMovement(HttpServletRequest request) {
 		
-		String jspTemplate = "base";
-		String jspContent = "listMovement.jsp";
-		String pageTitle = "Mis Movimientos";
-		
-		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
-		modelAndView.addObject("pageTitle", pageTitle);
-		modelAndView.addObject("jspContent", jspContent);
-		
+		//-- TEMPLATE LOADER
+		String view = "list_wallet.jsp";
+		String title = "Mis Movimientos";
+		String menu = "movement";
+		String submenu = "list_movement";
+		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);	
+		//-- FIN TEMPLATE LOADER
+	
+		//-- CONTROLLER FUNCTIONS			
 		MovementService movementService = new MovementService();
 		List<Movement> list = movementService.listMovement();
-
+	
 		modelAndView.addObject("list", list);
+		//-- FIN CONTROLLER FUNCTIONS
+		
 		return modelAndView;
 	}
+
 	
 	/*
 	 * add movements
 	 */
 	
-	@RequestMapping(value = "/register_movement", method = RequestMethod.GET)
-	public ModelAndView accessMovement() {
-		String jspfile = "registerMovement";
-		return new ModelAndView(jspfile);
-	}
-	
+	/**
+	 * Method registerWallet()
+	 * @param request
+	 * @param idWallet
+	 * @param nameConcept
+	 * @param dateMovementForm
+	 * @param quantity
+	 * @return
+	 */
 	@RequestMapping(value = "/add_movement", method = RequestMethod.POST)
-	public ModelAndView registerWallet(HttpServletRequest request, @RequestParam("id_wallet") int idWallet, 
+	public ModelAndView registerMovement(HttpServletRequest request, @RequestParam("id_wallet") int idWallet, 
 			@RequestParam("name_concept") String nameConcept, @RequestParam("date_movement") String dateMovementForm,
 			@RequestParam("quantity") double quantity){
+		
+		String jspTemplate = "base";
+		String jspContent = "registerMovement.jsp";
+		String pageTitle = "Nuevo Movimiento";
+		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
+		modelAndView.addObject("pageTitle", pageTitle);
+		modelAndView.addObject("jspContent", jspContent);
 		
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
@@ -89,19 +106,33 @@ public class MovementController {
 	}
 	
 	/*
+	 * add movements fin
+	 */
+	
+	/*
 	 * update movements
 	 */
 	
-	@RequestMapping(value = "/edit_movement", method = RequestMethod.GET)
-	public ModelAndView editMovement() {
-		String jspfile = "editMovement";
-		return new ModelAndView(jspfile);
-	}
-	
+	/**
+	 * Method updateMovement()
+	 * @param request
+	 * @param idWallet
+	 * @param nameConcept
+	 * @param dateMovementForm
+	 * @param quantity
+	 * @return
+	 */
 	@RequestMapping(value = "/update_movement", method = RequestMethod.POST)
 	public ModelAndView updateMovement(HttpServletRequest request, @RequestParam("id_wallet") int idWallet, 
 			@RequestParam("name_concept") String nameConcept, @RequestParam("date_movement") String dateMovementForm,
 			@RequestParam("quantity") double quantity){
+		
+		String jspTemplate = "base";
+		String jspContent = "editMovement.jsp";
+		String pageTitle = "Modificar Movimiento";
+		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
+		modelAndView.addObject("pageTitle", pageTitle);
+		modelAndView.addObject("jspContent", jspContent);
 		
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
@@ -130,11 +161,20 @@ public class MovementController {
 	}
 	
 	/*
+	 * update movements fin
+	 */
+	
+	/*
 	 * delete movements
 	 */
 	
+	/**
+	 * Method deleteteWallet()
+	 * @param request
+	 * @param idMovement
+	 */
 	@RequestMapping(value = "/delete_movement", method = RequestMethod.POST)
-	public void deleteteWallet(HttpServletRequest request,
+	public void deleteteMovement(HttpServletRequest request,
 			@RequestParam("id_movement") int idMovement){
 		
 		HttpSession session = request.getSession(true);
@@ -144,9 +184,7 @@ public class MovementController {
 		movementService.deleteMovement(idMovement); 
 	}
 	
-	
-	
-	
-	
-	
+	/*
+	 * delete movements fin
+	 */
 }
