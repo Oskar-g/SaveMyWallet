@@ -7,7 +7,6 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import es.savemywallet.com.beans.Concept;
-import es.savemywallet.com.beans.User;
 import es.savemywallet.com.interfaces.IConceptDAO;
 import es.savemywallet.com.utils.ConceptMapper;
 import es.savemywallet.com.utils.UserMapper;
@@ -37,8 +36,8 @@ public class ConceptDAO implements IConceptDAO {
 	public Concept findByPrimaryId(Concept concept) {
 		Concept aux = null;
 		try{
-			String sql = "SELECT * FROM concepts WHERE id_concept = ?";
-			aux = jdbcTemplateObject.queryForObject(sql, new Object[] {concept.getIdConcept()}, new ConceptMapper());
+			String sql = "SELECT * FROM concepts WHERE name_concept = ?";
+			aux = jdbcTemplateObject.queryForObject(sql, new Object[] {concept.getNameConcept()}, new ConceptMapper());
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -50,10 +49,10 @@ public class ConceptDAO implements IConceptDAO {
 	 */
 	@Override
 	public void delete(Concept concept) {
-		String sql = "DELETE FROM concepts WHERE id_concept = ?";
+		String sql = "DELETE FROM concepts WHERE name_concept = ?";
 		try{
-			jdbcTemplateObject.update(sql, concept);
-			System.out.println("deleted record with id = " + concept);
+			jdbcTemplateObject.update(sql, concept.getNameConcept());
+			System.out.println("deleted record with id = " + concept.getNameConcept());
 		}catch (Exception e) {
 			System.out.println("excepcion " + e);
 		}
@@ -64,10 +63,10 @@ public class ConceptDAO implements IConceptDAO {
 	 */
 	@Override
 	public void add(Concept concept) {
-		String sql = "INSERT INTO users VALUES (?, ?)";
+		String sql = "INSERT INTO users VALUES (?)";
 		
 		try{
-			jdbcTemplateObject.update(sql,concept.getIdConcept(), concept.getNameConcept());
+			jdbcTemplateObject.update(sql,concept.getNameConcept());
 			System.out.println("created record");
 			
 		}catch (Exception e) {
@@ -80,10 +79,10 @@ public class ConceptDAO implements IConceptDAO {
 	 */
 	@Override
 	public void update(Concept concept) {
-		String sql = "UPDATE concepts SET name_concept= ?, WHERE id_concept=?;";
+		String sql = "UPDATE concepts SET name_concept= ? WHERE name_concept=?;";
 		try{
-			jdbcTemplateObject.update(sql, concept.getNameConcept(), concept.getIdConcept());
-			System.out.println("updated record with id = " + concept.getIdConcept());
+			jdbcTemplateObject.update(sql, concept.getNameConcept(), concept.getNameConcept());
+			System.out.println("updated record with name = " + concept.getNameConcept());
 		}catch (Exception e) {
 			System.out.println("excepcion " + e);
 		}

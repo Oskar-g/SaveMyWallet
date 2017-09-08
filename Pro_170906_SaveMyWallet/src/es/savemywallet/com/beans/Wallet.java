@@ -47,7 +47,7 @@ public class Wallet {
 		return user;
 	}
 
-	public String getDescripcion() {
+	public String getDescription() {
 		return descripcion;
 	}
 	public String getNameWallet() {
@@ -69,7 +69,7 @@ public class Wallet {
 		this.nameWallet = nameWallet;
 	}
 
-	public void setDescripcion(String descripcion) {
+	public void setDescription(String descripcion) {
 		this.descripcion = descripcion;
 	}
 	
