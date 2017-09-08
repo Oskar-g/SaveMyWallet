@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import es.savemywallet.com.beans.User;
 import es.savemywallet.com.beans.Wallet;
 import es.savemywallet.com.services.WalletService;
+import es.savemywallet.com.utils.TemplateLoader;
 
 @Controller
 public class WalletController {
@@ -30,23 +31,26 @@ public class WalletController {
 	 * @return
 	 */
 	@RequestMapping(value = "/main")
-	public ModelAndView listWallet() {
-		String jspTemplate = "base";
-		String jspContent = "main.jsp";
-		String pageTitle = "Mis carteras";
-		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
-		modelAndView.addObject("pageTitle", pageTitle);
-		modelAndView.addObject("jspContent", jspContent);
+	public ModelAndView listWallet(HttpServletRequest request) {
+		//-- TEMPLATE LOADER
+		String view = "listWallet.jsp";
+		String title = "Mis Carteras";
+		String menu = "wallet";
+		String submenu = "list_wallet";
+		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);		
+		//-- FIN TEMPLATE LOADER
 		
-
+		//-- CONTROLLER FUNCTIONS
 		WalletService walletService = new WalletService();
 		List<Wallet> list = walletService.listWallet();
 
 		modelAndView.addObject("list", list);
-		System.out.println("lista" + list.size());
+
+		//-- FIN CONTROLLER FUNCTIONS
+
 		return modelAndView;
 	}
-	
+		
 	/**
 	 * Edit send form
 	 * @return
