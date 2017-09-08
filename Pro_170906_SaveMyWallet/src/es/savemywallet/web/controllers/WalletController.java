@@ -25,10 +25,8 @@ public class WalletController {
 		return new Wallet();
 	}
 
-	@RequestMapping(value = "/main", method = RequestMethod.POST)
-	public ModelAndView listWallet( 
-			@RequestParam("id_user") String user,
-			@RequestParam("name_wallet") String nameWallet) {
+	@RequestMapping(value = "/main")
+	public ModelAndView listWallet() {
 		WalletService walletService = new WalletService();
 		List<Wallet> list = walletService.listWallet();
 		ModelAndView modelAndView = new ModelAndView("listWallet");
@@ -52,7 +50,7 @@ public class WalletController {
 		Wallet wallet = new Wallet();
 		wallet.setIdUser(user.getIdUser());
 		wallet.setNameWallet(nameWallet);
-		wallet.setDescripcion(descriptionWallet);
+		wallet.setDescription(descriptionWallet);
 		walletService.addWallet(wallet);
 		return new ModelAndView("fin");
 	}
@@ -67,7 +65,7 @@ public class WalletController {
 		Wallet wallet = new Wallet();
 		wallet.setIdUser(user.getIdUser());
 		wallet.setNameWallet(nameWallet);
-		wallet.setDescripcion(descriptionWallet);
+		wallet.setDescription(descriptionWallet);
 		walletService.updateWallet(wallet);
 		return new ModelAndView("fin");
 	}

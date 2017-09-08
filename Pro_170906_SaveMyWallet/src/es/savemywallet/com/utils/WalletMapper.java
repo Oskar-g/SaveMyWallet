@@ -16,7 +16,7 @@ public class WalletMapper implements RowMapper<Wallet> {
 		wallet.setIdWallet(rs.getInt("id_wallet"));
 		wallet.setIdUser(rs.getInt("id_user"));
 		wallet.setNameWallet(rs.getString("name_wallet"));
-		wallet.setDescripcion(rs.getString("descripcion"));
+		wallet.setDescription(rs.getString("description"));
 		
 		return wallet;
 	}
