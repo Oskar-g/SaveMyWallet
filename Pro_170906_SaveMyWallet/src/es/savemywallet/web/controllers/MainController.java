@@ -6,7 +6,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
-
+	//EXPLICAR PARAMETROS
+	/*
 	@RequestMapping(value = "/main")
 	public ModelAndView index() {
 		String jspTemplate = "base";
@@ -20,4 +21,5 @@ public class MainController {
 		
 		return modelAndView;
 	}
+	*/
 }
