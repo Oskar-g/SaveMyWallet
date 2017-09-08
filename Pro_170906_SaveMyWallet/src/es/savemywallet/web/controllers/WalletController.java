@@ -50,7 +50,7 @@ public class WalletController {
 		Wallet wallet = new Wallet();
 		wallet.setIdUser(user.getIdUser());
 		wallet.setNameWallet(nameWallet);
-		wallet.setDescripcion(descriptionWallet);
+		wallet.setDescription(descriptionWallet);
 		walletService.addWallet(wallet);
 		return new ModelAndView("fin");
 	}
@@ -65,7 +65,7 @@ public class WalletController {
 		Wallet wallet = new Wallet();
 		wallet.setIdUser(user.getIdUser());
 		wallet.setNameWallet(nameWallet);
-		wallet.setDescripcion(descriptionWallet);
+		wallet.setDescription(descriptionWallet);
 		walletService.updateWallet(wallet);
 		return new ModelAndView("fin");
 	}
