@@ -21,7 +21,7 @@ import es.savemywallet.com.utils.TemplateLoader;
 public class WalletController {
 	// Metodo para registrar el bean
 
-	@ModelAttribute("datasWallet")
+	@ModelAttribute("dataWallet")
 	public Wallet wallet() {
 		return new Wallet();
 	}
@@ -37,21 +37,11 @@ public class WalletController {
 		String title = "Mis Carteras";
 		String menu = "wallet";
 		String submenu = "list_wallet";
-		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);		
+		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);
 		//-- FIN TEMPLATE LOADER
 		
 		//-- CONTROLLER FUNCTIONS
-		
-	@RequestMapping(value = "/main")
-	public ModelAndView listWallet() {
-		String jspTemplate = "base";
-		String jspContent = "main.jsp";
-		String pageTitle = "Mis carteras";
-		
-		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
-		modelAndView.addObject("pageTitle", pageTitle);
-		modelAndView.addObject("jspContent", jspContent);
-		
+			
 		WalletService walletService = new WalletService();
 		List<Wallet> list = walletService.listWallet();
 
@@ -67,7 +57,7 @@ public class WalletController {
 	 * @return
 	 */
 	@RequestMapping(value = "/edit_wallet", method = RequestMethod.GET)
-	public ModelAndView accesWallet() {
+	public ModelAndView accessWallet() {
 		String jspTemplate = "base";
 		String jspContent = "editWallet.jsp";
 		String pageTitle = "Mis carteras";
