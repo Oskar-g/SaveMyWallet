@@ -27,18 +27,23 @@ public class WalletController {
 
 	@RequestMapping(value = "/main")
 	public ModelAndView listWallet() {
+		//-- TEMPLATE LOADER
 		String jspTemplate = "base";
-		String jspContent = "listWallet.jsp";
 		String pageTitle = "Mis carteras";
+		String jspContent = "listWallet.jsp";
+		
 		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
+		
 		modelAndView.addObject("pageTitle", pageTitle);
 		modelAndView.addObject("jspContent", jspContent);
+		//-- FIN TEMPLATE LOADER
 		
-
+		//-- CONTROLLER FUNCTIONS
 		WalletService walletService = new WalletService();
 		List<Wallet> list = walletService.listWallet();
 
 		modelAndView.addObject("list", list);
+		//-- FIN CONTROLLER FUNCTIONS
 		return modelAndView;
 	}
 	
