@@ -27,14 +27,22 @@ public class WalletController {
 
 	@RequestMapping(value = "/main")
 	public ModelAndView listWallet() {
+		String jspTemplate = "base";
+		String jspContent = "listWallet.jsp";
+		String pageTitle = "Mis carteras";
+		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
+		modelAndView.addObject("pageTitle", pageTitle);
+		modelAndView.addObject("jspContent", jspContent);
+		
+
 		WalletService walletService = new WalletService();
 		List<Wallet> list = walletService.listWallet();
-		ModelAndView modelAndView = new ModelAndView("listWallet");
+
 		modelAndView.addObject("list", list);
 		return modelAndView;
 	}
 	
-	@RequestMapping(value = "/registerWallet", method = RequestMethod.GET)
+	@RequestMapping(value = "/register_wallet", method = RequestMethod.GET)
 	public ModelAndView accesWallet() {
 		String jspfile = "registerWallet";
 		return new ModelAndView(jspfile);
@@ -50,8 +58,33 @@ public class WalletController {
 		Wallet wallet = new Wallet();
 		wallet.setIdUser(user.getIdUser());
 		wallet.setNameWallet(nameWallet);
-		wallet.setDescripcion(descriptionWallet);
+		wallet.setDescription(descriptionWallet);
 		walletService.addWallet(wallet);
+		return new ModelAndView("fin");
+	}
+	
+	@RequestMapping(value = "/update_wallet", method = RequestMethod.POST)
+	public ModelAndView updateWallet(HttpServletRequest request,
+			@RequestParam("nameWallet") String nameWallet,
+			@RequestParam("descriptionWallet") String descriptionWallet){
+		HttpSession session = request.getSession(true);
+		User user = (User) session.getAttribute("user");
+		WalletService walletService = new WalletService();
+		Wallet wallet = new Wallet();
+		wallet.setIdUser(user.getIdUser());
+		wallet.setNameWallet(nameWallet);
+		wallet.setDescription(descriptionWallet);
+		walletService.updateWallet(wallet);
+		return new ModelAndView("fin");
+	}
+	
+	@RequestMapping(value = "/delete_wallet", method = RequestMethod.POST)
+	public ModelAndView deleteteWallet(HttpServletRequest request,
+			@RequestParam("idWallet") int idWallet){
+		HttpSession session = request.getSession(true);
+		User user = (User) session.getAttribute("user");
+		WalletService walletService = new WalletService();
+		walletService.deleteWallet(idWallet);;
 		return new ModelAndView("fin");
 	}
 }

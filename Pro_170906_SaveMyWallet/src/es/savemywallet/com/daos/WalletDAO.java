@@ -50,7 +50,7 @@ public class WalletDAO implements IWalletDAO {
 	public void add(Wallet wallet) {
 		String SQL = "INSERT INTO wallets (id_wallet, id_user, name_wallet, description) VALUES (?,?,?,?)";
 		try{
-			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getIdUser(), wallet.getNameWallet(), wallet.getDescripcion());
+			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getIdUser(), wallet.getNameWallet(), wallet.getDescription());
 		}catch(Exception e){
 			System.out.println(e);
 		}
@@ -76,7 +76,7 @@ public class WalletDAO implements IWalletDAO {
 	public void update(Wallet wallet) {
 		String SQL = "UPDATE wallets SET id_user = ?, name_wallet = ?, description = ? WHERE id_wallet = ?";
 		try{
-			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getDescripcion());
+			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getDescription());
 		}catch(Exception e){			
 			System.out.println(e);
 		}
