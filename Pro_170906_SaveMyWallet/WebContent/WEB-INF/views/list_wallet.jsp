@@ -16,12 +16,15 @@
 				</a>
 				<ul class="dropdown-menu" role="menu">
 					<li><a href="#">Ver movimientos</a></li>
-					<li><a href="edit_wallet">Editar</a></li>
+					<li><a href="edit_wallet.html">Editar</a></li>
 					<li class="divider"></li>
 					<li><a href="#">Eliminar</a></li>
 				</ul>
 			</div>
 									
+			<h4 class="header-title m-t-0 m-b-30">${wallet.getNameWallet()}</h4>
+			<p class="header-title m-t-0 m-b-30">${wallet.getDescription()}</p>
+			
 			<div class="widget-box-2">
 				<div class="widget-detail-2">
 					<span class="badge badge-success pull-left m-t-20">34% <i
@@ -37,13 +40,11 @@
 						<span class="sr-only">34% diferencia</span>
 					</div>
 				</div>
-			</div>
-					
+			</div>	
 		</div>
 	</div>
 	</c:forEach>
 	<!-- end col -->
-
 </div>
 <!-- end row -->
 
