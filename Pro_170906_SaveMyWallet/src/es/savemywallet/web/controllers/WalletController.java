@@ -24,11 +24,15 @@ public class WalletController {
 	public Wallet wallet() {
 		return new Wallet();
 	}
-
+	
+	/**
+	 * List my wallets
+	 * @return
+	 */
 	@RequestMapping(value = "/main")
 	public ModelAndView listWallet() {
 		String jspTemplate = "base";
-		String jspContent = "listWallet.jsp";
+		String jspContent = "main.jsp";
 		String pageTitle = "Mis carteras";
 		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
 		modelAndView.addObject("pageTitle", pageTitle);
@@ -39,19 +43,44 @@ public class WalletController {
 		List<Wallet> list = walletService.listWallet();
 
 		modelAndView.addObject("list", list);
+		System.out.println("lista" + list.size());
 		return modelAndView;
 	}
 	
-	@RequestMapping(value = "/register_wallet", method = RequestMethod.GET)
+	/**
+	 * Edit send form
+	 * @return
+	 */
+	@RequestMapping(value = "/edit_wallet", method = RequestMethod.GET)
 	public ModelAndView accesWallet() {
-		String jspfile = "registerWallet";
-		return new ModelAndView(jspfile);
+		String jspTemplate = "base";
+		String jspContent = "editWallet.jsp";
+		String pageTitle = "Mis carteras";
+		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
+		modelAndView.addObject("pageTitle", pageTitle);
+		modelAndView.addObject("jspContent", jspContent);
+		
+		return modelAndView;
 	}
-
-	@RequestMapping(value = "/do_wallet", method = RequestMethod.POST)
+	
+	/**
+	 * Register new wallet
+	 * @param request
+	 * @param nameWallet
+	 * @param descriptionWallet
+	 * @return
+	 */
+	@RequestMapping(value = "/add_wallet", method = RequestMethod.POST)
 	public ModelAndView registerWallet(HttpServletRequest request,
 			@RequestParam("nameWallet") String nameWallet,
 			@RequestParam("descriptionWallet") String descriptionWallet){
+		String jspTemplate = "base";
+		String jspContent = "registerWallet.jsp";
+		String pageTitle = "Nueva cartera";
+		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
+		modelAndView.addObject("pageTitle", pageTitle);
+		modelAndView.addObject("jspContent", jspContent);
+		
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
 		WalletService walletService = new WalletService();
@@ -60,13 +89,28 @@ public class WalletController {
 		wallet.setNameWallet(nameWallet);
 		wallet.setDescription(descriptionWallet);
 		walletService.addWallet(wallet);
-		return new ModelAndView("fin");
+		
+		return modelAndView;
 	}
 	
+	/**
+	 * Update wallet
+	 * @param request
+	 * @param nameWallet
+	 * @param descriptionWallet
+	 * @return
+	 */
 	@RequestMapping(value = "/update_wallet", method = RequestMethod.POST)
 	public ModelAndView updateWallet(HttpServletRequest request,
 			@RequestParam("nameWallet") String nameWallet,
 			@RequestParam("descriptionWallet") String descriptionWallet){
+		String jspTemplate = "base";
+		String jspContent = "updateWallet.jsp";
+		String pageTitle = "Editar cartera";
+		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
+		modelAndView.addObject("pageTitle", pageTitle);
+		modelAndView.addObject("jspContent", jspContent);
+		
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
 		WalletService walletService = new WalletService();
@@ -75,9 +119,16 @@ public class WalletController {
 		wallet.setNameWallet(nameWallet);
 		wallet.setDescription(descriptionWallet);
 		walletService.updateWallet(wallet);
-		return new ModelAndView("fin");
+		
+		return modelAndView;
 	}
 	
+	/**
+	 * Delet wallet
+	 * @param request
+	 * @param idWallet
+	 * @return
+	 */
 	@RequestMapping(value = "/delete_wallet", method = RequestMethod.POST)
 	public ModelAndView deleteteWallet(HttpServletRequest request,
 			@RequestParam("idWallet") int idWallet){
