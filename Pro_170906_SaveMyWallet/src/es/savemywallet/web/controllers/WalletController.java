@@ -30,10 +30,10 @@ public class WalletController {
 	 * List my wallets
 	 * @return
 	 */
-	@RequestMapping(value = "/main")
+	@RequestMapping(value = {"/main","/","/list_wallet"})
 	public ModelAndView listWallet(HttpServletRequest request) {
 		//-- TEMPLATE LOADER
-		String view = "listWallet.jsp";
+		String view = "list_wallet.jsp";
 		String title = "Mis Carteras";
 		String menu = "wallet";
 		String submenu = "list_wallet";

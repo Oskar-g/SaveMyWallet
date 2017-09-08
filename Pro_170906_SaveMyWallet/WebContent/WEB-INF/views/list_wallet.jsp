@@ -21,10 +21,7 @@
 					<li><a href="#">Eliminar</a></li>
 				</ul>
 			</div>
-						
-			<h4 class="header-title m-t-0 m-b-30">${wallet.getNameWallet()}</h4>
-			<h2 class="header-title m-t-0 m-b-30">${wallet.getDescription()}</h2>
-			
+									
 			<div class="widget-box-2">
 				<div class="widget-detail-2">
 					<span class="badge badge-success pull-left m-t-20">34% <i
