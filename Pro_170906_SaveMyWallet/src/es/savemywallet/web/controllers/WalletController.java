@@ -34,11 +34,11 @@ public class WalletController {
 		String jspTemplate = "base";
 		String jspContent = "main.jsp";
 		String pageTitle = "Mis carteras";
+		
 		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
 		modelAndView.addObject("pageTitle", pageTitle);
 		modelAndView.addObject("jspContent", jspContent);
 		
-
 		WalletService walletService = new WalletService();
 		List<Wallet> list = walletService.listWallet();
 
@@ -56,9 +56,11 @@ public class WalletController {
 		String jspTemplate = "base";
 		String jspContent = "editWallet.jsp";
 		String pageTitle = "Mis carteras";
+		System.out.println(jspContent);
 		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
 		modelAndView.addObject("pageTitle", pageTitle);
 		modelAndView.addObject("jspContent", jspContent);
+		System.out.println(pageTitle);
 		
 		return modelAndView;
 	}
