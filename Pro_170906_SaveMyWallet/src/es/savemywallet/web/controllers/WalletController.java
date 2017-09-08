@@ -53,16 +53,26 @@ public class WalletController {
 	 * @return
 	 */
 	@RequestMapping(value = "/edit_wallet", method = RequestMethod.GET)
-	public ModelAndView accesWallet() {
-		String jspTemplate = "base";
-		String jspContent = "editWallet.jsp";
-		String pageTitle = "Mis carteras";
-		System.out.println(jspContent);
-		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
-		modelAndView.addObject("pageTitle", pageTitle);
-		modelAndView.addObject("jspContent", jspContent);
-		System.out.println(pageTitle);
+	public ModelAndView accesWallet(HttpServletRequest request,
+			@RequestParam("idWallet") int idWallet) {
+		String view = "editWallet.jsp";
+		String title = "Mis Carteras";
+		String menu = "wallet";
+		String submenu = "list_wallet";
+		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);
 		
+		
+		HttpSession session = request.getSession(true);
+		System.out.println(session);
+		User user = (User) session.getAttribute("user");
+		System.out.println(user);
+		WalletService walletService = new WalletService();
+		System.out.println(walletService);
+		Wallet wallet = new Wallet();
+		System.out.println(wallet);
+		walletService.findByPrimaryIdWallet(idWallet);
+		//walletService.updateWallet(wallet);
+		System.out.println("***************");
 		return modelAndView;
 	}
 	
@@ -138,7 +148,7 @@ public class WalletController {
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
 		WalletService walletService = new WalletService();
-		walletService.deleteWallet(idWallet);;
+		walletService.deleteWallet(idWallet);
 		return new ModelAndView("fin");
 	}
 }
