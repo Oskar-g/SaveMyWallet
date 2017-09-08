@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import es.savemywallet.com.beans.User;
 import es.savemywallet.com.beans.Wallet;
 import es.savemywallet.com.services.WalletService;
+import es.savemywallet.com.utils.TemplateLoader;
 
 @Controller
 public class WalletController {
@@ -26,16 +27,13 @@ public class WalletController {
 	}
 
 	@RequestMapping(value = "/main")
-	public ModelAndView listWallet() {
+	public ModelAndView listWallet(HttpServletRequest request) {
 		//-- TEMPLATE LOADER
-		String jspTemplate = "base";
-		String pageTitle = "Mis carteras";
-		String jspContent = "listWallet.jsp";
-		
-		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
-		
-		modelAndView.addObject("pageTitle", pageTitle);
-		modelAndView.addObject("jspContent", jspContent);
+		String view = "listWallet.jsp";
+		String title = "Mis Carteras";
+		String menu = "wallet";
+		String submenu = "list_wallet";
+		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);		
 		//-- FIN TEMPLATE LOADER
 		
 		//-- CONTROLLER FUNCTIONS
@@ -46,13 +44,8 @@ public class WalletController {
 		//-- FIN CONTROLLER FUNCTIONS
 		return modelAndView;
 	}
+		
 	
-	@RequestMapping(value = "/register_wallet", method = RequestMethod.GET)
-	public ModelAndView accesWallet() {
-		String jspfile = "registerWallet";
-		return new ModelAndView(jspfile);
-	}
-
 	@RequestMapping(value = "/do_wallet", method = RequestMethod.POST)
 	public ModelAndView registerWallet(HttpServletRequest request,
 			@RequestParam("nameWallet") String nameWallet,
