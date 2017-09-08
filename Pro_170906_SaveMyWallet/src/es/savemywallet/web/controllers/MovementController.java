@@ -1,5 +1,7 @@
 package es.savemywallet.web.controllers;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import es.savemywallet.com.beans.Movement;
 import es.savemywallet.com.beans.User;
-import es.savemywallet.com.beans.Wallet;
 import es.savemywallet.com.services.MovementService;
-import es.savemywallet.com.services.WalletService;
+
 
 @Controller
 public class MovementController {
@@ -46,26 +47,104 @@ public class MovementController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value = "/registerWallet", method = RequestMethod.GET)
+	/*
+	 * add movements
+	 */
+	
+	@RequestMapping(value = "/register_movement", method = RequestMethod.GET)
 	public ModelAndView accessMovement() {
 		String jspfile = "registerMovement";
 		return new ModelAndView(jspfile);
 	}
 	
-	@RequestMapping(value = "/do_wallet", method = RequestMethod.POST)
-	public ModelAndView registerWallet(HttpServletRequest request,
-			@RequestParam("nameWallet") String nameWallet,
-			@RequestParam("descriptionWallet") String descriptionWallet){
+	@RequestMapping(value = "/add_movement", method = RequestMethod.POST)
+	public ModelAndView registerWallet(HttpServletRequest request, @RequestParam("id_wallet") int idWallet, 
+			@RequestParam("name_concept") String nameConcept, @RequestParam("date_movement") String dateMovementForm,
+			@RequestParam("quantity") double quantity){
+		
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
-		WalletService walletService = new WalletService();
-		Wallet wallet = new Wallet();
-		wallet.setIdUser(user.getIdUser());
-		wallet.setNameWallet(nameWallet);
-		wallet.setDescription(descriptionWallet);
-		walletService.addWallet(wallet);
-		return new ModelAndView("fin");
+		
+		MovementService movementService = new MovementService();
+		Movement movement = new Movement();
+		movement.setIdWallet(idWallet);
+		movement.setNameConcept(nameConcept);
+		
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date dateMovement = null;
+			try {
+	
+				dateMovement = simpleDateFormat.parse(dateMovementForm);
+	
+			} catch (Exception ex) {
+	
+				ex.printStackTrace();
+			}
+		
+		movement.setDateMovement(dateMovement);
+		movement.setQuantity(quantity);
+		movementService.addMovement(movement);
+		
+		return new ModelAndView("movement");
 	}
+	
+	/*
+	 * update movements
+	 */
+	
+	@RequestMapping(value = "/edit_movement", method = RequestMethod.GET)
+	public ModelAndView editMovement() {
+		String jspfile = "editMovement";
+		return new ModelAndView(jspfile);
+	}
+	
+	@RequestMapping(value = "/update_movement", method = RequestMethod.POST)
+	public ModelAndView updateMovement(HttpServletRequest request, @RequestParam("id_wallet") int idWallet, 
+			@RequestParam("name_concept") String nameConcept, @RequestParam("date_movement") String dateMovementForm,
+			@RequestParam("quantity") double quantity){
+		
+		HttpSession session = request.getSession(true);
+		User user = (User) session.getAttribute("user");
+		
+		MovementService movementService = new MovementService();
+		Movement movement = new Movement();
+		movement.setIdWallet(idWallet);
+		movement.setNameConcept(nameConcept);
+		
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date dateMovement = null;
+			try {
+	
+				dateMovement = simpleDateFormat.parse(dateMovementForm);
+	
+			} catch (Exception ex) {
+	
+				ex.printStackTrace();
+			}
+		
+		movement.setDateMovement(dateMovement);
+		movement.setQuantity(quantity);
+		movementService.updateMovement(movement);
+		
+		return new ModelAndView("movement");
+	}
+	
+	/*
+	 * delete movements
+	 */
+	
+	@RequestMapping(value = "/delete_movement", method = RequestMethod.POST)
+	public void deleteteWallet(HttpServletRequest request,
+			@RequestParam("id_movement") int idMovement){
+		
+		HttpSession session = request.getSession(true);
+		User user = (User) session.getAttribute("user");
+		
+		MovementService movementService = new MovementService();
+		movementService.deleteMovement(idMovement); 
+	}
+	
+	
 	
 	
 	

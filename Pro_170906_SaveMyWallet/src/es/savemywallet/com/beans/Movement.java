@@ -9,10 +9,10 @@ public class Movement {
 	 */
 	
 	private int idMovement;
+	private String nameConcept;
 	private Date dateMovement;
 	private double quantity;
 	private int idWallet;
-	private int idConcept;
 	private Wallet wallet;
 	private Concept concept;
 	
@@ -35,13 +35,14 @@ public class Movement {
 	 * @param idConcept
 	 */
 	
-	public Movement(int idMovement, Date dateMovement, double quantity, int idWallet, int idConcept) {
+	public Movement(int idMovement, Date dateMovement, double quantity, int idWallet, String nameConcept) {
 		super();
 		this.idMovement = idMovement;
+		this.nameConcept = nameConcept;
 		this.dateMovement = dateMovement;
 		this.quantity = quantity;
 		this.idWallet = idWallet;
-		this.idConcept = idConcept;
+		
 		
 	}
 		/**
@@ -54,14 +55,14 @@ public class Movement {
 		 * @param wallet
 		 * @param concept
 		 */
-		public Movement(int idMovement, Date dateMovement, double quantity, int idWallet, int idConcept, Wallet wallet,
+		public Movement(int idMovement, Date dateMovement, double quantity, int idWallet, String nameConcept, Wallet wallet,
 				Concept concept) {
 			super();
 			this.idMovement = idMovement;
+			this.nameConcept = nameConcept;
 			this.dateMovement = dateMovement;
 			this.quantity = quantity;
 			this.idWallet = idWallet;
-			this.idConcept = idConcept;
 			this.wallet = wallet;
 			this.concept = concept;
 		}
@@ -77,8 +78,8 @@ public class Movement {
 		return idMovement;
 	}
 
-	public int getIdConcept() {
-		return idConcept;
+	public String getNameConcept() {
+		return nameConcept;
 	}
 
 	public Date getDateMovement() {
@@ -109,8 +110,8 @@ public class Movement {
 		this.idWallet = idWallet;
 	}
 
-	public void setIdConcept(int idConcept) {
-		this.idConcept = idConcept;
+	public void setNameConcept(String nameConcept) {
+		this.nameConcept = nameConcept;
 	}
 	
 	public void setIdMovement(int idMovement) {

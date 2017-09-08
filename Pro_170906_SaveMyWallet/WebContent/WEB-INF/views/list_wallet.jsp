@@ -21,7 +21,7 @@
 					<li><a href="#">Eliminar</a></li>
 				</ul>
 			</div>
-						
+									
 			<h4 class="header-title m-t-0 m-b-30">${wallet.getNameWallet()}</h4>
 			<p class="header-title m-t-0 m-b-30">${wallet.getDescription()}</p>
 			
@@ -40,8 +40,7 @@
 						<span class="sr-only">34% diferencia</span>
 					</div>
 				</div>
-			</div>
-					
+			</div>	
 		</div>
 	</div>
 	</c:forEach>
