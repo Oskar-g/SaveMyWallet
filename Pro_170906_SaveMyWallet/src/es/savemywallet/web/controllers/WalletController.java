@@ -39,26 +39,12 @@ public class WalletController {
 		String submenu = "list_wallet";
 		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);		
 		//-- FIN TEMPLATE LOADER
-		
-		//-- CONTROLLER FUNCTIONS
-		
-	@RequestMapping(value = "/main")
-	public ModelAndView listWallet() {
-		String jspTemplate = "base";
-		String jspContent = "main.jsp";
-		String pageTitle = "Mis carteras";
-		
-		ModelAndView modelAndView = new ModelAndView(jspTemplate);		
-		modelAndView.addObject("pageTitle", pageTitle);
-		modelAndView.addObject("jspContent", jspContent);
-		
+				
 		WalletService walletService = new WalletService();
 		List<Wallet> list = walletService.listWallet();
 
 		modelAndView.addObject("list", list);
-
 		//-- FIN CONTROLLER FUNCTIONS
-
 		return modelAndView;
 	}
 		
