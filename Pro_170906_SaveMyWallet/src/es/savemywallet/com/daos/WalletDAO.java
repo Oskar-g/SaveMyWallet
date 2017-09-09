@@ -87,11 +87,11 @@ public class WalletDAO implements IWalletDAO {
 	 * Method list wallets
 	 */
 	@Override
-	public List<Wallet> list() {
-		String SQL = "SELECT * FROM wallets";
+	public List<Wallet> list(int idUser) {
+		String SQL = "SELECT * FROM wallets where id_user = ?";
 		List<Wallet> listWallet = null;
 		try{
-			listWallet = jdbcTemplateObject.query(SQL, new WalletMapper());
+			listWallet = jdbcTemplateObject.query(SQL, new Object[]{idUser},new WalletMapper());
 		}catch(Exception e){
 			System.out.println(e);
 		}
