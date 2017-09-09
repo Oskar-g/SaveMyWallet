@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import es.savemywallet.com.beans.Concept;
 import es.savemywallet.com.interfaces.IConceptDAO;
-import es.savemywallet.com.utils.ConceptMapper;
+import es.savemywallet.com.mappers.ConceptMapper;
 import es.savemywallet.com.utils.UserMapper;
 
 

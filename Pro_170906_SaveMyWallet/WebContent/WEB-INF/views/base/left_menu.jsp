@@ -5,9 +5,9 @@
 <div class="topbar">
 
 	<!-- LOGO -->
-	<div class="topbar-left">
-		<a href="index.html" class="logo"><img alt="" style="width: 80%;"
-			src="assets/images/wallet.png"> <i class="zmdi zmdi-layers"></i></a>
+	<div class="topbar-left" ">
+		<a href="main.html" class="logo"><img alt="" style="width: 80%; height: 100px; margin: 10px"
+			src="assets/images/logo.png"> <i class="zmdi zmdi-layers"></i></a>
 	</div>
 
 	<!-- Button mobile view to collapse sidebar menu -->
@@ -39,7 +39,7 @@
 	<div class="sidebar-inner slimscrollleft">
 
 		<!-- User -->
-		<div class="user-box">
+		<div class="user-box" style="margin-top: 10px">
 			<div class="user-img">
 				<img src="assets/images/users/avatar-3.jpg" alt="user-img"
 					title="Mat Helme" class="img-circle img-thumbnail img-responsive">
@@ -47,19 +47,14 @@
 					<i class="zmdi zmdi-dot-circle"></i>
 				</div>
 			</div>
-			<h5>
-				<a href="#">${user.getNameUser()}</a>
-			</h5>
-			<ul class="list-inline">
-
-				<li><a href="logout.html" class="text-custom"> <i
+			<h3>
+				${user.getNameUser()} 	<a href="logout.html" title="logout" class="text-custom"> <i
 						class="zmdi zmdi-power"></i>
-				</a></li>
-			</ul>
+				</a>
+			</h3>
+		
 		</div>
 		<!-- End User -->
-<c:if test="${subMenuSelect=='create_wallet'}">soy create</c:if>
-<c:if test="${subMenuSelect=='list_wallet'}">soy list</c:if>
 		<!--- Sidemenu -->
 		<div id="sidebar-menu">
 			<ul>

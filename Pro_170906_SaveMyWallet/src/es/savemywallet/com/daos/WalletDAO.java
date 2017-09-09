@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import es.savemywallet.com.beans.Wallet;
 import es.savemywallet.com.interfaces.IWalletDAO;
-import es.savemywallet.com.utils.WalletMapper;
+import es.savemywallet.com.mappers.WalletMapper;
 
 public class WalletDAO implements IWalletDAO {
 	
@@ -76,7 +76,7 @@ public class WalletDAO implements IWalletDAO {
 	public void update(Wallet wallet) {
 		String SQL = "UPDATE wallets SET id_user = ?, name_wallet = ?, description = ? WHERE id_wallet = ?";
 		try{
-			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getDescription());
+			jdbcTemplateObject.update(SQL, wallet.getIdUser(),wallet.getNameWallet(), wallet.getDescription(),wallet.getIdWallet());
 		}catch(Exception e){			
 			System.out.println(e);
 		}
@@ -87,11 +87,11 @@ public class WalletDAO implements IWalletDAO {
 	 * Method list wallets
 	 */
 	@Override
-	public List<Wallet> list() {
-		String SQL = "SELECT * FROM wallets";
+	public List<Wallet> list(int idUser) {
+		String SQL = "SELECT * FROM wallets where id_user = ?";
 		List<Wallet> listWallet = null;
 		try{
-			listWallet = jdbcTemplateObject.query(SQL, new WalletMapper());
+			listWallet = jdbcTemplateObject.query(SQL, new Object[]{idUser},new WalletMapper());
 		}catch(Exception e){
 			System.out.println(e);
 		}

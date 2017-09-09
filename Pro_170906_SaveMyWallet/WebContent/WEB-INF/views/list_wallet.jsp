@@ -16,9 +16,9 @@
 				</a>
 				<ul class="dropdown-menu" role="menu">
 					<li><a href="#">Ver movimientos</a></li>
-					<li><a href="edit_wallet.html">Editar</a></li>
+					<li><a href="edit_wallet.html?idWallet=${wallet.getIdWallet()}">Editar</a></li>
 					<li class="divider"></li>
-					<li><a href="#">Eliminar</a></li>
+					<li><a href="delete_wallet.html?idWallet=${wallet.getIdWallet()}">Eliminar</a></li>
 				</ul>
 			</div>
 									
