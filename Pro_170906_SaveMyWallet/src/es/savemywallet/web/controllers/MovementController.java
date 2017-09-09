@@ -5,20 +5,23 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import es.savemywallet.com.beans.Concept;
 import es.savemywallet.com.beans.Movement;
 import es.savemywallet.com.beans.User;
 import es.savemywallet.com.beans.Wallet;
+import es.savemywallet.com.services.ConceptService;
 import es.savemywallet.com.services.MovementService;
 import es.savemywallet.com.services.WalletService;
+import es.savemywallet.com.utils.LoginStatus;
 import es.savemywallet.com.utils.TemplateLoader;
 
 
@@ -26,28 +29,72 @@ import es.savemywallet.com.utils.TemplateLoader;
 public class MovementController {
 
 	
-	@ModelAttribute("dataMovement")
-	public Movement movement() {
+	@RequestMapping(value = { "/create_movement" })
+	public ModelAndView createWallet(HttpServletRequest request, HttpServletResponse response,
+			@RequestParam("wallet") int idWallet){
 		
-		return new Movement();
+		//- TEMPLATE LOADER
+		String view = "create_movement.jsp";
+		String title = "Añadir movimiento";
+		String menu = "movement";
+		String submenu = "create_movement";
+		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);
+		
+			//-- Requerir login
+			Object[] loginStatus = LoginStatus.gete(response, request);
+			if (!(boolean) loginStatus[0]) {
+				response = (HttpServletResponse) loginStatus[1];
+				return null;
+			}
+		
+		//-CONTROLLER FUNCTIONS
+			//--Session
+			HttpSession session = request.getSession(true);
+			User user = (User) session.getAttribute("user");
+			modelAndView.addObject("user", user);
+		
+		WalletService walletService = new WalletService();
+		Wallet wallet = walletService.findByPrimaryIdWallet(idWallet);
+		modelAndView.addObject("wallet", wallet);
+			
+		ConceptService conceptService = new ConceptService();
+		List<Concept> concepts = conceptService.listConcept();
+		modelAndView.addObject("concepts", concepts);
+	
+		
+		return modelAndView;
 	}
 	
-	@RequestMapping(value = {"/movement","/","/list_movement"})
-	public ModelAndView listMovement(HttpServletRequest request) {
+	
+	@RequestMapping(value = {"/list_movement"})
+	public ModelAndView listMovement(HttpServletRequest request, HttpServletResponse response,
+			@RequestParam ("wallet") int idWallet) {
 		
 		//-- TEMPLATE LOADER
-		String view = "list_wallet.jsp";
+		String view = "list_movement.jsp";
 		String title = "Mis Movimientos";
 		String menu = "movement";
 		String submenu = "list_movement";
 		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);	
-		//-- FIN TEMPLATE LOADER
-	
+		modelAndView.addObject("script_datatables",true);
+
+		//-- Requerir login
+		Object[] loginStatus = LoginStatus.gete(response, request);
+		if (!(boolean) loginStatus[0]) {
+			response = (HttpServletResponse) loginStatus[1];
+			return null;
+		}
+		
 		//-- CONTROLLER FUNCTIONS			
+		WalletService walletService = new WalletService();
+		Wallet wallet = walletService.findByPrimaryIdWallet(idWallet);
+		
 		MovementService movementService = new MovementService();
-		List<Movement> list = movementService.listMovement();
+		List<Movement> movements = movementService.listMovement(idWallet);
 	
-		modelAndView.addObject("list", list);
+
+		modelAndView.addObject("wallet", wallet);
+		modelAndView.addObject("movements", movements);
 		//-- FIN CONTROLLER FUNCTIONS
 		
 		return modelAndView;
