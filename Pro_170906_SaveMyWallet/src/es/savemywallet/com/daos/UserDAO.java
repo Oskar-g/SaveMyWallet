@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import es.savemywallet.com.beans.User;
 import es.savemywallet.com.interfaces.IUserDAO;
-import es.savemywallet.com.utils.UserMapper;
+import es.savemywallet.com.mappers.UserMapper;
 
 public class UserDAO implements IUserDAO {
 	
