@@ -76,7 +76,7 @@ public class WalletDAO implements IWalletDAO {
 	public void update(Wallet wallet) {
 		String SQL = "UPDATE wallets SET id_user = ?, name_wallet = ?, description = ? WHERE id_wallet = ?";
 		try{
-			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getDescription());
+			jdbcTemplateObject.update(SQL, wallet.getIdUser(),wallet.getNameWallet(), wallet.getDescription(),wallet.getIdWallet());
 		}catch(Exception e){			
 			System.out.println(e);
 		}

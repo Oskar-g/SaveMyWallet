@@ -23,33 +23,52 @@ import es.savemywallet.com.utils.TemplateLoader;
 
 @Controller
 public class WalletController {
-	// Metodo para registrar el bean
 
-	@ModelAttribute("dataWallet")
-	public Wallet wallet() {
-		return new Wallet();
-	}
-
+	/*
+	 * --------------------------------------------------------------------------------
+	 * CREATE OBJECT
+	 * --------------------------------------------------------------------------------
+	 */
 
 	/**
-	 * Edit send form
+	 * Crear wallet (FORMULARIO)
+	 * (requiere estar logueado)
+	 * Abre la vista de formulario para añadir una nueva wallet
 	 * 
-	 * @return
+	 * @param request	HttpServletRequest
+	 * @param response	HttpServletResponse
+	 * 
+	 * @return 			ModelAndView
 	 */
-	@RequestMapping(value = "/edit_wallet", method = RequestMethod.GET)
-	public ModelAndView accessWallet() {
-		String jspTemplate = "base";
-		String jspContent = "editWallet.jsp";
-		String pageTitle = "Mis carteras";
-		System.out.println(jspContent);
-		ModelAndView modelAndView = new ModelAndView(jspTemplate);
-		modelAndView.addObject("pageTitle", pageTitle);
-		modelAndView.addObject("jspContent", jspContent);
-		System.out.println(pageTitle);
-
+	@RequestMapping(value = { "/create_wallet" })
+	public ModelAndView createWallet(HttpServletRequest request, HttpServletResponse response){
+		
+		//- TEMPLATE LOADER
+		String view = "create_wallet.jsp";
+		String title = "Crear Cartera";
+		String menu = "wallet";
+		String submenu = "create_wallet";
+		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);
+		
+			//-- Requerir login
+			Object[] loginStatus = LoginStatus.gete(response, request);
+			if (!(boolean) loginStatus[0]) {
+				response = (HttpServletResponse) loginStatus[1];
+				return null;
+			}
+		
+		//-CONTROLLER FUNCTIONS
+			//--Session
+			HttpSession session = request.getSession(true);
+			User user = (User) session.getAttribute("user");
+			modelAndView.addObject("user", user);
+			
 		return modelAndView;
 	}
+	
 
+	// --------------------------------------------------------------------------------
+	 
 	/**
 	 * Register new wallet
 	 * 
@@ -59,26 +78,81 @@ public class WalletController {
 	 * @return
 	 */
 	@RequestMapping(value = "/add_wallet", method = RequestMethod.POST)
-	public ModelAndView registerWallet(HttpServletRequest request, @RequestParam("nameWallet") String nameWallet,
-			@RequestParam("descriptionWallet") String descriptionWallet) {
-		String jspTemplate = "base";
-		String jspContent = "registerWallet.jsp";
-		String pageTitle = "Nueva cartera";
-		ModelAndView modelAndView = new ModelAndView(jspTemplate);
-		modelAndView.addObject("pageTitle", pageTitle);
-		modelAndView.addObject("jspContent", jspContent);
-
-		HttpSession session = request.getSession(true);
-		User user = (User) session.getAttribute("user");
-		WalletService walletService = new WalletService();
+	public ModelAndView addWallet(HttpServletRequest request, HttpServletResponse response,
+			@RequestParam("name_wallet") String nameWallet,
+			@RequestParam("description") String descriptionWallet) {
+		
+		//-- Requerir login
+		Object[] loginStatus = LoginStatus.gete(response, request);
+		if (!(boolean) loginStatus[0]) {
+			response = (HttpServletResponse) loginStatus[1];
+			return null;
+		}
+		
+		//-CONTROLLER FUNCTIONS
+			//--Session
+			HttpSession session = request.getSession(true);
+			User user = (User) session.getAttribute("user");
+		
 		Wallet wallet = new Wallet();
 		wallet.setIdUser(user.getIdUser());
 		wallet.setNameWallet(nameWallet);
 		wallet.setDescription(descriptionWallet);
+		
+		WalletService walletService = new WalletService();
 		walletService.addWallet(wallet);
 
+		try {
+			response.sendRedirect("create_wallet.html");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
+	/*
+	 * --------------------------------------------------------------------------------
+	 * EDIT OBJECT
+	 * --------------------------------------------------------------------------------
+	 */
+
+	/**
+	 * Edit send form
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/edit_wallet", method = RequestMethod.GET)
+	public ModelAndView editWallet(HttpServletRequest request, HttpServletResponse response,
+			@RequestParam("idWallet") int idWallet) {
+		//- TEMPLATE LOADER
+		String view = "edit_wallet.jsp";
+		String title = "Editar Cartera";
+		String menu = "wallet";
+		String submenu = "create_wallet";
+		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);
+	
+		//-- Requerir login
+			Object[] loginStatus = LoginStatus.gete(response, request);
+			if (!(boolean) loginStatus[0]) {
+				response = (HttpServletResponse) loginStatus[1];
+				return null;
+			}
+	
+	//-CONTROLLER FUNCTIONS
+		//--Session
+			HttpSession session = request.getSession(true);
+			User user = (User) session.getAttribute("user");
+			modelAndView.addObject("user", user);
+
+		WalletService walletService = new WalletService();
+		Wallet wallet = walletService.findByPrimaryIdWallet(idWallet);	
+		modelAndView.addObject("wallet", wallet);
+			
 		return modelAndView;
 	}
+
+	// --------------------------------------------------------------------------------
 
 	/**
 	 * Update wallet
@@ -89,26 +163,46 @@ public class WalletController {
 	 * @return
 	 */
 	@RequestMapping(value = "/update_wallet", method = RequestMethod.POST)
-	public ModelAndView updateWallet(HttpServletRequest request, @RequestParam("nameWallet") String nameWallet,
-			@RequestParam("descriptionWallet") String descriptionWallet) {
-		String jspTemplate = "base";
-		String jspContent = "updateWallet.jsp";
-		String pageTitle = "Editar cartera";
-		ModelAndView modelAndView = new ModelAndView(jspTemplate);
-		modelAndView.addObject("pageTitle", pageTitle);
-		modelAndView.addObject("jspContent", jspContent);
-
-		HttpSession session = request.getSession(true);
-		User user = (User) session.getAttribute("user");
-		WalletService walletService = new WalletService();
+	public ModelAndView updateWallet(HttpServletRequest request, HttpServletResponse response,
+			@RequestParam("id_wallet") int idWallet,
+			@RequestParam("name_wallet") String nameWallet,
+			@RequestParam("description") String description) {
+		
+		//-- Requerir login
+		Object[] loginStatus = LoginStatus.gete(response, request);
+		if (!(boolean) loginStatus[0]) {
+			response = (HttpServletResponse) loginStatus[1];
+			return null;
+		}
+		
+		//-CONTROLLER FUNCTIONS
+			//--Session
+			HttpSession session = request.getSession(true);
+			User user = (User) session.getAttribute("user");
+		
 		Wallet wallet = new Wallet();
+		wallet.setIdWallet(idWallet);
 		wallet.setIdUser(user.getIdUser());
 		wallet.setNameWallet(nameWallet);
-		wallet.setDescription(descriptionWallet);
+		wallet.setDescription(description);
+		
+		WalletService walletService = new WalletService();
 		walletService.updateWallet(wallet);
 
-		return modelAndView;
+		try {
+			response.sendRedirect("list_wallet.html");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return null;
 	}
+
+	/*
+	 * --------------------------------------------------------------------------------
+	 * DELETE OBJECT
+	 * --------------------------------------------------------------------------------
+	 */
 
 	/**
 	 * Elimina una Wallet de un usuario
@@ -124,12 +218,11 @@ public class WalletController {
 	@RequestMapping(value = "/delete_wallet", method = RequestMethod.GET)
 	public ModelAndView deleteteWallet(HttpServletRequest request, HttpServletResponse response, @RequestParam("idWallet") int idWallet) {
 		//-- Requerir login
-		Object[] loginStatus = LoginStatus.gete(response, request);
-		if (!(boolean) loginStatus[0]) {
-			response = (HttpServletResponse) loginStatus[1];
-			return null;
-		}
-		//-- /requerir login
+			Object[] loginStatus = LoginStatus.gete(response, request);
+			if (!(boolean) loginStatus[0]) {
+				response = (HttpServletResponse) loginStatus[1];
+				return null;
+			}
 				
 		WalletService walletService = new WalletService();
 		walletService.deleteWallet(idWallet);
@@ -143,6 +236,12 @@ public class WalletController {
 		return null;
 	
 	}
+
+	/*
+	 * --------------------------------------------------------------------------------
+	 * LIST OBJECT
+	 * --------------------------------------------------------------------------------
+	 */
 
 	/**
 	 * Listar wallets del usuario
@@ -166,15 +265,14 @@ public class WalletController {
 			//-- Requerir login
 				Object[] loginStatus = LoginStatus.gete(response, request);
 				if (!(boolean) loginStatus[0]) {
-					response = (HttpServletResponse) loginStatus[1];
+					response = (HttpServletResponse) loginStatus[1]; 
 					return null;
 				}
 		
 		//-CONTROLLER FUNCTIONS
-			//--Session
-				HttpSession session = request.getSession(true);
-				User user = (User) session.getAttribute("user");
-				int id_user = user.getIdUser();
+		HttpSession session = request.getSession(true);
+		User user = (User) session.getAttribute("user");
+		int id_user = user.getIdUser();
 
 		WalletService walletService = new WalletService();
 		List<Wallet> list = walletService.listWallet(id_user);
@@ -184,5 +282,4 @@ public class WalletController {
 		return modelAndView;
 	}
 
-	
 }
