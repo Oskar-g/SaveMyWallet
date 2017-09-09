@@ -18,8 +18,24 @@
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 		<property name="url" value="jdbc:mysql://localhost/savemywallet"/>
-		<property name="username" value="walletuser"/>
-		<property name="password" value="laskdjlaskjdas"/>
+		<property name="username" value="root"/>
+		<property name="password" value="1234"/>
+	</bean>
+	
+	<bean id="userDAO" class="es.savemywallet.com.daos.UserDAO">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="walletDAO" class="es.savemywallet.com.daos.WalletDAO">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="movementDAO" class="es.savemywallet.com.daos.MovementDAO">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="conceptDAO" class="es.savemywallet.com.daos.ConceptDAO">
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	
 </beans>

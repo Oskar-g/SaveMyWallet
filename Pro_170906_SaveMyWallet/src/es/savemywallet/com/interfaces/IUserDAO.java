@@ -7,8 +7,9 @@ import es.savemywallet.com.beans.User;
 public interface IUserDAO {
 
 	public User findByPrimaryId(int idUser);
+	public User findUser(String user, String password);
 	public void delete(int idUser);
-	public int add(User user);
+	public void add(User user);
 	public void update(User user);
 	public List<User> list();
 }

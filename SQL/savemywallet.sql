@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-09-2017 a las 12:30:25
+-- Tiempo de generación: 09-09-2017 a las 16:35:38
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -26,14 +26,17 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `concepts`
 --
 
-DROP DATABASE IF EXISTS savemywallet;
-CREATE DATABASE savemywallet;
-use savemywallet;
-
 CREATE TABLE `concepts` (
-  `id_concept` int(11) NOT NULL,
-  `name_concept` varchar(20) DEFAULT NULL
+  `name_concept` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `concepts`
+--
+
+INSERT INTO `concepts` (`name_concept`) VALUES
+('Otra mas'),
+('veamos');
 
 -- --------------------------------------------------------
 
@@ -44,10 +47,27 @@ CREATE TABLE `concepts` (
 CREATE TABLE `movements` (
   `id_movement` int(11) NOT NULL,
   `id_wallet` int(11) DEFAULT NULL,
-  `id_concept` int(11) DEFAULT NULL,
+  `name_concept` varchar(40) DEFAULT NULL,
+  `type` varchar(10) NOT NULL,
   `date_movement` date DEFAULT NULL,
   `quantity` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `movements`
+--
+
+INSERT INTO `movements` (`id_movement`, `id_wallet`, `name_concept`, `type`, `date_movement`, `quantity`) VALUES
+(3, 1, 'veamos', 'ingreso', '2017-09-09', 1000),
+(4, 1, 'Otra mas', 'gasto', '2017-09-10', -200);
+
+--
+-- Disparadores `movements`
+--
+DELIMITER $$
+CREATE TRIGGER `ins_concept` BEFORE INSERT ON `movements` FOR EACH ROW INSERT IGNORE INTO concepts values(NEW.name_concept)
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -89,6 +109,15 @@ CREATE TABLE `wallets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Volcado de datos para la tabla `wallets`
+--
+
+INSERT INTO `wallets` (`id_wallet`, `id_user`, `name_wallet`, `description`) VALUES
+(1, 1, 'mi cartera', 'asdasdasd'),
+(9, 4, 'mia', 'sisisisisnonono\r\n'),
+(10, 4, 'mi otra cartera', 'posipono');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -96,15 +125,15 @@ CREATE TABLE `wallets` (
 -- Indices de la tabla `concepts`
 --
 ALTER TABLE `concepts`
-  ADD PRIMARY KEY (`id_concept`);
+  ADD PRIMARY KEY (`name_concept`);
 
 --
 -- Indices de la tabla `movements`
 --
 ALTER TABLE `movements`
   ADD PRIMARY KEY (`id_movement`),
-  ADD KEY `id_wallet` (`id_wallet`,`id_concept`),
-  ADD KEY `id_concept` (`id_concept`);
+  ADD KEY `id_wallet` (`id_wallet`,`name_concept`),
+  ADD KEY `id_concept` (`name_concept`);
 
 --
 -- Indices de la tabla `users`
@@ -124,15 +153,10 @@ ALTER TABLE `wallets`
 --
 
 --
--- AUTO_INCREMENT de la tabla `concepts`
---
-ALTER TABLE `concepts`
-  MODIFY `id_concept` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT de la tabla `movements`
 --
 ALTER TABLE `movements`
-  MODIFY `id_movement` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_movement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
@@ -142,7 +166,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `wallets`
 --
 ALTER TABLE `wallets`
-  MODIFY `id_wallet` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_wallet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Restricciones para tablas volcadas
 --
@@ -152,7 +176,7 @@ ALTER TABLE `wallets`
 --
 ALTER TABLE `movements`
   ADD CONSTRAINT `movements_ibfk_1` FOREIGN KEY (`id_wallet`) REFERENCES `wallets` (`id_wallet`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `movements_ibfk_2` FOREIGN KEY (`id_concept`) REFERENCES `concepts` (`id_concept`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `movements_ibfk_2` FOREIGN KEY (`name_concept`) REFERENCES `concepts` (`name_concept`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `wallets`

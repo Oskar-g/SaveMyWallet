@@ -9,7 +9,7 @@ public class Wallet {
 	private int idWallet;
 	private int idUser;
 	private User user;
-	private String name;
+	private String nameWallet;
 	private String descripcion;
 
 
@@ -19,12 +19,12 @@ public class Wallet {
 	public Wallet (){}
 
 
-	public Wallet(int idWallet, int idUser, User user, String name, String descripcion) {
+	public Wallet(int idWallet, int idUser, User user, String nameWallet, String descripcion) {
 		super();
 		this.idWallet = idWallet;
 		this.idUser = idUser;
 		this.user = user;
-		this.name = name;
+		this.nameWallet = nameWallet;
 		this.descripcion = descripcion;
 	}
 	
@@ -47,11 +47,11 @@ public class Wallet {
 		return user;
 	}
 
-	public String getDescripcion() {
+	public String getDescription() {
 		return descripcion;
 	}
-	public String getName() {
-		return name;
+	public String getNameWallet() {
+		return nameWallet;
 	}
 	
 	/*
@@ -64,11 +64,12 @@ public class Wallet {
 		this.user = user;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+
+	public void setNameWallet(String nameWallet) {
+		this.nameWallet = nameWallet;
 	}
 
-	public void setDescripcion(String descripcion) {
+	public void setDescription(String descripcion) {
 		this.descripcion = descripcion;
 	}
 	
