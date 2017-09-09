@@ -24,56 +24,60 @@ import es.savemywallet.com.utils.JSON_Encode;
 public class LoginController {
 
 	@RequestMapping(value = "/login")
-	public ModelAndView login() {
-		
-		String jspfile = "login";
-		return new ModelAndView(jspfile);
-	}
-	
-	@RequestMapping(value = "/logout")
-	public ModelAndView login(HttpSession sesion, HttpServletResponse rs) {
-		
-		//Destroy session aqui
-		String jspfile = "login";
-		return new ModelAndView(jspfile);
-	}
-	
-	@RequestMapping(value = "/do_login", method = RequestMethod.GET, produces = "application/json")
-	@ResponseBody
-	public String doLogin(HttpSession sesion, HttpServletResponse response, HttpServletRequest request,
-			@RequestParam("user") String userForm,
-			@RequestParam("password") String passForm) {
-		
+	public ModelAndView login(HttpServletResponse response, HttpServletRequest request) {
+
 		HttpSession session = request.getSession(true);
-		/*
-		if (session != null){
+
+		if (session.getAttribute("user") != null) {
 			try {
-				response.sendRedirect("main");
+				response.sendRedirect("main.html");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		*/
-			
+
+		String jspfile = "login";
+		return new ModelAndView(jspfile);
+	}
+
+	@RequestMapping(value = "/logout")
+	public ModelAndView logout(HttpServletResponse response, HttpServletRequest request) {
+
+		HttpSession session = request.getSession(true);
+
+		session.invalidate();
+		// Destroy session aqui
+		String jspfile = "login";
+		return new ModelAndView(jspfile);
+	}
+
+	@RequestMapping(value = "/do_login", method = RequestMethod.GET, produces = "application/json")
+	@ResponseBody
+	public String doLogin(HttpSession sesion, HttpServletResponse response, HttpServletRequest request,
+			@RequestParam("user") String userForm, 
+			@RequestParam("password") String passForm) {
+
+		HttpSession session = request.getSession(true);
+
 		Map<String, Object> responseJSON = new HashMap<String, Object>();
 
 		IUserService userService = new UserService();
-		
+
 		User user = userService.findUser(userForm, passForm);
-		
-		if(user == null){
-			//No se encontró el usuario
+
+		if (user == null) {
+			// No se encontró el usuario
 			responseJSON.put("response", "error");
 			responseJSON.put("debug", user);
-		}else {
-			//Generar sesion usuario
+		} else {
+			// Generar sesion usuario
 			session.setAttribute("user", user);
-			
+
 			responseJSON.put("response", "success");
 			responseJSON.put("url", "main.html");
 		}
-		
+
 		return JSON_Encode.parse(responseJSON);
 	}
 }

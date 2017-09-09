@@ -13,5 +13,5 @@ public interface IMovementService {
 	public void addMovement(Movement movement);
 	public void updateMovement(Movement movement);
 	public void deleteMovement(int idMovement);
-	public List<Movement> listMovement();
+	public List<Movement> listMovement(int idWallet);
 }
