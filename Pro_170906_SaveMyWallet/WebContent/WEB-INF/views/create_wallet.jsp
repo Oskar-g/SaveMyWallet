@@ -12,6 +12,11 @@
 					<h4 class="m-b-30 m-t-0 header-title">
 						<b>${pageTitle}</b>
 					</h4>
+					<a href="list_wallet.html">
+						<button type="button"
+							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
+							a mis Carteras</button>
+					</a>
 					<form class="form-horizontal" action="add_wallet.html"
 						method="post">
 						<div class="form-group">
@@ -29,7 +34,7 @@
 							</div>
 						</div>
 						<button type="submit"
-							class="btn btn-purple waves-effect waves-light">Submit</button>
+							class="btn btn-success waves-effect waves-light">Agregar</button>
 					</form>
 				</div>
 				<!-- end col -->

@@ -17,6 +17,7 @@ public class MovementMapper implements RowMapper<Movement>{
 		
 		movement.setIdMovement(rs.getInt("id_movement"));
 		movement.setIdWallet(rs.getInt("id_wallet"));
+		movement.setTypeMovement(rs.getString("type"));
 		movement.setNameConcept(rs.getString("name_concept"));
 		movement.setDateMovement(rs.getDate("date_movement"));
 		movement.setQuantity(rs.getDouble("quantity"));
