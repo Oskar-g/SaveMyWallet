@@ -58,8 +58,6 @@
 			</ul>
 		</div>
 		<!-- End User -->
-<c:if test="${subMenuSelect=='create_wallet'}">soy create</c:if>
-<c:if test="${subMenuSelect=='list_wallet'}">soy list</c:if>
 		<!--- Sidemenu -->
 		<div id="sidebar-menu">
 			<ul>

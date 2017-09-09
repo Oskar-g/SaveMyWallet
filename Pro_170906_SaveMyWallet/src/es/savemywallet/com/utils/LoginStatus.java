@@ -8,22 +8,36 @@ import javax.servlet.http.HttpSession;
 
 public class LoginStatus {
 
-	public static void get(HttpServletResponse response,HttpServletRequest request) {
+	public static boolean get(HttpServletResponse response, HttpServletRequest request) {
 
-		HttpSession session = request.getSession(false);
-		
-		if (session == null) 
-//			|| session.getAttribute("user") == null) 
-				{
+		HttpSession session = request.getSession(true);
+
+		if (session.getAttribute("user") == null) {
 			try {
 				System.out.println("usuario no logueado");
 				response.sendRedirect("login.html");
+				return true;
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println("caca");
-
 		}
+		return false;
+	}
+	
+	public static Object[] gete(HttpServletResponse response, HttpServletRequest request) {
+
+		HttpSession session = request.getSession(true);
+		Object result[];
+		if (session.getAttribute("user") == null) {
+			try {
+				System.out.println("usuario no logueado");
+				response.sendRedirect("login.html");
+				result = new Object[]{false,response};
+				return result;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return new Object[]{true};
 	}
 }

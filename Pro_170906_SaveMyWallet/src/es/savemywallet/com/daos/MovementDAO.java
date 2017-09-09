@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import es.savemywallet.com.beans.*;
 
 import es.savemywallet.com.interfaces.IMovementDAO;
-import es.savemywallet.com.utils.MovementMapper;
+import es.savemywallet.com.mappers.MovementMapper;
 
 public class MovementDAO implements IMovementDAO{
 

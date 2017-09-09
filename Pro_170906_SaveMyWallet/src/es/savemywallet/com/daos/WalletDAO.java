@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import es.savemywallet.com.beans.Wallet;
 import es.savemywallet.com.interfaces.IWalletDAO;
-import es.savemywallet.com.utils.WalletMapper;
+import es.savemywallet.com.mappers.WalletMapper;
 
 public class WalletDAO implements IWalletDAO {
 	

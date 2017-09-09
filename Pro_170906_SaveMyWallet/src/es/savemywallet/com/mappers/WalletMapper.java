@@ -1,4 +1,4 @@
-package es.savemywallet.com.utils;
+package es.savemywallet.com.mappers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
