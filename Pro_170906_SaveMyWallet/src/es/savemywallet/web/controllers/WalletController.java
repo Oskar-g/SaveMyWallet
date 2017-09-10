@@ -20,7 +20,7 @@ import es.savemywallet.com.utils.LoginStatus;
 import es.savemywallet.com.utils.TemplateLoader;
 
 @Controller
-public class WaletController {
+public class WalletController {
 
 	/*
 	 * --------------------------------------------------------------------------------
