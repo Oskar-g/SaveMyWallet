@@ -38,7 +38,7 @@
 				<button type="button"
 					class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 					a mis Carteras</button>
-			</a>
+			</a><br/><br/>
 			<table id="datatable" class="table table-striped table-bordered">
 				<thead>
 					<tr>
