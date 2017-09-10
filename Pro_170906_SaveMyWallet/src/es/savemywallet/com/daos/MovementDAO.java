@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import es.savemywallet.com.beans.*;
 
 import es.savemywallet.com.interfaces.IMovementDAO;
-import es.savemywallet.com.utils.MovementMapper;
+import es.savemywallet.com.mappers.MovementMapper;
 
 public class MovementDAO implements IMovementDAO{
 
@@ -91,11 +91,11 @@ public class MovementDAO implements IMovementDAO{
 	 * Method list movement
 	 */
 	@Override
-	public List<Movement> list() {
-		String sql = "SELECT * FROM movements";
+	public List<Movement> list(int idWallet) {
+		String sql = "SELECT * FROM movements where id_wallet = ?";
 		List<Movement>movements = null;
 		try{
-			movements = (List<Movement>)JdbcTemplateObject.query(sql, new MovementMapper());
+			movements = (List<Movement>)JdbcTemplateObject.query(sql,new Object[]{idWallet}, new MovementMapper());
 		}catch (Exception e) {
 			System.out.println("excepcion " + e);
 		}

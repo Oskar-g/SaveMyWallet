@@ -4,11 +4,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
-
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
-
+		
         <title>Save My Wallet | ${pageTitle}</title>
-
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        
         <!--Morris Chart CSS -->
 		<link rel="stylesheet" href="assets/plugins/morris/morris.css">
 
@@ -28,6 +27,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-        <script src="assets/js/modernizr.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/js/modernizr.min.js"></script>
 
     </head>
