@@ -12,30 +12,36 @@ function wrong_login() {
 	setTimeout("$('.alert').fadeOut(1500);", 3000);
 }
 
-function login() {
-	var user = $('#UserName').val();
-	var password = $('#Passwod').val();
 
-	$.ajax({
-		url : 'do_login.html',
-		dataType : 'json',
-		data : {
-			user : user,
-			password : password
-		},
-		type : "get",
-		success : function(json) {
-			console.log(json);
-			if (json.response == "success")
-				window.location.replace(json.url);
-			else {
-				wrong_login();
-				return false;
-			}
-		},
-		error : function(response) {
-			console.log(response);
-			alert("No se han podido iniciar sesión, no se ha conectado con el servidor...");
-		}
-	});
-}
+$(document).ready(function() {
+    $('#loginForm').on('submit', function(e) {
+            e.preventDefault();
+
+            // Use Ajax to submit form data
+            $.ajax({
+                url: $('#loginForm').attr('action'),
+                type: 'GET',
+                data: $('#loginForm').serialize(),
+                dataType: "json",
+        		beforeSend: function(){
+        			$('#loader').show();
+        		},
+        		success : function(json) {
+        			console.log(json)
+        			if (json.response == "success"){	
+        				window.location.replace(json.url);
+        				return true;
+        			}
+        			else {
+        				wrong_login();
+            			$('#loader').hide();
+        				return false;
+        			}
+        		},
+        		error : function(response) {
+        			alert("No se han podido iniciar sesión, no se ha conectado con el servidor...");
+        			return false;
+        		},
+            });
+        });
+});

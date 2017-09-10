@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-09-2017 a las 06:59:42
+-- Tiempo de generación: 09-09-2017 a las 16:35:38
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -25,21 +25,18 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `concepts`
 --
-DROP DATABASE IF EXISTS savemywallet;
-CREATE DATABASE savemywallet;
-use savemywallet;
 
 CREATE TABLE `concepts` (
   `name_concept` varchar(40) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `concepts`
 --
 
 INSERT INTO `concepts` (`name_concept`) VALUES
-('papapa'),
-('roger trolasho');
+('Otra mas'),
+('veamos');
 
 -- --------------------------------------------------------
 
@@ -51,13 +48,18 @@ CREATE TABLE `movements` (
   `id_movement` int(11) NOT NULL,
   `id_wallet` int(11) DEFAULT NULL,
   `name_concept` varchar(40) DEFAULT NULL,
+  `type` varchar(10) NOT NULL,
   `date_movement` date DEFAULT NULL,
   `quantity` double DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `movements`
 --
+
+INSERT INTO `movements` (`id_movement`, `id_wallet`, `name_concept`, `type`, `date_movement`, `quantity`) VALUES
+(3, 1, 'veamos', 'ingreso', '2017-09-09', 1000),
+(4, 1, 'Otra mas', 'gasto', '2017-09-10', -200);
 
 --
 -- Disparadores `movements`
@@ -79,7 +81,7 @@ CREATE TABLE `users` (
   `surname` varchar(20) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
   `password` varchar(40) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `users`
@@ -104,7 +106,16 @@ CREATE TABLE `wallets` (
   `id_user` int(11) DEFAULT NULL,
   `name_wallet` varchar(20) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `wallets`
+--
+
+INSERT INTO `wallets` (`id_wallet`, `id_user`, `name_wallet`, `description`) VALUES
+(1, 1, 'mi cartera', 'asdasdasd'),
+(9, 4, 'mia', 'sisisisisnonono\r\n'),
+(10, 4, 'mi otra cartera', 'posipono');
 
 --
 -- Índices para tablas volcadas
@@ -145,7 +156,7 @@ ALTER TABLE `wallets`
 -- AUTO_INCREMENT de la tabla `movements`
 --
 ALTER TABLE `movements`
-  MODIFY `id_movement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_movement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
@@ -155,7 +166,24 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `wallets`
 --
 ALTER TABLE `wallets`
-  MODIFY `id_wallet` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_wallet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `movements`
+--
+ALTER TABLE `movements`
+  ADD CONSTRAINT `movements_ibfk_1` FOREIGN KEY (`id_wallet`) REFERENCES `wallets` (`id_wallet`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `movements_ibfk_2` FOREIGN KEY (`name_concept`) REFERENCES `concepts` (`name_concept`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `wallets`
+--
+ALTER TABLE `wallets`
+  ADD CONSTRAINT `wallets_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
