@@ -11,7 +11,7 @@
 					<a href="list_movement.html?wallet=${wallet.getId()}">
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
-							a movimientos</button>
+							a mis movimientos</button>
 					</a> <a href="list_wallet.html">
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
@@ -24,8 +24,8 @@
 						method="post">
 						<div class="form-group">
 							<input type="hidden" name="wallet_id" value="${wallet.getId()}">
-							<label class="col-sm-2 control-label">Concepto</label>
-							<div class="col-sm-10">
+							<label class="col-sm-4 control-label">Concepto</label>
+							<div class="col-sm-7">
 								<input list="concepts" name="concept" class="form-control"
 									autocomplete="off" placeholder="Ej: ingreso de nómina">
 								<datalist id="concepts">
@@ -45,8 +45,8 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Fecha</label>
-							<div class="col-sm-4">
+							<label class="col-sm-4 control-label">Fecha</label>
+							<div class="col-sm-7">
 								<input type="text" name="date" class="form-control" placeholder="YYYY-MM-DD"
 									id="datepicker-autoclose"/>
 							</div>
@@ -56,7 +56,7 @@
 							<div class="col-sm-7">
 								<input type="number" class="form-control" name="quantity" />
 							</div>
-							<label class="col-sm-1 control-label">&euro;</label>
+							<label class="col-sm-0.5 control-label">&euro;</label>
 
 						</div>
 						<div align="center">

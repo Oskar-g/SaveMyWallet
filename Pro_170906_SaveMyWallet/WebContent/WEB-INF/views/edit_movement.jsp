@@ -15,7 +15,7 @@
 							a mis Movimientos</button>
 					</a><br/><br/>
 					<h4 class="m-b-30 m-t-0 header-title">
-						<b>${pageTitle} "${wallet.getName()}"</b>
+						<b>${pageTitle} "${movement.getConcept().getName()}"</b>
 					</h4>
 
 					<form class="form-horizontal" action="update_movement.html"
@@ -24,51 +24,38 @@
 							<label class="col-sm-4 control-label">Fecha</label>
 							<div class="col-sm-7">
 								<input type="hidden" name="id"
-									value="${user.getId()}"> <input
-									class="form-control" name="username"
-									placeholder="Nombre de usuario"
-									value="${user.getUsername()}" />
+									value="${movement.getIdMovement()}"> <input
+									class="form-control" name="date"
+									placeholder="Fecha del movimiento"
+									value="${movement.getDate()}" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Concepto</label>
 							<div class="col-sm-7">
-								<input class="form-control" name="name"
-									placeholder="Nombre"
-									value="${user.getName()}" />
+								<input class="form-control" name="concept"
+									placeholder="Concepto"
+									value="${movement.getConcept().getName()}" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Tipo de operación</label>
 							<div class="col-sm-7">
 								<input type="radio" checked name="type" value="ingreso" />
-								Ingreso <br> <input type="radio" name="type" value="${user.getType()}" />
+								Ingreso <br> <input type="radio" name="type" value="${movement.getType()}" />
 								Gasto
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Cantidad</label>
 							<div class="col-sm-7">
-								<input class="form-control" name="email"
-									placeholder="Email"
-									value="${user.getEmail()}" />
+								<input class="form-control" name="quantity"
+									placeholder="Cantidad"
+									value="${movement.getQuantity()}" />
 							</div>
+							<label class="col-sm-0.5 control-label">&euro;</label>
 						</div>
-						<div class="form-group">
-							<label class="col-sm-4 control-label">Contraseña</label>
-							<div class="col-sm-7">
-								<input type="password" class="form-control" name="password"
-									placeholder="Contraseña"
-									value="${wallet.getPassword()}" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-4 control-label">Confirmar contraseña</label>
-							<div class="col-sm-7">
-								<input type="password" class="form-control" name="password"
-									placeholder="Confirmar contraseña" />
-							</div>
-						</div><br/>
+						<br/>
 						<div align="center"><button type="submit"
 							class="btn btn-purple waves-effect waves-light">Submit</button>
 						</div>

@@ -90,8 +90,8 @@ public class MovementDAO implements IMovementDAO{
 				+ "		quantity = ? "
 				+ "		WHERE id = ?;";
 		try{
-			JdbcTemplateObject.update(sql, movement.getWalletId(), movement.getConcept(), movement.getDate(), movement.getQuantity(), movement.getIdMovement());
-			System.out.println("updated record with id = " + movement.getIdMovement());
+			JdbcTemplateObject.update(sql, movement.getWalletId(), movement.getConcept(), movement.getDate(), movement.getQuantity(), movement.getId());
+			System.out.println("updated record with id = " + movement.getId());
 		}catch (Exception e) {
 			System.out.println("excepcion " + e);
 		}
