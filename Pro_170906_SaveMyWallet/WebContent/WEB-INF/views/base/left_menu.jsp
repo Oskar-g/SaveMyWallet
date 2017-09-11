@@ -113,7 +113,7 @@
 						class="zmdi zmdi-account-box"></i> <span> Mi perfil </span> </a></li>
 
 				<li><a href="statistics.html" class="waves-effect"><i
-						class="zmdi zmdi-format-chart"></i> <span> Balance </span> </a></li>
+						class="zmdi zmdi-chart"></i> <span> Balance </span> </a></li>
 			</ul>
 			<div class="clearfix"></div>
 		</div>
