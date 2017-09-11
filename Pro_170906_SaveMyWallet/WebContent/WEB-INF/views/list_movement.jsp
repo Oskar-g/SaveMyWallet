@@ -66,10 +66,10 @@
 								</c:when>
 							</c:choose>
 							<td>
-								<button class="btn btn-primary waves-effect waves-light"
-									data-toggle="modal" data-target="#con-close-modal">Eliminar</button>
-								<button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal" value="edit_movement.html">Modificar</button>
-                                							
+							<button class="btn btn-icon waves-effect waves-light btn-danger m-b-5"  data-toggle="modal" data-target="#dropMovement">
+							 <i class="fa fa-remove"></i>
+							  </button>
+			
 							</td>
 						</tr>
 					</c:forEach>
