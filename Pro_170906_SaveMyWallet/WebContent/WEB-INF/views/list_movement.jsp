@@ -32,13 +32,18 @@
 				<button type="button"
 					class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Agregar
 					movimiento</button>
-			</a> 
-			<a href="list_wallet.html">
+			</a> <a href="list_wallet.html">
 				<button type="button"
 					class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 					a mis Carteras</button>
+<<<<<<< HEAD
+			</a>
+			<h4 class="header-title m-t-0 m-b-30">Movimientos de la Cartera
+				"${wallet.getName()}"</h4>
+=======
 			</a><br/><br/>
 			<h4 class="header-title m-t-0 m-b-30">Movimientos de la Cartera "${wallet.getName()}"</h4>
+>>>>>>> refs/remotes/origin/Tamara
 
 			<table id="datatable" class="table table-striped table-bordered">
 				<thead>
@@ -67,8 +72,9 @@
 								</c:when>
 							</c:choose>
 							<td>
-							<button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Eliminar</button>
-							<button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal" value="edit_movement.html">Modificar</button>
+								<button class="btn btn-primary waves-effect waves-light"
+									data-toggle="modal" data-target="#con-close-modal">Eliminar</button>
+								<button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal" value="edit_movement.html">Modificar</button>
                                 							
 							</td>
 						</tr>
@@ -82,7 +88,7 @@
 <!-- end row -->
 
 <script type="text/javascript">
-	$(document).ready(function() {
+	jQuery(document).ready(function() {
 		$('#datatable').dataTable();
 	});
 </script>

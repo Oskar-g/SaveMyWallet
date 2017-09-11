@@ -16,18 +16,18 @@
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 							a mis Carteras</button>
-					</a><br/><br/>
+					</a><br /> <br />
 					<h4 class="m-b-30 m-t-0 header-title">
 						<b>${pageTitle} a la cartera ${wallet.getName()}</b>
 					</h4>
 					<form class="form-horizontal" action="add_movement.html"
 						method="post">
 						<div class="form-group">
-								<input type="hidden" name="name_wallet" value="${wallet.getId()}">
-							<label class="col-sm-4 control-label">Concepto</label>
-							<div class="col-sm-7">
+							<input type="hidden" name="wallet_id" value="${wallet.getId()}">
+							<label class="col-sm-2 control-label">Concepto</label>
+							<div class="col-sm-10">
 								<input list="concepts" name="concept" class="form-control"
-									placeholder="Ej: ingreso de nómina">
+									autocomplete="off" placeholder="Ej: ingreso de nómina">
 								<datalist id="concepts">
 									<c:forEach items="${concepts}" var="concept">
 										<option value="${concept.getName()}">
@@ -45,11 +45,10 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-4 control-label">Fecha</label>
-							<div class="col-sm-7">
-								<input id="datepicker-autoclose" class="form-control" name="date_movement"
-									placeholder="YYYY-MM-DD"/>
-									<!--  <span class="input-group-addon bg-primary b-0 text-white"><i class="ti-calendar"></i></span>-->
+							<label class="col-sm-2 control-label">Fecha</label>
+							<div class="col-sm-4">
+								<input type="text" name="date" class="form-control" placeholder="YYYY-MM-DD"
+									id="datepicker-autoclose"/>
 							</div>
 						</div>
 						<div class="form-group">
@@ -62,7 +61,7 @@
 						</div>
 						<div align="center">
 							<button type="submit"
-							class="btn btn-success waves-effect waves-light">Añadir</button>
+								class="btn btn-success waves-effect waves-light">Añadir</button>
 						</div>
 					</form>
 				</div>
@@ -74,21 +73,11 @@
 	<!-- end col -->
 </div>
 <!-- end row -->
-<script>
-//Date Picker
-jQuery('#datepicker').datepicker();
-jQuery('#datepicker-autoclose').datepicker({
-    autoclose: true,
-    todayHighlight: true
-});
-jQuery('#datepicker-inline').datepicker();
-jQuery('#datepicker-multiple-date').datepicker({
-    format: "mm/dd/yyyy",
-    clearBtn: true,
-    multidate: true,
-    multidateSeparator: ","
-});
-jQuery('#date-range').datepicker({
-    toggleActive: true
-});
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#datepicker-autoclose").datepicker({
+			autoclose : true,
+			todayHighlight : true
+		});
+	});
 </script>

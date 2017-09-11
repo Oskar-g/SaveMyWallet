@@ -46,7 +46,8 @@ public class MovementController {
 		String menu = "movement";
 		String submenu = "create_movement";
 		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);
-
+		modelAndView.addObject("script_datepicker", true);
+		
 		// -- Requerir login
 		Object[] loginStatus = LoginStatus.gete(response, request);
 		if (!(boolean) loginStatus[0]) {
@@ -63,7 +64,7 @@ public class MovementController {
 		WalletService walletService = new WalletService();
 		Wallet wallet = walletService.findByPrimaryIdWallet(walletId);
 		modelAndView.addObject("wallet", wallet);
-
+		
 		return modelAndView;
 	}
 
