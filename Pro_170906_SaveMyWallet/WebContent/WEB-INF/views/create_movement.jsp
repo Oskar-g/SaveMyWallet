@@ -11,7 +11,7 @@
 					<a href="list_movement.html?wallet=${wallet.getId()}">
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
-							a movimientos</button>
+							a mis movimientos</button>
 					</a> <a href="list_wallet.html">
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
@@ -56,7 +56,7 @@
 							<div class="col-sm-7">
 								<input type="number" class="form-control" name="quantity" />
 							</div>
-							<label class="col-sm-1 control-label">&euro;</label>
+							<label class="col-sm-0.5 control-label">&euro;</label>
 
 						</div>
 						<div align="center">
@@ -76,6 +76,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#datepicker-autoclose").datepicker({
+			format: "yyyy/mm/dd",
 			autoclose : true,
 			todayHighlight : true
 		});
