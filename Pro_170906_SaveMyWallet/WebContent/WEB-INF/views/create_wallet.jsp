@@ -30,8 +30,10 @@
 									placeholder="Decripción representativa de esta cartera"></textarea>
 							</div>
 						</div>
-						<button type="submit"
+						<div align="center">
+							<button type="submit"
 							class="btn btn-success waves-effect waves-light">Agregar</button>
+						</div>
 					</form>
 				</div>
 				<!-- end col -->
