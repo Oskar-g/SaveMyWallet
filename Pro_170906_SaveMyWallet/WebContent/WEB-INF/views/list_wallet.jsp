@@ -24,18 +24,18 @@
 					</a>
 					<ul class="dropdown-menu" role="menu">
 						<li><a
-							href="list_movement.html?wallet=${wallet.getIdWallet()}">Ver
+							href="list_movement.html?wallet=${wallet.getId()}">Ver
 								movimientos</a></li>
 						<li><a
-							href="edit_wallet.html?idWallet=${wallet.getIdWallet()}">Editar</a></li>
+							href="edit_wallet.html?idWallet=${wallet.getId()}">Editar</a></li>
 						<li class="divider"></li>
 						<li><a
-							href="delete_wallet.html?idWallet=${wallet.getIdWallet()}">Eliminar</a></li>
+							href="delete_wallet.html?idWallet=${wallet.getId()}">Eliminar</a></li>
 					</ul>
 				</div>
 				<div
-					onclick="window.location.replace('list_movement.html?wallet=${wallet.getIdWallet()}')">
-					<h4 class="header-title m-t-0 m-b-30">${wallet.getNameWallet()}</h4>
+					onclick="window.location.replace('list_movement.html?wallet=${wallet.getId()}')">
+					<h4 class="header-title m-t-0 m-b-30">${wallet.getName()}</h4>
 					<p class="header-title m-t-0 m-b-30">${wallet.getDescription()}</p>
 
 					<div class="widget-box-2">

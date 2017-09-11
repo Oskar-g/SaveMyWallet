@@ -99,8 +99,7 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/edit_user", method = RequestMethod.GET)
-	public ModelAndView editUser(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam("idUser") int idUser) {
+	public ModelAndView editUser(HttpServletRequest request, HttpServletResponse response) {
 		//- TEMPLATE LOADER
 		String view = "edit_user.jsp";
 		String title = "Editar Cartera";
