@@ -24,16 +24,16 @@
 							<label class="col-sm-2 control-label">Nombre de usuario</label>
 							<div class="col-sm-10">
 								<input type="hidden" name="id"
-									value="${user.getId()}"> <input type="text"
+									value="${user.getId()}"> <input
 									class="form-control" name="username"
-									placeholder="Nombre"
+									placeholder="Nombre de usuario"
 									value="${user.getUsername()}" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Nombre</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="name"
+								<input class="form-control" name="name"
 									placeholder="Nombre"
 									value="${user.getName()}" />
 							</div>
@@ -41,7 +41,7 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Apellidos</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="surname"
+								<input class="form-control" name="surname"
 									placeholder="Apellidos"
 									value="${user.getSurname()}" />
 							</div>
@@ -49,19 +49,17 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Email</label>
 							<div class="col-sm-10">
-								<input type="hidden" name="email"> <input type="text"
-									class="form-control" name="email"
-									placeholder="Nombre de la cartera"
+								<input class="form-control" name="email"
+									placeholder="Email"
 									value="${user.getEmail()}" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Contraseña</label>
 							<div class="col-sm-10">
-								<input type="hidden" name="id_wallet"> <input
-									class="form-control" name="name_wallet"
-									placeholder="Nombre de la cartera"
-									value="${wallet.getSurname()}" />
+								<input type="password" class="form-control" name="password"
+									placeholder="Contraseña"
+									value="${wallet.getPassword()}" />
 							</div>
 						</div>
 						<button type="submit"
