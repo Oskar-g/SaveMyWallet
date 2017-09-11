@@ -67,6 +67,7 @@
 								</c:when>
 							</c:choose>
 							<td>
+
 								<button
 									class="btn btn-icon waves-effect waves-light btn-danger m-b-5"
 									data-toggle="modal" data-target="#dropMovement" data_identifier="${movement.getId()}">
