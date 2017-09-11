@@ -109,7 +109,7 @@ public class WalletDAO implements IWalletDAO {
 	public List<Wallet> list(int idUser) {
 		String SQL = "SELECT * "
 					+ "FROM wallets "
-					+ "WHERE id_user = ?";
+					+ "WHERE user_id = ?";
 		List<Wallet> listWallet = null;
 		try{
 			listWallet = jdbcTemplateObject.query(SQL, new Object[]{idUser},new WalletMapper());
