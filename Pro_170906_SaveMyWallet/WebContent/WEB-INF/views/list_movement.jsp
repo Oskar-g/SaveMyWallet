@@ -57,7 +57,7 @@
 							<td><fmt:formatDate pattern="dd/MM/yyyy"
 									value="${movement.getDate()}" /></td>
 							<td>${movement.getConcept().getName()}</td>
-							<td>${movement.getTypeMovement()}</td>
+							<td>${movement.getType()}</td>
 							<c:choose>
 								<c:when test="${movement.getType() == 'ingreso'}">
 									<td style="color: green;">${movement.getQuantity()}</td>
