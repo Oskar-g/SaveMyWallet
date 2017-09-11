@@ -24,11 +24,11 @@
 					<form class="form-horizontal" action="add_movement.html"
 						method="post">
 						<div class="form-group">
-								<input type="hidden" name="wallet_id" value="${wallet.getId()}">
+							<input type="hidden" name="wallet_id" value="${wallet.getId()}">
 							<label class="col-sm-2 control-label">Concepto</label>
 							<div class="col-sm-10">
-								<input list="concepts" name="concept" class="form-control" autocomplete="off"
-									placeholder="Ej: ingreso de nómina">
+								<input list="concepts" name="concept" class="form-control"
+									autocomplete="off" placeholder="Ej: ingreso de nómina">
 								<datalist id="concepts">
 									<c:forEach items="${concepts}" var="concept">
 										<option value="${concept.getName()}">
@@ -48,10 +48,12 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Fecha</label>
 							<div class="col-sm-4">
-								<input type="date" id="datePicker" class="form-control" name="date_movement"
-									placeholder="YYYY-MM-DD" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+
+								<input type="date" id="datepicker-autoclose"
+									class="form-control" name="date_movement"
+									placeholder="YYYY-MM-DD" />
 							</div>
-						</div>	
+						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Cantidad</label>
 							<div class="col-sm-4">
@@ -72,3 +74,13 @@
 	<!-- end col -->
 </div>
 <!-- end row -->
+<script id="datepicker-autoclose">
+$(document).ready(function{
+	
+	jQuery('#datepicker-autoclose').datepicker({
+		 format: "yyyy/mm/dd",
+	    autoclose: true,
+	    todayHighlight: true
+	});
+});
+</script>

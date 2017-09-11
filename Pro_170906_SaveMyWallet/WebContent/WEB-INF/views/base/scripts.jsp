@@ -46,3 +46,7 @@
 	<script src="assets/plugins/datatables/responsive.bootstrap.min.js"></script>
 	<script src="assets/plugins/datatables/dataTables.scroller.min.js"></script>
 </c:if>
+
+<c:if test="${script_datepicker == true}">
+     	<script src="assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+</c:if>
