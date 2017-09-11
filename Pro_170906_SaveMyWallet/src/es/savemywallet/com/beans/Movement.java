@@ -9,7 +9,7 @@ public class Movement {
 	 * Properties
 	 * -----------------------------------------------------------------------
 	 */
-	private int idMovement;
+	private int id;
 	private String name;
 	private Date date;
 	private String type;
@@ -27,9 +27,9 @@ public class Movement {
 	
 	public Movement() {}
 	
-	public Movement(int idMovement, String name, Date date, String type, double quantity, int walletId, Concept concept) {
+	public Movement(int id, String name, Date date, String type, double quantity, int walletId, Concept concept) {
 	
-		this.idMovement = idMovement;
+		this.id = id;
 		this.name = name;
 		this.date = date;
 		this.type = type;
@@ -44,8 +44,8 @@ public class Movement {
 	 * -----------------------------------------------------------------------
 	 */
 	
-	public int getIdMovement() {
-		return idMovement;
+	public int getId() {
+		return id;
 	}
 
 	public String getName() {
@@ -82,8 +82,8 @@ public class Movement {
 	 * -----------------------------------------------------------------------
 	 */
 	
-	public void setIdMovement(int idMovement) {
-		this.idMovement = idMovement;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public void setName(String name) {
