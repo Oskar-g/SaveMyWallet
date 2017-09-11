@@ -6,9 +6,9 @@ import es.savemywallet.com.beans.Movement;
 
 public interface IMovementDAO {
 
-	public Movement findByPrimaryId(int idMovement);
-	public void delete(int idMovement);
+	public Movement findByPrimaryId(int id);
+	public void delete(int id);
 	public void add(Movement movement);
 	public void update(Movement movement);
-	public List<Movement> list(int idWallet);
+	public List<Movement> list(int walletId);
 }

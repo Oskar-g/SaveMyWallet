@@ -31,11 +31,13 @@ public class UserDAO implements IUserDAO {
 	 * Method find by primary id_user
 	 */
 	@Override
-	public User findByPrimaryId(int idUser) {
+	public User findByPrimaryId(int id) {
 		User aux = null;
 		try{
-			String sql = "SELECT * FROM users WHERE id_user = ?";
-			aux = JdbcTemplateObject.queryForObject(sql, new Object[] {idUser}, new UserMapper());
+			String sql = "SELECT * "
+					+ "FROM users "
+					+ "WHERE id_user = ?";
+			aux = JdbcTemplateObject.queryForObject(sql, new Object[] {id}, new UserMapper());
 		}catch(Exception e){
 			
 			System.out.println("excepcion " + e);
@@ -50,18 +52,19 @@ public class UserDAO implements IUserDAO {
 	public User findUser(String user, String password) {
 		
 		User aux = null;
-		
 		try{
 			
-			String sql = "SELECT * FROM users WHERE (name_user = ? OR email = ?) AND password = md5(?)";
-								
+			String sql = "SELECT * FROM users "
+					+ "		WHERE (username = ? OR email = ?) "
+					+ "		AND password = md5(?)";
+			System.out.println(1);					
 			aux = JdbcTemplateObject.queryForObject(sql, new Object[] {user,user,password}, new UserMapper());
 	
 		}catch(Exception e){
 			
 			System.out.println("excepcion " + e);
 		}
-		
+	
 		return aux;
 	}
 
@@ -69,11 +72,12 @@ public class UserDAO implements IUserDAO {
 	 * Method delete id_user
 	 */
 	@Override
-	public void delete(int idUser) {
-		String sql = "DELETE FROM users WHERE id_user = ?";
+	public void delete(int id) {
+		String sql = "DELETE FROM "
+				+ "		users WHERE id = ?";
 		try{
-			JdbcTemplateObject.update(sql, idUser);
-			System.out.println("deleted record with id = " + idUser);
+			JdbcTemplateObject.update(sql, id);
+			System.out.println("deleted record with id = " + id);
 		}catch (Exception e) {		
 			System.out.println("excepcion " + e);
 		}
@@ -86,11 +90,12 @@ public class UserDAO implements IUserDAO {
 	public void add(User user) {
 		
 		System.out.println("dao " + user.toString());
-		String sql = "INSERT INTO users VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO users "
+				+ "		VALUES (null, ?, ?, ?, ?)";
 				
 		try{
 			
-			JdbcTemplateObject.update(sql,user.getIdUser(), user.getNameUser(), user.getSurname(), user.getEmail(), user.getPassword());
+			JdbcTemplateObject.update(sql, user.getUsername(), user.getName(), user.getSurname(), user.getEmail(), user.getPassword());
 			System.out.println("created record");
 			
 		}catch (Exception e) {
@@ -103,10 +108,16 @@ public class UserDAO implements IUserDAO {
 	 */
 	@Override
 	public void update(User user) {
-		String sql = "UPDATE users SET name_user = ?, surname = ?, email = ?, password = ? WHERE id_user = ?";
+		String sql = "UPDATE users "
+				+ "		SET username = ?, "
+				+ "		surname = ?, "
+				+ "		surname = ?, "
+				+ "		email = ?, "
+				+ "		password = ? "
+				+ "		WHERE id = ?";
 		try{
-			JdbcTemplateObject.update(sql, user.getNameUser(), user.getSurname(), user.getEmail(), user.getPassword(), user.getIdUser());
-			System.out.println("updated record with id = " + user.getIdUser());
+			JdbcTemplateObject.update(sql, user.getUsername(), user.getName(), user.getSurname(), user.getEmail(), user.getPassword(), user.getId());
+			System.out.println("updated record with id = " + user.getId());
 		}catch (Exception e) {
 			System.out.println("excepcion " + e);
 		}
@@ -118,7 +129,8 @@ public class UserDAO implements IUserDAO {
 	 */
 	@Override
 	public List<User> list() {
-		String sql = "SELECT * FROM users";
+		String sql = "SELECT * "
+				+ "		FROM users";
 		List<User>users = null;
 		try{
 			users = (List<User>)JdbcTemplateObject.query(sql, new UserMapper());

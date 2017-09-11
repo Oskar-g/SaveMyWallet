@@ -115,8 +115,8 @@ public class MovementController {
 	 * @return
 	 */
 	@RequestMapping(value = "/add_movement", method = RequestMethod.POST)
-	public ModelAndView registerMovement(HttpServletRequest request, @RequestParam("id_wallet") int idWallet, 
-			@RequestParam("name_concept") String nameConcept, @RequestParam("date_movement") String dateMovementForm,
+	public ModelAndView registerMovement(HttpServletRequest request, @RequestParam("wallet_id") int walletId, 
+			@RequestParam("concept") String conceptString, @RequestParam("date") String dateMovementForm,
 			@RequestParam("quantity") double quantity){
 		
 		String jspTemplate = "base";
@@ -131,21 +131,22 @@ public class MovementController {
 		
 		MovementService movementService = new MovementService();
 		Movement movement = new Movement();
-		movement.setIdWallet(idWallet);
-		movement.setNameConcept(nameConcept);
+		Concept concept = new Concept(conceptString);
+		movement.setWalletId(walletId);
+		movement.setConcept(concept);
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date dateMovement = null;
+		Date date = null;
 			try {
 	
-				dateMovement = simpleDateFormat.parse(dateMovementForm);
+				date = simpleDateFormat.parse(dateMovementForm);
 	
 			} catch (Exception ex) {
 	
 				ex.printStackTrace();
 			}
 		
-		movement.setDateMovement(dateMovement);
+		movement.setDate(date);
 		movement.setQuantity(quantity);
 		movementService.addMovement(movement);
 		
@@ -170,8 +171,8 @@ public class MovementController {
 	 * @return
 	 */
 	@RequestMapping(value = "/update_movement", method = RequestMethod.POST)
-	public ModelAndView updateMovement(HttpServletRequest request, @RequestParam("id_wallet") int idWallet, 
-			@RequestParam("name_concept") String nameConcept, @RequestParam("date_movement") String dateMovementForm,
+	public ModelAndView updateMovement(HttpServletRequest request, @RequestParam("wallet_id") int walletId, 
+			@RequestParam("concept") String conceptString, @RequestParam("date") String dateMovementForm,
 			@RequestParam("quantity") double quantity){
 		
 		String jspTemplate = "base";
@@ -184,23 +185,24 @@ public class MovementController {
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
 		
+		Concept concept = new Concept(conceptString);
 		MovementService movementService = new MovementService();
 		Movement movement = new Movement();
-		movement.setIdWallet(idWallet);
-		movement.setNameConcept(nameConcept);
+		movement.setWalletId(walletId);
+		movement.setConcept(concept);
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date dateMovement = null;
+		Date date = null;
 			try {
 	
-				dateMovement = simpleDateFormat.parse(dateMovementForm);
+				date = simpleDateFormat.parse(dateMovementForm);
 	
 			} catch (Exception ex) {
 	
 				ex.printStackTrace();
 			}
 		
-		movement.setDateMovement(dateMovement);
+		movement.setDate(date);
 		movement.setQuantity(quantity);
 		movementService.updateMovement(movement);
 		
@@ -228,7 +230,7 @@ public class MovementController {
 		User user = (User) session.getAttribute("user");
 		
 		MovementService movementService = new MovementService();
-		movementService.deleteMovement(idMovement); 
+		movementService.deleteMovement(idMovement);
 	}
 	
 	/*
