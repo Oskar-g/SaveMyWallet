@@ -36,7 +36,7 @@ public class UserDAO implements IUserDAO {
 		try{
 			String sql = "SELECT * "
 					+ "FROM users "
-					+ "WHERE id_user = ?";
+					+ "WHERE id = ?";
 			aux = JdbcTemplateObject.queryForObject(sql, new Object[] {id}, new UserMapper());
 		}catch(Exception e){
 			
@@ -52,19 +52,20 @@ public class UserDAO implements IUserDAO {
 	public User findUser(String user, String password) {
 		
 		User aux = null;
+		
 		try{
 			
 			String sql = "SELECT * FROM users "
 					+ "		WHERE (username = ? OR email = ?) "
 					+ "		AND password = md5(?)";
-			System.out.println(1);					
+								
 			aux = JdbcTemplateObject.queryForObject(sql, new Object[] {user,user,password}, new UserMapper());
 	
 		}catch(Exception e){
 			
 			System.out.println("excepcion " + e);
 		}
-	
+		
 		return aux;
 	}
 
