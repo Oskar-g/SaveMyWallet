@@ -10,7 +10,6 @@ public class Movement {
 	 * -----------------------------------------------------------------------
 	 */
 	private int id;
-	private String name;
 	private Date date;
 	private String type;
 	private double quantity;
@@ -30,7 +29,6 @@ public class Movement {
 	public Movement(int id, String name, Date date, String type, double quantity, int walletId, Concept concept) {
 	
 		this.id = id;
-		this.name = name;
 		this.date = date;
 		this.type = type;
 		this.quantity = quantity;
@@ -46,10 +44,6 @@ public class Movement {
 	
 	public int getId() {
 		return id;
-	}
-
-	public String getName() {
-		return name;
 	}
 
 	public Date getDate() {
@@ -86,10 +80,6 @@ public class Movement {
 		this.id = id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public void setDate(Date date) {
 		this.date = date;
 	}
@@ -113,4 +103,12 @@ public class Movement {
 	public void setConcept(Concept concept) {
 		this.concept = concept;
 	}
+
+	@Override
+	public String toString() {
+		return "Movement [id=" + id + ", date=" + date + ", type=" + type + ", quantity=" + quantity
+				+ ", walletId=" + walletId + ", wallet=" + wallet + ", concept=" + concept + "]";
+	}
+	
+	
 }

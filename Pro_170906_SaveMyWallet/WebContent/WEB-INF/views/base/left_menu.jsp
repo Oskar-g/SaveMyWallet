@@ -42,7 +42,7 @@
 		<!-- User -->
 		<div class="user-box" style="margin-top: 10px">
 			<div class="user-img">
-				<img src="assets/images/users/avatar-3.jpg" alt="user-img"
+				<img src="assets/images/users/avatar-9.jpg" alt="user-img"
 					title="Mat Helme" class="img-circle img-thumbnail img-responsive">
 				<div class="user-status offline">
 					<i class="zmdi zmdi-dot-circle"></i>
