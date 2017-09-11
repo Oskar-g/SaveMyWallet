@@ -29,8 +29,10 @@
 						<li><a
 							href="edit_wallet.html?idWallet=${wallet.getId()}">Editar</a></li>
 						<li class="divider"></li>
-						<li><a
-							href="delete_wallet.html?idWallet=${wallet.getId()}">Eliminar</a></li>
+						<li>
+						<!-- delete_wallet.html?idWallet=${wallet.getId()} -->
+							<a href="#" data-target="dropWallet" data_identifier="${wallet.getId()}">Eliminar </a>
+						</li>
 					</ul>
 				</div>
 				<div

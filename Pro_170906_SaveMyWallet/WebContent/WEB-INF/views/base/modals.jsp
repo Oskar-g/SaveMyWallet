@@ -4,7 +4,7 @@
 
 
 <!-- Modal Wallet -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+<div id="dropWallet" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
 	aria-labelledby="myLargeModalLabel" aria-hidden="true"
 	style="display: none;">
 	<div class="modal-dialog modal-lg">
