@@ -11,7 +11,7 @@
 					<a href="list_movement.html?wallet=${wallet.getId()}">
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
-							a movimientos</button>
+							a mis movimientos</button>
 					</a> <a href="list_wallet.html">
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
