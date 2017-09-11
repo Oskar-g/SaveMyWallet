@@ -29,7 +29,7 @@ public class WalletDAO implements IWalletDAO {
 	}
 	
 	/**
-	 * Method find by primary id_wallet
+	 * Method find by primary id
 	 */
 	@Override
 	public Wallet findByPrimaryId(int idWallet) {
@@ -47,7 +47,7 @@ public class WalletDAO implements IWalletDAO {
 	public float getBalance(int idWallet) {
 		String SQL = "SELECT IFNULL(SUM(movements.quantity),0) "
 					+ "FROM movements "
-					+ "WHERE id_wallet = ?";
+					+ "WHERE id = ?";
 		float balance = 0;
 		try{
 			balance = jdbcTemplateObject.query(SQL, new Object[]{idWallet},new WalletMapper());
@@ -72,11 +72,11 @@ public class WalletDAO implements IWalletDAO {
 	}
 	
 	/**
-	 * Method delete id_wallet
+	 * Method delete id
 	 */
 	@Override
 	public void delete(int idWallet) {
-		String SQL = "DELETE FROM wallets WHERE id_wallet = ?";
+		String SQL = "DELETE FROM wallets WHERE id = ?";
 		try{
 			jdbcTemplateObject.update(SQL, idWallet);
 		}catch(Exception e){
