@@ -7,11 +7,11 @@ public class Wallet {
 	 * Properties
 	 * -----------------------------------------------------------------------
 	 */
-	private int idWallet;
+	private int id;
 	private int userId;
 	private User user;
 	private String name;
-	private String descripcion;
+	private String description;
 	private float balance;
 
 	
@@ -23,13 +23,13 @@ public class Wallet {
 	
 	public Wallet (){}
 
-	public Wallet(int idWallet, int userId, User user, String name, String descripcion) {
+	public Wallet(int id, int userId, User user, String name, String description) {
 		super();
-		this.idWallet = idWallet;
+		this.id = id;
 		this.userId = userId;
 		this.user = user;
 		this.name = name;
-		this.descripcion = descripcion;
+		this.description = description;
 	}
 
 	/*
@@ -38,8 +38,8 @@ public class Wallet {
 	 * -----------------------------------------------------------------------
 	 */
 
-	public int getIdWallet() {
-		return idWallet;
+	public int getId() {
+		return id;
 	}
 
 	public int getUserId() {
@@ -54,8 +54,8 @@ public class Wallet {
 		return name;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getDescription() {
+		return description;
 	}
 
 	public float getBalance() {
@@ -68,8 +68,8 @@ public class Wallet {
 	 * -----------------------------------------------------------------------
 	 */
 	
-	public void setIdWallet(int idWallet) {
-		this.idWallet = idWallet;
+	public void setIdWallet(int id) {
+		this.id = id;
 	}
 
 	public void setUserId(int userId) {
@@ -84,8 +84,8 @@ public class Wallet {
 		this.name = name;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public void setBalance(float balance) {
