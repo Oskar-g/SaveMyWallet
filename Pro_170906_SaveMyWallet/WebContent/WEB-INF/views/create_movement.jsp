@@ -21,11 +21,10 @@
 					<h4 class="m-b-30 m-t-0 header-title">
 						<b>${pageTitle} a la cartera ${wallet.getName()}</b>
 					</h4>
-					<form class="form-horizontal" action="add_wallet.html"
+					<form class="form-horizontal" action="add_movement.html"
 						method="post">
 						<div class="form-group">
 								<input type="hidden" name="wallet_id" value="${wallet.getId()}">
-								<input type="hidden" name="name_wallet" value="${wallet.getId()}">
 							<label class="col-sm-2 control-label">Concepto</label>
 							<div class="col-sm-10">
 								<input list="concepts" name="concept" class="form-control"
@@ -49,7 +48,7 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Fecha</label>
 							<div class="col-sm-4">
-								<input id="datePicker" class="form-control" name="date_movement"
+								<input id="datePicker" class="form-control" name="date"
 									placeholder="YYYY-MM-DD" />
 							</div>
 						</div>
