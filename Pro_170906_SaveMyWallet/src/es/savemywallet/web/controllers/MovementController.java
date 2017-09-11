@@ -258,7 +258,8 @@ public class MovementController {
 	 */
 	@RequestMapping(value = "/delete_movement", method = RequestMethod.GET)
 	public ModelAndView deleteteMovement(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam("id_movement") int idMovement) {
+			@RequestParam("wallet") int walletId, 
+			@RequestParam("movement") int id) {
 
 		// -- Requerir login
 		Object[] loginStatus = LoginStatus.gete(response, request);
@@ -268,11 +269,11 @@ public class MovementController {
 		}
 
 		MovementService movementService = new MovementService();
-		movementService.deleteMovement(idMovement);
+		movementService.deleteMovement(id);
 
 		try {
 
-			response.sendRedirect("list_movement.html");
+			response.sendRedirect("list_movement.html?wallet=12");
 
 		} catch (IOException e) {
 
