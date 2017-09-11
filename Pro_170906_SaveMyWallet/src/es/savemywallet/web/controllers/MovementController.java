@@ -278,7 +278,7 @@ public class MovementController {
 
 		try {
 
-			response.sendRedirect("list_movement.html?wallet=12");
+			response.sendRedirect("list_movement.html?wallet="+walletId);
 
 		} catch (IOException e) {
 

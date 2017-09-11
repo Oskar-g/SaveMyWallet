@@ -73,7 +73,6 @@
 									data-toggle="modal" data-target="#dropMovement" data_identifier="${movement.getId()}">
 									<i class="fa fa-remove"></i>
 								</button>
-							 </button>
 							<a href="edit_movement.html?wallet=${wallet.getId()}&movement=${movement.getId()}">
 								<button class="btn btn-icon waves-effect waves-light btn-primary m-b-5" data-toggle="modal" data-target="#con-close-modal"><i class="fa fa-wrench"></i></button>
 							</a>

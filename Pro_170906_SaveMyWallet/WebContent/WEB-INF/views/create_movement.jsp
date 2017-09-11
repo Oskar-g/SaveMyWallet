@@ -61,7 +61,7 @@
 						</div>
 						<div align="center">
 							<button type="submit"
-								class="btn btn-success waves-effect waves-light">Añadir</button>
+								class="btn btn-success waves-effect waves-light">Agregar</button>
 						</div>
 					</form>
 				</div>
@@ -76,7 +76,8 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#datepicker-autoclose").datepicker({
-			format: "yyyy/mm/dd",
+			formatDate : "yyyy-mm-dd",
+			format : "yyyy-mm-dd",
 			autoclose : true,
 			todayHighlight : true
 		});

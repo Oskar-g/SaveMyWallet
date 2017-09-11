@@ -70,7 +70,7 @@
 							</div>
 						</div><br/>
 						<div align="center"><button type="submit"
-							class="btn btn-purple waves-effect waves-light">Submit</button>
+							class="btn btn-success waves-effect waves-light">Aceptar</button>
 						</div>
 						
 					</form>

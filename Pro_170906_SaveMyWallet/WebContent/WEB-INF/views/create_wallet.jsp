@@ -31,8 +31,7 @@
 							</div>
 						</div>
 						<div align="center">
-							<button type="submit"
-							class="btn btn-success waves-effect waves-light">Agregar</button>
+							<button type="submit" class="btn btn-success waves-effect waves-light">Agregar</button>
 						</div>
 					</form>
 				</div>
