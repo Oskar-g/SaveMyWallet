@@ -29,7 +29,7 @@ body {
 
 			<div class="form-group ">
 				<input type="text" class="form-control"
-					placeholder="nombre o correo" name="user" id="UserName" autofocus>
+					placeholder="nombre o correo" name="username" id="UserName" autofocus>
 				<i class="fa fa-user"></i>
 			</div>
 			<div class="form-group log-status">

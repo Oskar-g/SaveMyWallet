@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-09-2017 a las 06:42:34
+-- Tiempo de generación: 11-09-2017 a las 08:05:56
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -19,15 +19,17 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `savemywallet`
 --
-DROP DATABASE IF EXISTS savemywallet;
-CREATE DATABASE IF NOT EXISTS `savemywallet` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `savemywallet`;
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `concepts`
 --
+
+DROP DATABASE IF EXISTS savemywallet;
+CREATE DATABASE savemywallet;
+use savemywallet;
+
 
 CREATE TABLE `concepts` (
   `name` varchar(40) NOT NULL
@@ -98,12 +100,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `name`, `surname`, `email`, `password`) VALUES
-(1, '', 'usuario', 'apellido', 'email@email.com', '81dc9bdb52d04dc20036dbd8313ed055'),
-(2, '', 'tamara', 'apellido', 'tamara@email.com', '81dc9bdb52d04dc20036dbd8313ed055'),
-(3, '', 'roger', 'apellido', 'roger@email.com', '81dc9bdb52d04dc20036dbd8313ed055'),
-(4, '', 'oscar', 'apellido', 'oscar@email.com', '81dc9bdb52d04dc20036dbd8313ed055'),
-(5, '', 'hugo', 'apellido', 'hugo@email.com', '81dc9bdb52d04dc20036dbd8313ed055'),
-(6, '', 'prueba', 'probao', 'email', '81dc9bdb52d04dc20036dbd8313ed055');
+(1, 'usuario', 'usuario', 'apellido', 'email@email.com', '81dc9bdb52d04dc20036dbd8313ed055'),
+(2, 'tamara', 'tamara', 'apellido', 'tamara@email.com', '81dc9bdb52d04dc20036dbd8313ed055'),
+(3, 'roger', 'roger', 'apellido', 'roger@email.com', '81dc9bdb52d04dc20036dbd8313ed055'),
+(4, 'oscar', 'oscar', 'apellido', 'oscar@email.com', '81dc9bdb52d04dc20036dbd8313ed055'),
+(5, 'hugo', 'hugo', 'apellido', 'hugo@email.com', '81dc9bdb52d04dc20036dbd8313ed055'),
+(6, 'prueba', 'prueba', 'probao', 'email', '81dc9bdb52d04dc20036dbd8313ed055');
 
 -- --------------------------------------------------------
 
@@ -122,9 +124,10 @@ CREATE TABLE `wallets` (
 -- Volcado de datos para la tabla `wallets`
 --
 
-INSERT INTO `wallets` (`id`, `user_id`, `wallet`, `description`) VALUES
+INSERT INTO `wallets` (`id`, `user_id`, `name`, `description`) VALUES
 (1, 1, 'mi cartera', 'asdasdasd'),
-(9, 4, 'mia', 'sisisisisnonono\r\n');
+(9, 4, 'mia', 'sisisisisnonono\r\n'),
+(12, 4, 'caca', 'sii');
 
 --
 -- Índices para tablas volcadas
@@ -175,7 +178,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `wallets`
 --
 ALTER TABLE `wallets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- Restricciones para tablas volcadas
 --
