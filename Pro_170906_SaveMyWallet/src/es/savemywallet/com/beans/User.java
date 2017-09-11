@@ -8,7 +8,7 @@ public class User {
 	 * -----------------------------------------------------------------------
 	 */
 	private int id;
-	private String UserName;
+	private String username;
 	private String name;
 	private String surname;
 	private String email;
@@ -22,10 +22,10 @@ public class User {
 	
 	public User(){}
 
-	public User(int id, String userName, String name, String surname, String email, String password) {
+	public User(int id, String username, String name, String surname, String email, String password) {
 		super();
 		this.id = id;
-		UserName = userName;
+		this.username = username;
 		this.name = name;
 		this.surname = surname;
 		this.email = email;
@@ -42,8 +42,8 @@ public class User {
 		return id;
 	}
 
-	public String getUserName() {
-		return UserName;
+	public String getUsername() {
+		return username;
 	}
 
 	public String getName() {
@@ -72,8 +72,8 @@ public class User {
 		this.id = id;
 	}
 
-	public void setUserName(String userName) {
-		UserName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public void setName(String name) {
