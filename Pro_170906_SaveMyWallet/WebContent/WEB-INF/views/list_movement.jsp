@@ -68,7 +68,7 @@
 							<td>
 								<button class="btn btn-primary waves-effect waves-light"
 									data-toggle="modal" data-target="#con-close-modal">Eliminar</button>
-								<button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal" value="edit_movement.html">Modificar</button>
+								<button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal" value="edit_movement.html?idMovement=${movement.getIdMovement()}">Modificar</button>
                                 							
 							</td>
 						</tr>
