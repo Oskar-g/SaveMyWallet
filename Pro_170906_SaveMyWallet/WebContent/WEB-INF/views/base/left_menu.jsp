@@ -103,7 +103,7 @@
 					</ul>
 				</li>
 
-				<li><a href="profile.html" class="waves-effect"><i
+				<li><a href="edit_user.html?user=${user.getId()}" class="waves-effect"><i
 						class="zmdi zmdi-account-box"></i> <span> Mi perfil </span> </a></li>
 
 				<li><a href="statistics.html" class="waves-effect"><i
