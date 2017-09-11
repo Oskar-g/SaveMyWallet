@@ -15,7 +15,7 @@
 							a mis Carteras</button>
 					</a><br/><br/>
 					<h4 class="m-b-30 m-t-0 header-title">
-						<b>Editar Usuario "${user.getName()}"</b>
+						<b>${pageTitle} "${user.getName()}"</b>
 					</h4>
 
 					<form class="form-horizontal" action="update_user.html"

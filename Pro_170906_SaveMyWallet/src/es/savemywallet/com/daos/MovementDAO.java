@@ -68,7 +68,7 @@ public class MovementDAO implements IMovementDAO{
 	public void add(Movement movement) {
 		System.out.println("dao " + movement.toString());
 		String sql = "INSERT INTO movements "
-				+ "		VALUES (null, ?, ?, ?, ?)";
+				+ "		VALUES (null, ?, ?, ?, ?, ?)";
 		try{
 			JdbcTemplateObject.update(sql, movement.getWalletId(), movement.getConcept().getName(),
 					movement.getType(),movement.getDate(), movement.getQuantity());
