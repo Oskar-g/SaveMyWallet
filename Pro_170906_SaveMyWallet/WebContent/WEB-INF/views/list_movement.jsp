@@ -68,8 +68,9 @@
 							</c:choose>
 							<td>
 								<button class="btn btn-primary waves-effect waves-light"
-									data-toggle="modal" data-target="#con-close-modal">Eliminar</button>
-
+									data-toggle="modal" data-target="#dropMovement">Eliminar</button>
+                               <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal">Standard Modal</button>
+ 
 							</td>
 						</tr>
 					</c:forEach>
