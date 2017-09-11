@@ -76,7 +76,15 @@ INSERT INTO `movements` (`id`, `wallet_id`, `concept`, `type`, `date`, `quantity
 -- Disparadores `movements`
 --
 DELIMITER $$
-CREATE TRIGGER `ins_concept` BEFORE INSERT ON `movements` FOR EACH ROW INSERT IGNORE INTO concepts values(NEW.name_concept)
+CREATE TRIGGER `ins_concept` BEFORE INSERT ON `movements` FOR EACH ROW 
+	INSERT IGNORE INTO concepts values(NEW.concept);
+$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE TRIGGER `upd_concept` BEFORE update ON `movements` FOR EACH ROW 
+	INSERT IGNORE INTO concepts values(NEW.concept);
 $$
 DELIMITER ;
 

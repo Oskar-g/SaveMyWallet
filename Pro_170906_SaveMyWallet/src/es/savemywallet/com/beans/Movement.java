@@ -9,8 +9,7 @@ public class Movement {
 	 * Properties
 	 * -----------------------------------------------------------------------
 	 */
-	private int idMovement;
-	private String name;
+	private int id;
 	private Date date;
 	private String type;
 	private double quantity;
@@ -27,10 +26,9 @@ public class Movement {
 	
 	public Movement() {}
 	
-	public Movement(int idMovement, String name, Date date, String type, double quantity, int walletId, Concept concept) {
+	public Movement(int id, String name, Date date, String type, double quantity, int walletId, Concept concept) {
 	
-		this.idMovement = idMovement;
-		this.name = name;
+		this.id = id;
 		this.date = date;
 		this.type = type;
 		this.quantity = quantity;
@@ -44,12 +42,8 @@ public class Movement {
 	 * -----------------------------------------------------------------------
 	 */
 	
-	public int getIdMovement() {
-		return idMovement;
-	}
-
-	public String getName() {
-		return name;
+	public int getId() {
+		return id;
 	}
 
 	public Date getDate() {
@@ -82,12 +76,8 @@ public class Movement {
 	 * -----------------------------------------------------------------------
 	 */
 	
-	public void setIdMovement(int idMovement) {
-		this.idMovement = idMovement;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public void setDate(Date date) {
@@ -113,4 +103,12 @@ public class Movement {
 	public void setConcept(Concept concept) {
 		this.concept = concept;
 	}
+
+	@Override
+	public String toString() {
+		return "Movement [id=" + id + ", date=" + date + ", type=" + type + ", quantity=" + quantity
+				+ ", walletId=" + walletId + ", wallet=" + wallet + ", concept=" + concept + "]";
+	}
+	
+	
 }

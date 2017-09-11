@@ -179,7 +179,7 @@ public class WalletController {
 			User user = (User) session.getAttribute("user");
 		
 		Wallet wallet = new Wallet();
-		wallet.setIdWallet(idWallet);
+		wallet.setId(idWallet);
 		wallet.setUserId(user.getId());
 		wallet.setName(nameWallet);
 		wallet.setDescription(description);
@@ -214,7 +214,8 @@ public class WalletController {
 	 * @return 			ModelAndView
 	 */
 	@RequestMapping(value = "/delete_wallet", method = RequestMethod.GET)
-	public ModelAndView deleteteWallet(HttpServletRequest request, HttpServletResponse response, @RequestParam("idWallet") int idWallet) {
+	public ModelAndView deleteteWallet(HttpServletRequest request, HttpServletResponse response, 
+			@RequestParam("id") int id) {
 		//-- Requerir login
 			Object[] loginStatus = LoginStatus.gete(response, request);
 			if (!(boolean) loginStatus[0]) {
@@ -223,7 +224,7 @@ public class WalletController {
 			}
 				
 		WalletService walletService = new WalletService();
-		walletService.deleteWallet(idWallet);
+		walletService.deleteWallet(id);
 		
 		try {
 			response.sendRedirect("list_wallet.html");
@@ -259,7 +260,9 @@ public class WalletController {
 			String menu = "wallet";
 			String submenu = "list_wallet";
 			ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);
-		
+			//Scripts
+			modelAndView.addObject("script_modal", true);
+
 			//-- Requerir login
 				Object[] loginStatus = LoginStatus.gete(response, request);
 				if (!(boolean) loginStatus[0]) {
@@ -276,7 +279,6 @@ public class WalletController {
 		List<Wallet> list = walletService.listWallet(userId);
 
 		modelAndView.addObject("list", list);
-		modelAndView.addObject("script_modal",true);
 		
 		return modelAndView;
 	}

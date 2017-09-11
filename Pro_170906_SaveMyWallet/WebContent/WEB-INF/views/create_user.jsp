@@ -19,42 +19,42 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Nombre de ususario</label>
 							<div class="col-sm-7">
-								<input class="form-control" name="username"
+								<input required class="form-control" name="username"
 									placeholder="Nombre de usuario" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Nombre</label>
 							<div class="col-sm-7">
-								<input class="form-control" name="name"
+								<input required  class="form-control" name="name"
 									placeholder="Nombre" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Apellidos</label>
 							<div class="col-sm-7">
-								<input class="form-control" name="surname"
+								<input required class="form-control" name="surname"
 									placeholder="Apellidos" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Email</label>
 							<div class="col-sm-7">
-								<input class="form-control" name="email"
+								<input required class="form-control" name="email"
 									placeholder="Email" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Contraseña</label>
 							<div class="col-sm-7">
-								<input type="password" class="form-control" name="password"
+								<input required type="password" class="form-control" name="password"
 									placeholder="Contraseña" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Confirmar contraseña</label>
 							<div class="col-sm-7">
-								<input type="password" class="form-control" name="password"
+								<input required type="password" class="form-control" name="password"
 									placeholder="Contraseña" />
 							</div>
 						</div><br/>

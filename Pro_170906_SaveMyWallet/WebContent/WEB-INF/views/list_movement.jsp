@@ -30,13 +30,13 @@
 
 			<a href="create_movement.html?wallet=${wallet.getId()}">
 				<button type="button"
-					class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Agregar
+					class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5"><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp; Agregar
 					movimiento</button>
 			</a> <a href="list_wallet.html">
 				<button type="button"
-					class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
+					class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp; Volver
 					a mis Carteras</button>
-			</a>
+			</a><br /> <br />
 			<h4 class="header-title m-t-0 m-b-30">Movimientos de la Cartera
 				"${wallet.getName()}"</h4>
 
@@ -51,7 +51,7 @@
 					</tr>
 				</thead>
 
-				<tbody>
+				<tbody id="wallet_id" data_identifier="${wallet.getId()}">
 					<c:forEach items="${movements}" var="movement">
 						<tr>
 							<td><fmt:formatDate pattern="dd/MM/yyyy"
@@ -67,9 +67,20 @@
 								</c:when>
 							</c:choose>
 							<td>
-								<button class="btn btn-primary waves-effect waves-light"
-									data-toggle="modal" data-target="#con-close-modal">Eliminar</button>
 
+								<button
+									class="btn btn-icon waves-effect waves-light btn-danger m-b-5"
+									data-toggle="modal" data-target="#dropMovement"
+									data_identifier="${movement.getId()}">
+									<i class="fa fa-remove"></i>
+								</button> <a
+								href="edit_movement.html?wallet=${wallet.getId()}&movement=${movement.getId()}">
+									<button
+										class="btn btn-icon waves-effect waves-light btn-primary m-b-5"
+										data-toggle="modal" data-target="#con-close-modal">
+										<i class="fa fa-wrench"></i>
+									</button>
+							</a>
 							</td>
 						</tr>
 					</c:forEach>
@@ -82,8 +93,18 @@
 <!-- end row -->
 
 <script type="text/javascript">
-	jQuery(document).ready(function() {
-		$('#datatable').dataTable();
+	$(document).ready(function() {
+		$('#datatable').dataTable({
+			"bSort" : false
+		});
+
+		//Listener de clic en botones
+		$(".btn-icon").on("click", function() {
+			var rowId = $(this).attr("data_identifier");
+			var wallet = $("#wallet_id").attr("data_identifier");
+			var location = "delete_movement.html?wallet=" + wallet + "&movement=" + rowId;
+			$("#delete_movement_button").attr("href", location);
+		});
 	});
 </script>
 

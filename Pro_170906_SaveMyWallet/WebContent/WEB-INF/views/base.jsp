@@ -26,6 +26,10 @@
 		</div>
 	</div>
 	<jsp:include page="base/footer.jsp"></jsp:include>
+	
+	<jsp:include page="base/modals.jsp"></jsp:include>
+	
 	<jsp:include page="base/scripts.jsp"></jsp:include>
+	
 </body>
 </html>
