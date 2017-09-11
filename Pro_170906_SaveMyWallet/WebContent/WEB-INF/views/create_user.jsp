@@ -9,11 +9,11 @@
 		<div class="card-box">
 			<div class="row">
 				<div class="col-lg-6">
-					<a href="list_wallet.html">
+					<!-- <a href="list_wallet.html">
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 							a mis Carteras</button>
-					</a>
+					</a> -->
 					<form class="form-horizontal" action="add_user.html"
 						method="post">
 						<div class="form-group">
