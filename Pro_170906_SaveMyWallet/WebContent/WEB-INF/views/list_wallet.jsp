@@ -12,7 +12,7 @@
 			<button type="button"
 				class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5"><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp; Añadir
 				Cartera</button>
-		</a>
+		</a><br/><br/>
 	</div>
 	<c:forEach items="${list}" var="wallet">
 		<div class="col-lg-3 col-md-6">
