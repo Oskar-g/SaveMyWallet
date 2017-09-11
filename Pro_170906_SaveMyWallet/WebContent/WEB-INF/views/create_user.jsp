@@ -19,7 +19,7 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Nombre de ususario</label>
 							<div class="col-sm-7">
-ç								<input class="form-control" name="username"
+								<input class="form-control" name="username"
 									placeholder="Nombre de usuario" />
 							</div>
 						</div>
@@ -58,8 +58,10 @@
 									placeholder="Contraseña" />
 							</div>
 						</div><br/>
+						<div align="center">
 						<button type="submit"
 							class="btn btn-success waves-effect waves-light">Confirmar</button>
+						</div>
 					</form>
 				</div>
 				<!-- end col -->

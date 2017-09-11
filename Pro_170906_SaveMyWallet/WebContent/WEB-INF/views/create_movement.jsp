@@ -48,10 +48,10 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Fecha</label>
 							<div class="col-sm-4">
-								<input id="datePicker" class="form-control" name="date"
-									placeholder="YYYY-MM-DD" />
+								<input type="date" id="datePicker" class="form-control" name="date_movement"
+									placeholder="YYYY-MM-DD" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
 							</div>
-						</div>
+						</div>	
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Cantidad</label>
 							<div class="col-sm-4">
