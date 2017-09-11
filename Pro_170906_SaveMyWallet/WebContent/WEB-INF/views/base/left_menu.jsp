@@ -48,7 +48,7 @@
 				</div>
 			</div>
 			<h3>
-				${user.getNameUser()} 	<a href="logout.html" title="logout" class="text-custom"> <i
+				${user.getName()} 	<a href="logout.html" title="logout" class="text-custom"> <i
 						class="zmdi zmdi-power"></i>
 				</a>
 			</h3>
