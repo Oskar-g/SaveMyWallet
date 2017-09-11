@@ -10,5 +10,6 @@ public interface IWalletDAO {
 	public void add(Wallet wallet);
 	public void update(Wallet wallet);
 	public void delete(int idWallet);
+	public List<Wallet> list(int idUser);
 	public List<Wallet> list();
 }
