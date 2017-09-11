@@ -68,9 +68,9 @@ public class MovementDAO implements IMovementDAO{
 	public void add(Movement movement) {
 		System.out.println("dao " + movement.toString());
 		String sql = "INSERT INTO movements "
-				+ "		VALUES (?, ?, ?, ?, ?)";
+				+ "		VALUES (null, ?, ?, ?, ?)";
 		try{
-			JdbcTemplateObject.update(sql, null, movement.getWalletId(), movement.getConcept().getName(),
+			JdbcTemplateObject.update(sql, movement.getWalletId(), movement.getConcept().getName(),
 					movement.getType(),movement.getDate(), movement.getQuantity());
 			System.out.println("created record");
 		}catch (Exception e) {
@@ -90,7 +90,7 @@ public class MovementDAO implements IMovementDAO{
 				+ "		quantity = ? "
 				+ "		WHERE id = ?;";
 		try{
-			JdbcTemplateObject.update(sql, movement.getIdWallet(), movement.getNameConcept(), movement.getDateMovement(), movement.getQuantity(), movement.getIdMovement());
+			JdbcTemplateObject.update(sql, movement.getWalletId(), movement.getConcept(), movement.getDate(), movement.getQuantity(), movement.getIdMovement());
 			System.out.println("updated record with id = " + movement.getIdMovement());
 		}catch (Exception e) {
 			System.out.println("excepcion " + e);

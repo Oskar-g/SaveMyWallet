@@ -92,11 +92,11 @@ public class UserDAO implements IUserDAO {
 		
 		System.out.println("dao " + user.toString());
 		String sql = "INSERT INTO users "
-				+ "		VALUES (?, ?, ?, ?, ?)";
+				+ "		VALUES (null, ?, ?, ?, ?)";
 				
 		try{
 			
-			JdbcTemplateObject.update(sql,null, user.getUsername(), user.getName(), user.getSurname(), user.getEmail(), user.getPassword());
+			JdbcTemplateObject.update(sql, user.getUsername(), user.getName(), user.getSurname(), user.getEmail(), user.getPassword());
 			System.out.println("created record");
 			
 		}catch (Exception e) {
@@ -118,7 +118,7 @@ public class UserDAO implements IUserDAO {
 				+ "		WHERE id = ?";
 		try{
 			JdbcTemplateObject.update(sql, user.getUsername(), user.getName(), user.getSurname(), user.getEmail(), user.getPassword(), user.getId());
-			System.out.println("updated record with id = " + user.getIdUser());
+			System.out.println("updated record with id = " + user.getId());
 		}catch (Exception e) {
 			System.out.println("excepcion " + e);
 		}
