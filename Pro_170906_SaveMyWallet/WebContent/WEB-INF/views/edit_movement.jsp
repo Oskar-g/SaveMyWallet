@@ -65,8 +65,8 @@
 							<label class="col-sm-0.5 control-label">&euro;</label>
 						</div>
 						<br/>
-						<div align="center"><button type="submit"
-							class="btn btn-purple waves-effect waves-light">Submit</button>
+						<div align="center">
+							<button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
 						</div>
 						
 					</form>
