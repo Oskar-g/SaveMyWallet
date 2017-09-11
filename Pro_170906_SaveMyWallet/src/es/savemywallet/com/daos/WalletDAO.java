@@ -35,7 +35,9 @@ public class WalletDAO implements IWalletDAO {
 	public Wallet findByPrimaryId(int idWallet) {
 		Wallet auxWallet = null;
 		try{
-			String SQL = "SELECT * FROM wallets WHERE id_wallet = ?";
+			String SQL = "SELECT * "
+					+ "		FROM wallets "
+					+ "		WHERE id = ?";
 			auxWallet = jdbcTemplateObject.queryForObject(SQL, new Object[]{idWallet}, new WalletMapper());
 		}catch(Exception e){
 			System.out.println(e);
@@ -90,7 +92,7 @@ public class WalletDAO implements IWalletDAO {
 	@Override
 	public void update(Wallet wallet) {
 		String SQL = "UPDATE wallets "
-				+ "		SET id_user = ?, "
+				+ "		SET user_id = ?, "
 				+ "		name= ?, "
 				+ "		description = ? "
 				+ "		WHERE id = ?";

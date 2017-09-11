@@ -24,6 +24,8 @@
 					<form class="form-horizontal" action="add_wallet.html"
 						method="post">
 						<div class="form-group">
+								<input type="hidden" name="wallet_id" value="${wallet.getId()}">
+								<input type="hidden" name="name_wallet" value="${wallet.getId()}">
 							<label class="col-sm-2 control-label">Concepto</label>
 							<div class="col-sm-10">
 								<input list="concepts" name="concept" class="form-control"

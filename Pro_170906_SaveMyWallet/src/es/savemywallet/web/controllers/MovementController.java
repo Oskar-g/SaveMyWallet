@@ -80,7 +80,8 @@ public class MovementController {
 	public ModelAndView registerMovement(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam("wallet_id") int walletId, 
 			@RequestParam("concept") String conceptString, 
-			@RequestParam("date") String dateMovementForm,
+			@RequestParam("type") String type, 
+			@RequestParam("date") String dateform,
 			@RequestParam("quantity") double quantity){
 		
 		//-- Requerir login
@@ -103,7 +104,7 @@ public class MovementController {
 		Date date = null;
 			try {
 	
-				date = simpleDateFormat.parse(dateMovementForm);
+				date = simpleDateFormat.parse(dateform);
 	
 			} catch (Exception ex) {
 	

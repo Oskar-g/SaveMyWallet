@@ -92,7 +92,7 @@ public class UserDAO implements IUserDAO {
 		
 		System.out.println("dao " + user.toString());
 		String sql = "INSERT INTO users "
-				+ "		VALUES (null, ?, ?, ?, ?)";
+				+ "		VALUES (null, ?, ?, ?, ?,?)";
 				
 		try{
 			

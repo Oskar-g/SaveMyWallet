@@ -19,7 +19,7 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Nombre de ususario</label>
 							<div class="col-sm-7">
-								<input class="form-control" name="username"
+ç								<input class="form-control" name="username"
 									placeholder="Nombre de usuario" />
 							</div>
 						</div>

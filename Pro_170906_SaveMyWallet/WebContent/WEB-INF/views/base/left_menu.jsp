@@ -73,17 +73,17 @@
 					</ul>
 				</li>
 			
-			<c:if test="${wallet.getIdWallet()>0}">
+			<c:if test="${wallet.getId()>0}">
 				<li><a href="javascript:void(0);"
 					class="waves-effect <c:if test="${menuSelect=='movement'}">active</c:if>">
 						<i class="zmdi zmdi-money"></i> <span> Movimientos </span>
 					</a>
 					<ul class="list-unstyled">
 						<li class="<c:if test="${subMenuSelect=='create_movement'}">active</c:if>">
-							<a href="create_movement.html?wallet=${wallet.getIdWallet()}">Agregar</a>
+							<a href="create_movement.html?wallet=${wallet.getId()}">Agregar</a>
 						</li>
 						<li class="<c:if test="${subMenuSelect=='list_movement'}">active</c:if>">
-							<a href="list_movement.html?wallet=${wallet.getIdWallet()}">Ver mis movimientos</a>
+							<a href="list_movement.html?wallet=${wallet.getId()}">Ver mis movimientos</a>
 						</li>
 					</ul>
 			</c:if>
