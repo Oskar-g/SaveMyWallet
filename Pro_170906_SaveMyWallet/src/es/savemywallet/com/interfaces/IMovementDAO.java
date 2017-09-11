@@ -10,5 +10,5 @@ public interface IMovementDAO {
 	public void delete(int idMovement);
 	public void add(Movement movement);
 	public void update(Movement movement);
-	public List<Movement> list();
+	public List<Movement> list(int idWallet);
 }
