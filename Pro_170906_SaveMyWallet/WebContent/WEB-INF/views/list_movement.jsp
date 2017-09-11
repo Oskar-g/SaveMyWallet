@@ -36,9 +36,8 @@
 				<button type="button"
 					class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 					a mis Carteras</button>
-			</a>
-			<h4 class="header-title m-t-0 m-b-30">Movimientos de la Cartera
-				"${wallet.getName()}"</h4>
+			</a><br/><br/>
+			<h4 class="header-title m-t-0 m-b-30">Movimientos de la Cartera "${wallet.getName()}"</h4>
 
 			<table id="datatable" class="table table-striped table-bordered">
 				<thead>
@@ -67,10 +66,10 @@
 								</c:when>
 							</c:choose>
 							<td>
-								<button class="btn btn-primary waves-effect waves-light"
-									data-toggle="modal" data-target="#dropMovement">Eliminar</button>
-                               <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal">Standard Modal</button>
- 
+							<button class="btn btn-icon waves-effect waves-light btn-danger m-b-5"  data-toggle="modal" data-target="#dropMovement">
+							 <i class="fa fa-remove"></i>
+							  </button>
+			
 							</td>
 						</tr>
 					</c:forEach>

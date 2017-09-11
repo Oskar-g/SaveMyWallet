@@ -102,7 +102,7 @@ public class UserController {
 	public ModelAndView editUser(HttpServletRequest request, HttpServletResponse response) {
 		//- TEMPLATE LOADER
 		String view = "edit_user.jsp";
-		String title = "Editar Cartera";
+		String title = "Editar Usuario";
 		String menu = "user";
 		String submenu = "create_user";
 		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);
