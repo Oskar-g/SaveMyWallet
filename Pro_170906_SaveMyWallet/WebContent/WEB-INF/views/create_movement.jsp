@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- Begin page -->
-
 <div class="row">
 	<div class="col-sm-12">
 		<div class="card-box">
@@ -17,17 +16,18 @@
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 							a mis Carteras</button>
-					</a>
+					</a><br /> <br />
 					<h4 class="m-b-30 m-t-0 header-title">
 						<b>${pageTitle} a la cartera ${wallet.getName()}</b>
 					</h4>
-					<form class="form-horizontal" action="add_wallet.html"
+					<form class="form-horizontal" action="add_movement.html"
 						method="post">
 						<div class="form-group">
+							<input type="hidden" name="wallet_id" value="${wallet.getId()}">
 							<label class="col-sm-2 control-label">Concepto</label>
 							<div class="col-sm-10">
 								<input list="concepts" name="concept" class="form-control"
-									placeholder="Ej: ingreso de nómina">
+									autocomplete="off" placeholder="Ej: ingreso de nómina">
 								<datalist id="concepts">
 									<c:forEach items="${concepts}" var="concept">
 										<option value="${concept.getName()}">
@@ -37,8 +37,8 @@
 
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Tipo de operacion</label>
-							<div class="col-sm-10">
+							<label class="col-sm-4 control-label">Tipo de operacion</label>
+							<div class="col-sm-7">
 								<input type="radio" checked name="type" value="ingreso" />
 								Ingreso <br> <input type="radio" name="type" value="gasto" />
 								Gasto
@@ -47,20 +47,22 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Fecha</label>
 							<div class="col-sm-4">
-								<input id="datePicker" class="form-control" name="date_movement"
-									placeholder="YYYY-MM-DD" />
+								<input type="text" name="date" class="form-control" placeholder="YYYY-MM-DD"
+									id="datepicker-autoclose"/>
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Cantidad</label>
-							<div class="col-sm-4">
+							<label class="col-sm-4 control-label">Cantidad</label>
+							<div class="col-sm-7">
 								<input type="number" class="form-control" name="quantity" />
 							</div>
 							<label class="col-sm-1 control-label">&euro;</label>
 
 						</div>
-						<button type="submit"
-							class="btn btn-success waves-effect waves-light">Añadir</button>
+						<div align="center">
+							<button type="submit"
+								class="btn btn-success waves-effect waves-light">Añadir</button>
+						</div>
 					</form>
 				</div>
 				<!-- end col -->
@@ -71,3 +73,11 @@
 	<!-- end col -->
 </div>
 <!-- end row -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#datepicker-autoclose").datepicker({
+			autoclose : true,
+			todayHighlight : true
+		});
+	});
+</script>

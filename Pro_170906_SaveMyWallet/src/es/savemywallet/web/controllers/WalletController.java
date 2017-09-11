@@ -77,8 +77,8 @@ public class WalletController {
 	 */
 	@RequestMapping(value = "/add_wallet", method = RequestMethod.POST)
 	public ModelAndView addWallet(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam("name_wallet") String nameWallet,
-			@RequestParam("description") String descriptionWallet) {
+			@RequestParam("name") String name,
+			@RequestParam("description") String description) {
 		
 		//-- Requerir login
 		Object[] loginStatus = LoginStatus.gete(response, request);
@@ -94,8 +94,8 @@ public class WalletController {
 		
 		Wallet wallet = new Wallet();
 		wallet.setUserId(user.getId());
-		wallet.setName(nameWallet);
-		wallet.setDescription(descriptionWallet);
+		wallet.setName(name);
+		wallet.setDescription(description);
 		
 		WalletService walletService = new WalletService();
 		walletService.addWallet(wallet);
@@ -276,7 +276,8 @@ public class WalletController {
 		List<Wallet> list = walletService.listWallet(userId);
 
 		modelAndView.addObject("list", list);
-			
+		modelAndView.addObject("script_modal",true);
+		
 		return modelAndView;
 	}
 

@@ -32,13 +32,13 @@
 				<button type="button"
 					class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Agregar
 					movimiento</button>
-			</a> 
-			<a href="list_wallet.html">
+			</a> <a href="list_wallet.html">
 				<button type="button"
 					class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 					a mis Carteras</button>
 			</a>
-			<h4 class="header-title m-t-0 m-b-30">Movimientos de la Cartera "${wallet.getName()}"</h4>
+			<h4 class="header-title m-t-0 m-b-30">Movimientos de la Cartera
+				"${wallet.getName()}"</h4>
 
 			<table id="datatable" class="table table-striped table-bordered">
 				<thead>
@@ -66,7 +66,11 @@
 									<td style="color: red;">${movement.getQuantity()}</td>
 								</c:when>
 							</c:choose>
-							<td>ope ope</td>
+							<td>
+								<button class="btn btn-primary waves-effect waves-light"
+									data-toggle="modal" data-target="#con-close-modal">Eliminar</button>
+
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -78,7 +82,7 @@
 <!-- end row -->
 
 <script type="text/javascript">
-	$(document).ready(function() {
+	jQuery(document).ready(function() {
 		$('#datatable').dataTable();
 	});
 </script>
