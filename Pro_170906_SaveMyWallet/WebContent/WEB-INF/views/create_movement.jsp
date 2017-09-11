@@ -47,7 +47,7 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Fecha</label>
 							<div class="col-sm-4">
-								<input type="text" name="date" class="form-control" placeholder="YYYY-MM-DD"
+								<input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy"
 									id="datepicker-autoclose"/>
 							</div>
 						</div>
