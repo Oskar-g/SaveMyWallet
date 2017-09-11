@@ -18,7 +18,7 @@ public class MovementMapper implements RowMapper<Movement>{
 		Concept concept = new Concept(rs.getString("concept"));
 		
 		
-		movement.setIdMovement(rs.getInt("id_movement"));
+		movement.setIdMovement(rs.getInt("id"));
 		movement.setWalletId(rs.getInt("wallet_id"));
 		movement.setType(rs.getString("type"));
 		movement.setConcept(concept);
