@@ -48,7 +48,7 @@
 				</div>
 			</div>
 			<h3>
-				${user.getNameUser()} 	<a href="logout.html" title="logout" class="text-custom"> <i
+				${user.getName()} 	<a href="logout.html" title="logout" class="text-custom"> <i
 						class="zmdi zmdi-power"></i>
 				</a>
 			</h3>
@@ -103,7 +103,7 @@
 					</ul>
 				</li>
 
-				<li><a href="profile.html" class="waves-effect"><i
+				<li><a href="edit_user.html?user=${user.getId()}" class="waves-effect"><i
 						class="zmdi zmdi-account-box"></i> <span> Mi perfil </span> </a></li>
 
 				<li><a href="statistics.html" class="waves-effect"><i
