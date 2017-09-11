@@ -12,7 +12,9 @@ public class Wallet {
 	private String nameWallet;
 	private String descripcion;
 
+	private float balance;
 
+	
 	/**
 	 * Default Constructor
 	 */
@@ -50,8 +52,17 @@ public class Wallet {
 	public String getDescription() {
 		return descripcion;
 	}
+	
 	public String getNameWallet() {
 		return nameWallet;
+	}
+	
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public float getBalance() {
+		return balance;
 	}
 	
 	/*
@@ -80,6 +91,14 @@ public class Wallet {
 	public void setIdUser(int idUser) {
 	this.idUser = idUser;
 	
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public void setBalance(float balance) {
+		this.balance = balance;
 	}
 
 }
