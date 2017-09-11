@@ -25,7 +25,7 @@
 							<div class="col-sm-7">
 								<input type="hidden" name="id" value="${movement.getId()}">
 								<input type="hidden" name="wallet_id" value="${wallet.getId()}">
-								<input class="form-control" name="concept"
+								<input class="form-control" name="concept" autocomplete="off"
 									placeholder="Concepto"
 									value="${movement.getConcept().getName()}" />
 							</div>
