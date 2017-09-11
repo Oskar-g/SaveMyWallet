@@ -36,14 +36,8 @@
 				<button type="button"
 					class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 					a mis Carteras</button>
-<<<<<<< HEAD
-			</a>
-			<h4 class="header-title m-t-0 m-b-30">Movimientos de la Cartera
-				"${wallet.getName()}"</h4>
-=======
 			</a><br/><br/>
 			<h4 class="header-title m-t-0 m-b-30">Movimientos de la Cartera "${wallet.getName()}"</h4>
->>>>>>> refs/remotes/origin/Tamara
 
 			<table id="datatable" class="table table-striped table-bordered">
 				<thead>
