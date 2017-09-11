@@ -36,8 +36,10 @@ public class ConceptDAO implements IConceptDAO {
 	public Concept findByPrimaryId(Concept concept) {
 		Concept aux = null;
 		try{
-			String sql = "SELECT * FROM concepts WHERE name = ?";
-			aux = jdbcTemplateObject.queryForObject(sql, new Object[] {concept.getNameConcept()}, new ConceptMapper());
+			String sql = "SELECT * "
+					+ "		FROM concepts "
+					+ "		WHERE name = ?";
+			aux = jdbcTemplateObject.queryForObject(sql, new Object[] {concept.getName()}, new ConceptMapper());
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -49,9 +51,10 @@ public class ConceptDAO implements IConceptDAO {
 	 */
 	@Override
 	public void delete(Concept concept) {
-		String sql = "DELETE FROM concepts WHERE name = ?";
+		String sql = "DELETE FROM concepts "
+				+ "		WHERE name = ?";
 		try{
-			jdbcTemplateObject.update(sql, concept.getNameConcept());
+			jdbcTemplateObject.update(sql, concept.getName());
 			System.out.println("deleted record with id = " + concept.getName());
 		}catch (Exception e) {
 			System.out.println("excepcion " + e);

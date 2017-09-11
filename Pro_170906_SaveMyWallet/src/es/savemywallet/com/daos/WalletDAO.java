@@ -63,9 +63,9 @@ public class WalletDAO implements IWalletDAO {
 	 */
 	@Override
 	public void add(Wallet wallet) {
-		String SQL = "INSERT INTO wallets (id_wallet, id_user, name_wallet, description) VALUES (?,?,?,?)";
+		String SQL = "INSERT INTO wallets VALUES (null,?,?,?)";
 		try{
-			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getIdUser(), wallet.getNameWallet(), wallet.getDescription());
+			jdbcTemplateObject.update(SQL, wallet.getUserId(), wallet.getName(), wallet.getDescription());
 		}catch(Exception e){
 			System.out.println(e);
 		}
@@ -89,9 +89,13 @@ public class WalletDAO implements IWalletDAO {
 	 */
 	@Override
 	public void update(Wallet wallet) {
-		String SQL = "UPDATE wallets SET id_user = ?, name_wallet = ?, description = ? WHERE id_wallet = ?";
+		String SQL = "UPDATE wallets "
+				+ "		SET id_user = ?, "
+				+ "		name= ?, "
+				+ "		description = ? "
+				+ "		WHERE id = ?";
 		try{
-			jdbcTemplateObject.update(SQL, wallet.getIdUser(),wallet.getNameWallet(), wallet.getDescription(),wallet.getIdWallet());
+			jdbcTemplateObject.update(SQL, wallet.getUserId(),wallet.getName(), wallet.getDescription(),wallet.getId());
 		}catch(Exception e){			
 			System.out.println(e);
 		}
