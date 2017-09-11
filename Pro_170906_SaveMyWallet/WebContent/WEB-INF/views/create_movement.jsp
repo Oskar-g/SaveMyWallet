@@ -27,7 +27,7 @@
 								<input type="hidden" name="wallet_id" value="${wallet.getId()}">
 							<label class="col-sm-2 control-label">Concepto</label>
 							<div class="col-sm-10">
-								<input list="concepts" name="concept" class="form-control"
+								<input list="concepts" name="concept" class="form-control" autocomplete="off"
 									placeholder="Ej: ingreso de nómina">
 								<datalist id="concepts">
 									<c:forEach items="${concepts}" var="concept">
