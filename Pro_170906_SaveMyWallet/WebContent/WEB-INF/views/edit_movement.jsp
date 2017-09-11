@@ -9,19 +9,19 @@
 		<div class="card-box">
 			<div class="row">
 				<div class="col-lg-6">
-					<a href="list_wallet.html">
+					<a href="list_movement.html">
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
-							a mis Carteras</button>
+							a mis Movimientos</button>
 					</a><br/><br/>
 					<h4 class="m-b-30 m-t-0 header-title">
-						<b>${pageTitle} "${user.getName()}"</b>
+						<b>${pageTitle} "${wallet.getName()}"</b>
 					</h4>
 
-					<form class="form-horizontal" action="update_user.html"
+					<form class="form-horizontal" action="update_movement.html"
 						method="post">
 						<div class="form-group">
-							<label class="col-sm-4 control-label">Nombre de usuario</label>
+							<label class="col-sm-4 control-label">Fecha</label>
 							<div class="col-sm-7">
 								<input type="hidden" name="id"
 									value="${user.getId()}"> <input
@@ -31,7 +31,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-4 control-label">Nombre</label>
+							<label class="col-sm-4 control-label">Concepto</label>
 							<div class="col-sm-7">
 								<input class="form-control" name="name"
 									placeholder="Nombre"
@@ -39,15 +39,15 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-4 control-label">Apellidos</label>
+							<label class="col-sm-4 control-label">Tipo de operación</label>
 							<div class="col-sm-7">
-								<input class="form-control" name="surname"
-									placeholder="Apellidos"
-									value="${user.getSurname()}" />
+								<input type="radio" checked name="type" value="ingreso" />
+								Ingreso <br> <input type="radio" name="type" value="${user.getType()}" />
+								Gasto
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-4 control-label">Email</label>
+							<label class="col-sm-4 control-label">Cantidad</label>
 							<div class="col-sm-7">
 								<input class="form-control" name="email"
 									placeholder="Email"
