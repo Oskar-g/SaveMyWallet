@@ -30,13 +30,13 @@ public class ConceptDAO implements IConceptDAO {
 	}
 	
 	/**
-	 * Method find by primary id_concept
+	 * Method find by primary id
 	 */
 	@Override
 	public Concept findByPrimaryId(Concept concept) {
 		Concept aux = null;
 		try{
-			String sql = "SELECT * FROM concepts WHERE name_concept = ?";
+			String sql = "SELECT * FROM concepts WHERE name = ?";
 			aux = jdbcTemplateObject.queryForObject(sql, new Object[] {concept.getNameConcept()}, new ConceptMapper());
 		}catch(Exception e){
 			e.printStackTrace();

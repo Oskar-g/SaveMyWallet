@@ -2,48 +2,52 @@ package es.savemywallet.com.beans;
 
 public class User {
 
-	/**
+	/*
+	 * -----------------------------------------------------------------------
 	 * Properties
+	 * -----------------------------------------------------------------------
 	 */
-	private int idUser;
-	private String nameUser;
+	private int id;
+	private String UserName;
+	private String name;
 	private String surname;
 	private String email;
 	private String password;
 	
-	/**
-	 * Default Constructor
+	/*
+	 * -----------------------------------------------------------------------
+	 * Constructors
+	 * -----------------------------------------------------------------------
 	 */
+	
 	public User(){}
 
-	/**
-	 * Constructor
-	 * @param idUser
-	 * @param name
-	 * @param surname
-	 * @param email
-	 * @param password
-	 */
-	public User(int idUser, String nameUser, String surname, String email, String password) {
-		this.idUser = idUser;
-		this.nameUser = nameUser;
+	public User(int id, String userName, String name, String surname, String email, String password) {
+		super();
+		this.id = id;
+		UserName = userName;
+		this.name = name;
 		this.surname = surname;
 		this.email = email;
 		this.password = password;
 	}
-		
 
 	/*
 	 * -----------------------------------------------------------------------
 	 * Getters
 	 * -----------------------------------------------------------------------
 	 */
-	public int getIdUser() {
-		return idUser;
+	
+	public int getId() {
+		return id;
 	}
 
-	public String getNameUser() {
-		return nameUser;
+	public String getUserName() {
+		return UserName;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public String getSurname() {
@@ -63,12 +67,17 @@ public class User {
 	 * Setters
 	 * -----------------------------------------------------------------------
 	 */
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public void setNameUser(String nameUser) {
-		this.nameUser = nameUser;
+	public void setUserName(String userName) {
+		UserName = userName;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public void setSurname(String surname) {
