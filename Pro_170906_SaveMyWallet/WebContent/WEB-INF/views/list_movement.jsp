@@ -66,10 +66,15 @@
 								</c:when>
 							</c:choose>
 							<td>
-							<button class="btn btn-icon waves-effect waves-light btn-danger m-b-5"  data-toggle="modal" data-target="#dropMovement">
-							 <i class="fa fa-remove"></i>
-							  </button>
-			
+								<button class="btn btn-icon waves-effect waves-light btn-danger m-b-5"  data-toggle="modal" data-target="#dropMovement">
+								 <i class="fa fa-remove"></i>
+								  </button>
+				
+								<a href="edit_movement.html?idWallet=${movement.getId()}">
+									<button class="btn btn-icon waves-effect waves-light btn-danger m-b-5">
+								 		<i class="fa fa-wrench"></i>
+								  	</button>
+								 </a> 
 							</td>
 						</tr>
 					</c:forEach>
