@@ -58,8 +58,10 @@
 									placeholder="Contraseña" />
 							</div>
 						</div><br/>
+						<div align="center">
 						<button type="submit"
 							class="btn btn-success waves-effect waves-light">Confirmar</button>
+						</div>
 					</form>
 				</div>
 				<!-- end col -->

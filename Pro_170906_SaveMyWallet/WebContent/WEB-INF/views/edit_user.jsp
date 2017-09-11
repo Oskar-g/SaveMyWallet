@@ -13,16 +13,16 @@
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 							a mis Carteras</button>
-					</a>
+					</a><br/><br/>
 					<h4 class="m-b-30 m-t-0 header-title">
-						<b>${pageTitle} " ${user.getName()}"</b>
+						<b>Editar Usuario "${user.getName()}"</b>
 					</h4>
 
 					<form class="form-horizontal" action="update_user.html"
 						method="post">
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Nombre de usuario</label>
-							<div class="col-sm-10">
+							<div class="col-sm-7">
 								<input type="hidden" name="id"
 									value="${user.getId()}"> <input
 									class="form-control" name="username"
@@ -32,15 +32,15 @@
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Nombre</label>
-							<div class="col-sm-10">
+							<div class="col-sm-7">
 								<input class="form-control" name="name"
 									placeholder="Nombre"
 									value="${user.getName()}" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Apellidos</label>
-							<div class="col-sm-10">
+							<label class="col-sm-4 control-label">Apellidos</label>
+							<div class="col-sm-7">
 								<input class="form-control" name="surname"
 									placeholder="Apellidos"
 									value="${user.getSurname()}" />
@@ -48,7 +48,7 @@
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Email</label>
-							<div class="col-sm-10">
+							<div class="col-sm-7">
 								<input class="form-control" name="email"
 									placeholder="Email"
 									value="${user.getEmail()}" />
@@ -56,14 +56,23 @@
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Contraseña</label>
-							<div class="col-sm-10">
+							<div class="col-sm-7">
 								<input type="password" class="form-control" name="password"
 									placeholder="Contraseña"
 									value="${wallet.getPassword()}" />
 							</div>
 						</div>
-						<button type="submit"
+						<div class="form-group">
+							<label class="col-sm-4 control-label">Confirmar contraseña</label>
+							<div class="col-sm-7">
+								<input type="password" class="form-control" name="password"
+									placeholder="Confirmar contraseña" />
+							</div>
+						</div><br/>
+						<div align="center"><button type="submit"
 							class="btn btn-purple waves-effect waves-light">Submit</button>
+						</div>
+						
 					</form>
 				</div>
 				<!-- end col -->
