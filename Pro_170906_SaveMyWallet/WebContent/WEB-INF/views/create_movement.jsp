@@ -24,8 +24,8 @@
 						method="post">
 						<div class="form-group">
 							<input type="hidden" name="wallet_id" value="${wallet.getId()}">
-							<label class="col-sm-2 control-label">Concepto</label>
-							<div class="col-sm-10">
+							<label class="col-sm-4 control-label">Concepto</label>
+							<div class="col-sm-7">
 								<input list="concepts" name="concept" class="form-control"
 									autocomplete="off" placeholder="Ej: ingreso de nómina">
 								<datalist id="concepts">
@@ -45,8 +45,8 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Fecha</label>
-							<div class="col-sm-4">
+							<label class="col-sm-4 control-label">Fecha</label>
+							<div class="col-sm-7">
 								<input type="text" name="date" class="form-control" placeholder="YYYY-MM-DD"
 									id="datepicker-autoclose"/>
 							</div>
