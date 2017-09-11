@@ -234,9 +234,11 @@ public class MovementController {
 
 		//Gasto parser
 		double quantity = quantityForm;
-		if (type.equals("gasto")){
+		if (type.equals("gasto") && quantity > 0)
 			quantity = quantityForm - (quantityForm*2);
-		}
+		
+		if (type.equals("ingreso") && quantity < 0)
+			quantity = quantityForm - (quantityForm*2);
 
 		Concept concept = new Concept(conceptString);
 		Movement movement = new Movement();
