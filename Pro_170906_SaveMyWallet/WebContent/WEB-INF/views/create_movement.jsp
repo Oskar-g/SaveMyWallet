@@ -47,8 +47,8 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Fecha</label>
 							<div class="col-sm-4">
-								<input type="text" class="form-control" placeholder="mm/dd/yyyy"
-									id="datepicker-autoclose">
+								<input type="text" name="date" class="form-control" placeholder="YYYY-MM-DD"
+									id="datepicker-autoclose"/>
 							</div>
 						</div>
 						<div class="form-group">
@@ -75,9 +75,7 @@
 <!-- end row -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		alert("as")
-		jQuery("datepicker-autoclose").datepicker({
-			format : "yyyy/mm/dd",
+		$("#datepicker-autoclose").datepicker({
 			autoclose : true,
 			todayHighlight : true
 		});
