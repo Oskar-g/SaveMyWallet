@@ -69,7 +69,9 @@
 							 <button class="btn btn-icon waves-effect waves-light btn-danger m-b-5"  data-toggle="modal" data-target="#dropMovement">
 							 	<i class="fa fa-remove"></i>
 							 </button>
-								<button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal" value="edit_movement.html?idMovement=${movement.getIdMovement()}">Modificar</button>
+							<a href="edit_movement.html?idMovement=${movement.getIdMovement()}">
+								<button class="btn btn-icon waves-effect waves-light btn-primary m-b-5" data-toggle="modal" data-target="#con-close-modal"><i class="fa fa-wrench"></i></button>
+							</a>
 							</td>
 						</tr>
 					</c:forEach>

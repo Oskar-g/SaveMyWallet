@@ -56,7 +56,7 @@
 							<div class="col-sm-7">
 								<input type="number" class="form-control" name="quantity" />
 							</div>
-							<label class="col-sm-1 control-label">&euro;</label>
+							<label class="col-sm-0.5 control-label">&euro;</label>
 
 						</div>
 						<div align="center">
