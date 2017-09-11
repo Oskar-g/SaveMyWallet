@@ -9,7 +9,7 @@
 		<div class="card-box">
 			<div class="row">
 				<div class="col-lg-6">
-					<a href="create_movement.html?wallet=${wallet.getIdWallet()}">
+					<a href="list_movement.html?wallet=${wallet.getIdWallet()}">
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 							a movimientos</button>

@@ -27,18 +27,19 @@
                                     </div>
                                  -->
 
-			<h4 class="header-title m-t-0 m-b-30">Movimientos de la Cartera
-				"${wallet.getNameWallet()}"</h4>
 
 			<a href="create_movement.html?wallet=${wallet.getIdWallet()}">
 				<button type="button"
-					class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
-					a movimientos</button>
-			</a> <a href="list_wallet.html">
+					class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Agregar
+					movimiento</button>
+			</a> 
+			<a href="list_wallet.html">
 				<button type="button"
 					class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 					a mis Carteras</button>
-			</a><br/><br/>
+			</a>
+			<h4 class="header-title m-t-0 m-b-30">Movimientos de la Cartera "${wallet.getNameWallet()}"</h4>
+
 			<table id="datatable" class="table table-striped table-bordered">
 				<thead>
 					<tr>

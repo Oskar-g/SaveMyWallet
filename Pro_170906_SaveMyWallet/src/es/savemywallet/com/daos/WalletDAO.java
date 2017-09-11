@@ -43,6 +43,21 @@ public class WalletDAO implements IWalletDAO {
 		return auxWallet;
 	}
 
+	/*
+	public float getBalance(int idWallet) {
+		String SQL = "SELECT IFNULL(SUM(movements.quantity),0) "
+					+ "FROM movements "
+					+ "WHERE id_wallet = ?";
+		float balance = 0;
+		try{
+			balance = jdbcTemplateObject.query(SQL, new Object[]{idWallet},new WalletMapper());
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return balance;
+	}
+	*/
+	
 	/**
 	 * Method add wallet
 	 */
@@ -88,10 +103,29 @@ public class WalletDAO implements IWalletDAO {
 	 */
 	@Override
 	public List<Wallet> list(int idUser) {
-		String SQL = "SELECT * FROM wallets where id_user = ?";
+		String SQL = "SELECT * "
+					+ "FROM wallets "
+					+ "WHERE id_user = ?";
 		List<Wallet> listWallet = null;
 		try{
 			listWallet = jdbcTemplateObject.query(SQL, new Object[]{idUser},new WalletMapper());
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return listWallet;
+	}
+	
+
+	/**
+	 * Method list wallets
+	 */
+	@Override
+	public List<Wallet> list() {
+		String SQL = "SELECT * "
+				+ "FROM wallets ";
+		List<Wallet> listWallet = null;
+		try{
+			listWallet = jdbcTemplateObject.query(SQL,new WalletMapper());
 		}catch(Exception e){
 			System.out.println(e);
 		}
