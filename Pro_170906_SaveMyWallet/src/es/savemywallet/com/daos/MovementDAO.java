@@ -106,7 +106,8 @@ public class MovementDAO implements IMovementDAO{
 	public List<Movement> list(int walletId) {
 		String sql = "SELECT * "
 				+ "		FROM movements "
-				+ "WHERE  wallet_id = ?";
+				+ "WHERE  wallet_id = ? "
+				+ "ORDER BY date";
 		List<Movement>movements = null;
 		try{
 			movements = (List<Movement>)JdbcTemplateObject.query(sql,new Object[]{walletId}, new MovementMapper());

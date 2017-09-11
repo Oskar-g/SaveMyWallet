@@ -68,7 +68,7 @@ public class Wallet {
 	 * -----------------------------------------------------------------------
 	 */
 	
-	public void setIdWallet(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

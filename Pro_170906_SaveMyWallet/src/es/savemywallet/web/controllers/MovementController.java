@@ -116,9 +116,12 @@ public class MovementController {
 		
 		//Gasto parser
 		double quantity = quantityForm;
-		if (type.equals("gasto")){
+		if (type.equals("gasto") && quantity > 0)
 			quantity = quantityForm - (quantityForm*2);
-		}
+		
+		if (type.equals("ingreso") && quantity < 0)
+			quantity = quantityForm - (quantityForm*2);
+		
 		
 		Movement movement = new Movement();
 		Concept concept = new Concept(conceptString);
@@ -132,11 +135,8 @@ public class MovementController {
 		movementService.addMovement(movement);
 
 		try {
-
 			response.sendRedirect("create_movement.html?wallet=" + walletId);
-
 		} catch (IOException e) {
-
 			e.printStackTrace();
 		}
 
@@ -329,6 +329,9 @@ public class MovementController {
 		String submenu = "list_movement";
 
 		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);
+		//Scripts
+		modelAndView.addObject("script_datatables", true);
+		modelAndView.addObject("script_modal", true);
 
 		// -- Requerir login
 		Object[] loginStatus = LoginStatus.gete(response, request);
@@ -347,8 +350,6 @@ public class MovementController {
 		modelAndView.addObject("wallet", wallet);
 		modelAndView.addObject("movements", movements);
 
-		modelAndView.addObject("script_datatables", true);
-		modelAndView.addObject("script_modal", true);
 		//-- FIN CONTROLLER FUNCTIONS
 		
 		return modelAndView;
