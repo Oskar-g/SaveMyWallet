@@ -22,7 +22,7 @@
 		
 
 		</div>
-		<footer class="footer text-right"> 2016 © Adminto. </footer>
+		<footer class="footer text-right"> 2017 © Save My Wallet. </footer>
 
 	</div>
 
