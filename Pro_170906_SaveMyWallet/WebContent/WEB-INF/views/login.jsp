@@ -7,14 +7,13 @@
 
 <link rel='stylesheet prefetch'
 	href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
-<link rel="stylesheet" href="assets/css/custom.css">
+<link rel="stylesheet" href="assets/css/login.css">
 <style type="text/css">
 body {
-    background-image:    url(assets/images/backLogin.jpg);
-    background-size:     100% 100%;                     
+    background-image:    url(assets/images/backLogin.jpg);                     
     background-repeat:   no-repeat;
-    background-position: center center;              
 }
+
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
