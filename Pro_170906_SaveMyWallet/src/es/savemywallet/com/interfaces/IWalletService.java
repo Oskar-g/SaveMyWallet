@@ -13,5 +13,5 @@ public interface IWalletService {
 	public void addWallet(Wallet wallet);
 	public void updateWallet(Wallet wallet);
 	public void deleteWallet(int wallet);
-	public List<Wallet> listWallet(int id_user);
+	public List<Wallet> listWallet(int userId);
 }
