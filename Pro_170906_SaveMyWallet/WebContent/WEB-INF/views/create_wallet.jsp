@@ -9,9 +9,6 @@
 		<div class="card-box">
 			<div class="row">
 				<div class="col-lg-6">
-					<h4 class="m-b-30 m-t-0 header-title">
-						<b>${pageTitle}</b>
-					</h4>
 					<a href="list_wallet.html">
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
