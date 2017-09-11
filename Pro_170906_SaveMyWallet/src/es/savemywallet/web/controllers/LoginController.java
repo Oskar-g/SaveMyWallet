@@ -55,7 +55,8 @@ public class LoginController {
 	@RequestMapping(value = "/do_login", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public String doLogin(HttpSession sesion, HttpServletResponse response, HttpServletRequest request,
-			@RequestParam("user") String userForm, @RequestParam("password") String passForm) {
+			@RequestParam("user") String userForm, 
+			@RequestParam("password") String passForm) {
 
 		HttpSession session = request.getSession(true);
 

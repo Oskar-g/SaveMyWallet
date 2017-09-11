@@ -66,9 +66,9 @@ public class MovementService implements IMovementService {
 	 * Method list concept
 	 */
 	@Override
-	public List<Movement> listMovement() {
+	public List<Movement> listMovement(int idWallet) {
 		
-		List<Movement> listMovement = movementDAO.list();
+		List<Movement> listMovement = movementDAO.list(idWallet);
 		
 		return listMovement;
 	}

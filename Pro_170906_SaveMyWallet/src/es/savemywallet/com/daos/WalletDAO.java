@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import es.savemywallet.com.beans.Wallet;
 import es.savemywallet.com.interfaces.IWalletDAO;
-import es.savemywallet.com.utils.WalletMapper;
+import es.savemywallet.com.mappers.WalletMapper;
 
 public class WalletDAO implements IWalletDAO {
 	
@@ -43,14 +43,29 @@ public class WalletDAO implements IWalletDAO {
 		return auxWallet;
 	}
 
+	/*
+	public float getBalance(int idWallet) {
+		String SQL = "SELECT IFNULL(SUM(movements.quantity),0) "
+					+ "FROM movements "
+					+ "WHERE id_wallet = ?";
+		float balance = 0;
+		try{
+			balance = jdbcTemplateObject.query(SQL, new Object[]{idWallet},new WalletMapper());
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return balance;
+	}
+	*/
+	
 	/**
 	 * Method add wallet
 	 */
 	@Override
 	public void add(Wallet wallet) {
-		String SQL = "INSERT INTO wallets (id_wallet, id_user, name_wallet, description) VALUES (?,?,?,?)";
+		String SQL = "INSERT INTO wallets VALUES (null,?,?,?)";
 		try{
-			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getIdUser(), wallet.getNameWallet(), wallet.getDescription());
+			jdbcTemplateObject.update(SQL, wallet.getUserId(), wallet.getName(), wallet.getDescription());
 		}catch(Exception e){
 			System.out.println(e);
 		}
@@ -74,9 +89,13 @@ public class WalletDAO implements IWalletDAO {
 	 */
 	@Override
 	public void update(Wallet wallet) {
-		String SQL = "UPDATE wallets SET id_user = ?, name_wallet = ?, description = ? WHERE id_wallet = ?";
+		String SQL = "UPDATE wallets "
+				+ "		SET id_user = ?, "
+				+ "		name= ?, "
+				+ "		description = ? "
+				+ "		WHERE id = ?";
 		try{
-			jdbcTemplateObject.update(SQL, wallet.getIdWallet(), wallet.getDescription());
+			jdbcTemplateObject.update(SQL, wallet.getUserId(),wallet.getName(), wallet.getDescription(),wallet.getId());
 		}catch(Exception e){			
 			System.out.println(e);
 		}
@@ -87,11 +106,30 @@ public class WalletDAO implements IWalletDAO {
 	 * Method list wallets
 	 */
 	@Override
-	public List<Wallet> list() {
-		String SQL = "SELECT * FROM wallets";
+	public List<Wallet> list(int idUser) {
+		String SQL = "SELECT * "
+					+ "FROM wallets "
+					+ "WHERE id_user = ?";
 		List<Wallet> listWallet = null;
 		try{
-			listWallet = jdbcTemplateObject.query(SQL, new WalletMapper());
+			listWallet = jdbcTemplateObject.query(SQL, new Object[]{idUser},new WalletMapper());
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return listWallet;
+	}
+	
+
+	/**
+	 * Method list wallets
+	 */
+	@Override
+	public List<Wallet> list() {
+		String SQL = "SELECT * "
+				+ "FROM wallets ";
+		List<Wallet> listWallet = null;
+		try{
+			listWallet = jdbcTemplateObject.query(SQL,new WalletMapper());
 		}catch(Exception e){
 			System.out.println(e);
 		}

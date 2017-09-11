@@ -63,8 +63,8 @@ public class WalletService implements IWalletService {
 	 * Method list wallets
 	 */
 	@Override
-	public List<Wallet> listWallet() {
-		List<Wallet> listWallet = walletDAO.list();
+	public List<Wallet> listWallet(int idUser) {
+		List<Wallet> listWallet = walletDAO.list(idUser);
 		return listWallet;
 	}
 

@@ -2,56 +2,64 @@ package es.savemywallet.com.beans;
 
 public class Wallet {
 	
-	/**
+	/*
+	 * -----------------------------------------------------------------------
 	 * Properties
+	 * -----------------------------------------------------------------------
+	 */
+	private int id;
+	private int userId;
+	private User user;
+	private String name;
+	private String description;
+	private float balance;
+
+	
+	/*
+	 * -----------------------------------------------------------------------
+	 * Constructors
+	 * -----------------------------------------------------------------------
 	 */
 	
-	private int idWallet;
-	private int idUser;
-	private User user;
-	private String nameWallet;
-	private String descripcion;
-
-
-	/**
-	 * Default Constructor
-	 */
 	public Wallet (){}
 
-
-	public Wallet(int idWallet, int idUser, User user, String nameWallet, String descripcion) {
+	public Wallet(int id, int userId, User user, String name, String description) {
 		super();
-		this.idWallet = idWallet;
-		this.idUser = idUser;
+		this.id = id;
+		this.userId = userId;
 		this.user = user;
-		this.nameWallet = nameWallet;
-		this.descripcion = descripcion;
+		this.name = name;
+		this.description = description;
 	}
-	
+
 	/*
 	 * -----------------------------------------------------------------------
 	 * Getters
 	 * -----------------------------------------------------------------------
 	 */
 
-	public int getIdWallet() {
-		return idWallet;
+	public int getId() {
+		return id;
 	}
 
-	public int getIdUser() {
-		return idUser;
-	
+	public int getUserId() {
+		return userId;
 	}
 
 	public User getUser() {
 		return user;
 	}
 
-	public String getDescription() {
-		return descripcion;
+	public String getName() {
+		return name;
 	}
-	public String getNameWallet() {
-		return nameWallet;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public float getBalance() {
+		return balance;
 	}
 	
 	/*
@@ -59,27 +67,28 @@ public class Wallet {
 	 * Setters
 	 * -----------------------------------------------------------------------
 	 */
+	
+	public void setIdWallet(int id) {
+		this.id = id;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 	public void setUser(User user) {
 		this.user = user;
 	}
 
-
-	public void setNameWallet(String nameWallet) {
-		this.nameWallet = nameWallet;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setDescription(String descripcion) {
-		this.descripcion = descripcion;
-	}
-	
-	public void setIdWallet(int idWallet) {
-		this.idWallet = idWallet;
-	}
-	
-	public void setIdUser(int idUser) {
-	this.idUser = idUser;
-	
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
+	public void setBalance(float balance) {
+		this.balance = balance;
+	}
 }

@@ -1,4 +1,4 @@
-package es.savemywallet.com.utils;
+package es.savemywallet.com.mappers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +13,7 @@ public class ConceptMapper implements RowMapper<Concept> {
 	public Concept mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Concept concept = new Concept();
 		
-		concept.setNameConcept(rs.getString("name_concept"));
+		concept.setName(rs.getString("name"));
 			
 		return concept;
 	}
