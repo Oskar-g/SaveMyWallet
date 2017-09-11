@@ -9,7 +9,7 @@
 		<div class="card-box">
 			<div class="row">
 				<div class="col-lg-6">
-					<a href="list_movement.html?wallet=${wallet.getIdWallet()}">
+					<a href="list_movement.html?wallet=${wallet.getId()}">
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 							a movimientos</button>
@@ -19,18 +19,20 @@
 							a mis Carteras</button>
 					</a>
 					<h4 class="m-b-30 m-t-0 header-title">
-						<b>${pageTitle} a la cartera ${wallet.getNameWallet()}</b>
+						<b>${pageTitle} a la cartera ${wallet.getName()}</b>
 					</h4>
 					<form class="form-horizontal" action="add_wallet.html"
 						method="post">
 						<div class="form-group">
+								<input type="hidden" name="wallet_id" value="${wallet.getId()}">
+								<input type="hidden" name="name_wallet" value="${wallet.getId()}">
 							<label class="col-sm-2 control-label">Concepto</label>
 							<div class="col-sm-10">
 								<input list="concepts" name="concept" class="form-control"
 									placeholder="Ej: ingreso de nómina">
 								<datalist id="concepts">
 									<c:forEach items="${concepts}" var="concept">
-										<option value="${concept.getNameConcept()}">
+										<option value="${concept.getName()}">
 									</c:forEach>
 								</datalist>
 							</div>

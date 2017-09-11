@@ -19,7 +19,7 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Nombre</label>
 							<div class="col-sm-10">
-								<input class="form-control" name="name_wallet"
+								<input class="form-control" name="name"
 									placeholder="Nombre de la cartera" />
 							</div>
 						</div>
