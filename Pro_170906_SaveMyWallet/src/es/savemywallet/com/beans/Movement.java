@@ -4,144 +4,111 @@ import java.util.Date;
 
 public class Movement {
 	
-	/**
+	/*
+	 * -----------------------------------------------------------------------
 	 * Properties
+	 * -----------------------------------------------------------------------
 	 */
-	
-	private int idMovement;
-	private String nameConcept;
-	private Date dateMovement;
-	private String typeMovement;
+	private int id;
+	private Date date;
+	private String type;
 	private double quantity;
-	private int idWallet;
+	private int walletId;
 	private Wallet wallet;
 	private Concept concept;
 	
 	
-	
-	/**
-	 * Default Constructor
+	/*
+	 * -----------------------------------------------------------------------
+	 * Constructors
+	 * -----------------------------------------------------------------------
 	 */
 	
-	public Movement() {
-		super();
-	}
+	public Movement() {}
 	
-	/**
-	 * 
-	 * @param idMovement
-	 * @param date
-	 * @param quantity
-	 * @param idWallet
-	 * @param idConcept
-	 */
+	public Movement(int id, String name, Date date, String type, double quantity, int walletId, Concept concept) {
 	
-	public Movement(int idMovement, Date dateMovement,String typeMovement, double quantity, int idWallet, String nameConcept) {
-		super();
-		this.idMovement = idMovement;
-		this.nameConcept = nameConcept;
-		this.typeMovement = typeMovement;
-		this.dateMovement = dateMovement;
+		this.id = id;
+		this.date = date;
+		this.type = type;
 		this.quantity = quantity;
-		this.idWallet = idWallet;
-		
+		this.walletId = walletId;
+		this.concept = concept;
 	}
-		/**
-		 * 
-		 * @param idMovement
-		 * @param date
-		 * @param quantity
-		 * @param idWallet
-		 * @param idConcept
-		 * @param wallet
-		 * @param concept
-		 */
-		public Movement(int idMovement, Date dateMovement, double quantity, int idWallet, String nameConcept, Wallet wallet,
-				Concept concept) {
-			super();
-			this.idMovement = idMovement;
-			this.nameConcept = nameConcept;
-			this.dateMovement = dateMovement;
-			this.quantity = quantity;
-			this.idWallet = idWallet;
-			this.wallet = wallet;
-			this.concept = concept;
-		}
 
-		/*
-		 * -----------------------------------------------------------------------
-		 * Getters
-		 * -----------------------------------------------------------------------
-		 */
+	/*
+	 * -----------------------------------------------------------------------
+	 * Getters
+	 * -----------------------------------------------------------------------
+	 */
+	
+	public int getId() {
+		return id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public double getQuantity() {
+		return quantity;
+	}
+
+	public int getWalletId() {
+		return walletId;
+	}
+
+	public Wallet getWallet() {
+		return wallet;
+	}
+
+	public Concept getConcept() {
+		return concept;
+	}
 		
-		public int getIdMovement() {
-			return idMovement;
-		}
+	/*
+	 * -----------------------------------------------------------------------
+	 * Setters
+	 * -----------------------------------------------------------------------
+	 */
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
-		public String getNameConcept() {
-			return nameConcept;
-		}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-		public Date getDateMovement() {
-			return dateMovement;
-		}
+	public void setType(String type) {
+		this.type = type;
+	}
 
-		public String getTypeMovement() {
-			return typeMovement;
-		}
+	public void setQuantity(double quantity) {
+		this.quantity = quantity;
+	}
 
-		public double getQuantity() {
-			return quantity;
-		}
+	public void setWalletId(int walletId) {
+		this.walletId = walletId;
+	}
 
-		public int getIdWallet() {
-			return idWallet;
-		}
+	public void setWallet(Wallet wallet) {
+		this.wallet = wallet;
+	}
 
-		public Wallet getWallet() {
-			return wallet;
-		}
+	public void setConcept(Concept concept) {
+		this.concept = concept;
+	}
 
-		public Concept getConcept() {
-			return concept;
-		}
-				
-		/*
-		 * -----------------------------------------------------------------------
-		 * Setters
-		 * -----------------------------------------------------------------------
-		 */
-		
-		public void setIdMovement(int idMovement) {
-			this.idMovement = idMovement;
-		}
-
-		public void setNameConcept(String nameConcept) {
-			this.nameConcept = nameConcept;
-		}
-
-		public void setDateMovement(Date dateMovement) {
-			this.dateMovement = dateMovement;
-		}
-
-		public void setTypeMovement(String typeMovement) {
-			this.typeMovement = typeMovement;
-		}
-
-		public void setQuantity(double quantity) {
-			this.quantity = quantity;
-		}
-
-		public void setIdWallet(int idWallet) {
-			this.idWallet = idWallet;
-		}
-
-		public void setWallet(Wallet wallet) {
-			this.wallet = wallet;
-		}
-
-		public void setConcept(Concept concept) {
-			this.concept = concept;
-		}
+	@Override
+	public String toString() {
+		return "Movement [id=" + id + ", date=" + date + ", type=" + type + ", quantity=" + quantity
+				+ ", walletId=" + walletId + ", wallet=" + wallet + ", concept=" + concept + "]";
+	}
+	
 	
 }

@@ -8,18 +8,18 @@
 	<div class="col-sm-12">
 		<div class="card-box">
 			<div class="row">
-				<div class="col-lg-6">
+				<div class="col-lg-6"><br/>
 					<a href="list_wallet.html">
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 							a mis Carteras</button>
-					</a>
+					</a><br/><br/>
 					<form class="form-horizontal" action="add_wallet.html"
 						method="post">
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Nombre</label>
 							<div class="col-sm-10">
-								<input class="form-control" name="name_wallet"
+								<input class="form-control" name="name"
 									placeholder="Nombre de la cartera" />
 							</div>
 						</div>
@@ -30,8 +30,9 @@
 									placeholder="Decripción representativa de esta cartera"></textarea>
 							</div>
 						</div>
-						<button type="submit"
-							class="btn btn-success waves-effect waves-light">Agregar</button>
+						<div align="center">
+							<button type="submit" class="btn btn-success waves-effect waves-light">Agregar</button>
+						</div>
 					</form>
 				</div>
 				<!-- end col -->

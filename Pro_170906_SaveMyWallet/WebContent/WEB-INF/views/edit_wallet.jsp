@@ -13,9 +13,9 @@
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 							a mis Carteras</button>
-					</a>
+					</a><br/><br/>
 					<h4 class="m-b-30 m-t-0 header-title">
-						<b>${pageTitle} " ${wallet.getNameWallet()}"</b>
+						<b>${pageTitle} " ${wallet.getName()}"</b>
 					</h4>
 
 					<form class="form-horizontal" action="update_wallet.html"
@@ -24,10 +24,10 @@
 							<label class="col-sm-2 control-label">Nombre</label>
 							<div class="col-sm-10">
 								<input type="hidden" name="id_wallet"
-									value="${wallet.getIdWallet()}"> <input
+									value="${wallet.getId()}"> <input
 									class="form-control" name="name_wallet"
 									placeholder="Nombre de la cartera"
-									value="${wallet.getNameWallet()}" />
+									value="${wallet.getName()}" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -37,8 +37,10 @@
 									placeholder="Decripción representativa de esta cartera">${wallet.getDescription()}</textarea>
 							</div>
 						</div>
-						<button type="submit"
-							class="btn btn-purple waves-effect waves-light">Submit</button>
+						<div align="center">
+							<button type="submit"
+							class="btn btn-success waves-effect waves-light">Aceptar</button>
+						</div>
 					</form>
 				</div>
 				<!-- end col -->

@@ -77,8 +77,8 @@ public class WalletController {
 	 */
 	@RequestMapping(value = "/add_wallet", method = RequestMethod.POST)
 	public ModelAndView addWallet(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam("name_wallet") String nameWallet,
-			@RequestParam("description") String descriptionWallet) {
+			@RequestParam("name") String name,
+			@RequestParam("description") String description) {
 		
 		//-- Requerir login
 		Object[] loginStatus = LoginStatus.gete(response, request);
@@ -93,9 +93,9 @@ public class WalletController {
 			User user = (User) session.getAttribute("user");
 		
 		Wallet wallet = new Wallet();
-		wallet.setIdUser(user.getIdUser());
-		wallet.setNameWallet(nameWallet);
-		wallet.setDescription(descriptionWallet);
+		wallet.setUserId(user.getId());
+		wallet.setName(name);
+		wallet.setDescription(description);
 		
 		WalletService walletService = new WalletService();
 		walletService.addWallet(wallet);
@@ -180,8 +180,8 @@ public class WalletController {
 		
 		Wallet wallet = new Wallet();
 		wallet.setIdWallet(idWallet);
-		wallet.setIdUser(user.getIdUser());
-		wallet.setNameWallet(nameWallet);
+		wallet.setUserId(user.getId());
+		wallet.setName(nameWallet);
 		wallet.setDescription(description);
 		
 		WalletService walletService = new WalletService();
@@ -270,13 +270,14 @@ public class WalletController {
 		//-CONTROLLER FUNCTIONS
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
-		int id_user = user.getIdUser();
+		int userId = user.getId();
 
 		WalletService walletService = new WalletService();
-		List<Wallet> list = walletService.listWallet(id_user);
+		List<Wallet> list = walletService.listWallet(userId);
 
 		modelAndView.addObject("list", list);
-			
+		modelAndView.addObject("script_modal",true);
+		
 		return modelAndView;
 	}
 

@@ -29,6 +29,13 @@
 	<script src="assets/plugins/raphael/raphael-min.js"></script>
 </c:if>
 
+<!--  -->
+<c:if test="${script_modal == true}">
+	<script src="assets/plugins/custombox/dist/custombox.min.js"></script>
+	<script src="assets/plugins/custombox/dist/legacy.min.js"></script>
+</c:if>
+
+
 <!-- Datatables-->
 <c:if test="${script_datatables == true}">
 	<script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -45,4 +52,9 @@
 	<script src="assets/plugins/datatables/dataTables.responsive.min.js"></script>
 	<script src="assets/plugins/datatables/responsive.bootstrap.min.js"></script>
 	<script src="assets/plugins/datatables/dataTables.scroller.min.js"></script>
+</c:if>
+
+<c:if test="${script_datepicker == true}">
+	<script
+		src="assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 </c:if>

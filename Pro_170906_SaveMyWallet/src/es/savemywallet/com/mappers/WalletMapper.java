@@ -13,9 +13,9 @@ public class WalletMapper implements RowMapper<Wallet> {
 	public Wallet mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Wallet wallet = new Wallet();
 		
-		wallet.setIdWallet(rs.getInt("id_wallet"));
-		wallet.setIdUser(rs.getInt("id_user"));
-		wallet.setNameWallet(rs.getString("name_wallet"));
+		wallet.setIdWallet(rs.getInt("id"));
+		wallet.setUserId(rs.getInt("user_id"));
+		wallet.setName(rs.getString("name"));
 		wallet.setDescription(rs.getString("description"));
 		
 		return wallet;
