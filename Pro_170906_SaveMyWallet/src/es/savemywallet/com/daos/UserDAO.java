@@ -36,7 +36,7 @@ public class UserDAO implements IUserDAO {
 		try{
 			String sql = "SELECT * "
 					+ "FROM users "
-					+ "WHERE id_user = ?";
+					+ "WHERE id = ?";
 			aux = JdbcTemplateObject.queryForObject(sql, new Object[] {id}, new UserMapper());
 		}catch(Exception e){
 			
