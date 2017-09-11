@@ -66,7 +66,10 @@
 									<td style="color: red;">${movement.getQuantity()}</td>
 								</c:when>
 							</c:choose>
-							<td>ope ope</td>
+							<td>
+							<button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Eliminar</button>
+                                							
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>

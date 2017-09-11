@@ -276,7 +276,8 @@ public class WalletController {
 		List<Wallet> list = walletService.listWallet(userId);
 
 		modelAndView.addObject("list", list);
-			
+		modelAndView.addObject("script_modal",true);
+		
 		return modelAndView;
 	}
 

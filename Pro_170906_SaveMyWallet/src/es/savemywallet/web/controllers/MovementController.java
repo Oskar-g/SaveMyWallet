@@ -317,6 +317,8 @@ public class MovementController {
 
 		modelAndView.addObject("wallet", wallet);
 		modelAndView.addObject("movements", movements);
+		modelAndView.addObject("script_datatables", true);
+		modelAndView.addObject("script_modal", true);
 		//-- FIN CONTROLLER FUNCTIONS
 		
 		return modelAndView;
