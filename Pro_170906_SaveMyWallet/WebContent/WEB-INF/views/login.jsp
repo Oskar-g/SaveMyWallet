@@ -37,9 +37,11 @@ body {
 					name="password" id="Passwod"> <i class="fa fa-lock"></i>
 			</div>
 			<span class="alert">Credenciales inválidos</span> <a class="link"
-				href="#">¿Olvidaste la contraseña?</a>
-			<button type="submit" class="log-btn">Acceder</button>
+				href="#">¿Olvidaste la contraseña?</a><br/><br/>
+			<button type="submit" class="log-btn">Acceder</button><br/><br/>
+			
 		</form>
+		<a class="link" href="create_user.html">Registrarse</a>
 		<div id="loader"
 			style="display: none; text-align: center; width: 100%;">
 			<img alt="" src="assets/images/loader.gif" style="height: 50px;">
