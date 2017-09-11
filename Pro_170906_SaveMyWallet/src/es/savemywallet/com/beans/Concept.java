@@ -2,35 +2,32 @@ package es.savemywallet.com.beans;
 
 public class Concept {
 	
-	/**
+	/*
+	 * -----------------------------------------------------------------------
 	 * Properties
+	 * -----------------------------------------------------------------------
 	 */
-	private String nameConcept;
+	private String name;
 		
-	/**
-	 * Default Constructor
-	 */	
+	/*
+	 * -----------------------------------------------------------------------
+	 * Constructors
+	 * -----------------------------------------------------------------------
+	 */
 	public Concept() {}
 
-	/**
-	 * Constructor
-	 * @param idConcept
-	 * @param name
-	 */
-	public Concept(String nameConcept) {
-		this.nameConcept = nameConcept;
+	public Concept(String name) {
+		this.name = name;
 	}
 	
-
 	/*
 	 * -----------------------------------------------------------------------
 	 * Getters
 	 * -----------------------------------------------------------------------
 	 */
 	
-	
-	public String getNameConcept() {
-		return nameConcept;
+	public String getName() {
+		return name;
 	}
 	
 	/*
@@ -39,7 +36,7 @@ public class Concept {
 	 * -----------------------------------------------------------------------
 	 */
 
-	public void setNameConcept(String nameConcept) {
-		this.nameConcept = nameConcept;
+	public void setName(String name) {
+		this.name = name;
 	}
 }

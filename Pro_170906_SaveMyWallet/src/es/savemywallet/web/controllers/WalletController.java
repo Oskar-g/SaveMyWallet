@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import es.savemywallet.com.beans.User;
 import es.savemywallet.com.beans.Wallet;
 import es.savemywallet.com.services.WalletService;
-import es.savemywallet.com.utils.JSON_Encode;
 import es.savemywallet.com.utils.LoginStatus;
 import es.savemywallet.com.utils.TemplateLoader;
 
@@ -49,7 +47,7 @@ public class WalletController {
 		String menu = "wallet";
 		String submenu = "create_wallet";
 		ModelAndView modelAndView = TemplateLoader.start(request, view, title, menu, submenu);
-		
+
 			//-- Requerir login
 			Object[] loginStatus = LoginStatus.gete(response, request);
 			if (!(boolean) loginStatus[0]) {
@@ -79,8 +77,8 @@ public class WalletController {
 	 */
 	@RequestMapping(value = "/add_wallet", method = RequestMethod.POST)
 	public ModelAndView addWallet(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam("name_wallet") String nameWallet,
-			@RequestParam("description") String descriptionWallet) {
+			@RequestParam("name") String name,
+			@RequestParam("description") String description) {
 		
 		//-- Requerir login
 		Object[] loginStatus = LoginStatus.gete(response, request);
@@ -95,9 +93,9 @@ public class WalletController {
 			User user = (User) session.getAttribute("user");
 		
 		Wallet wallet = new Wallet();
-		wallet.setIdUser(user.getIdUser());
-		wallet.setNameWallet(nameWallet);
-		wallet.setDescription(descriptionWallet);
+		wallet.setUserId(user.getId());
+		wallet.setName(name);
+		wallet.setDescription(description);
 		
 		WalletService walletService = new WalletService();
 		walletService.addWallet(wallet);
@@ -182,8 +180,8 @@ public class WalletController {
 		
 		Wallet wallet = new Wallet();
 		wallet.setIdWallet(idWallet);
-		wallet.setIdUser(user.getIdUser());
-		wallet.setNameWallet(nameWallet);
+		wallet.setUserId(user.getId());
+		wallet.setName(nameWallet);
 		wallet.setDescription(description);
 		
 		WalletService walletService = new WalletService();
@@ -272,13 +270,14 @@ public class WalletController {
 		//-CONTROLLER FUNCTIONS
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
-		int id_user = user.getIdUser();
+		int userId = user.getId();
 
 		WalletService walletService = new WalletService();
-		List<Wallet> list = walletService.listWallet(id_user);
+		List<Wallet> list = walletService.listWallet(userId);
 
 		modelAndView.addObject("list", list);
-			
+		modelAndView.addObject("script_modal",true);
+		
 		return modelAndView;
 	}
 

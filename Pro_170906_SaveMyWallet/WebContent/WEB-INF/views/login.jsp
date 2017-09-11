@@ -7,14 +7,13 @@
 
 <link rel='stylesheet prefetch'
 	href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
-<link rel="stylesheet" href="assets/css/custom.css">
+<link rel="stylesheet" href="assets/css/login.css">
 <style type="text/css">
 body {
-    background-image:    url(assets/images/backLogin.jpg);
-    background-size:     100% 100%;                     
+    background-image:    url(assets/images/backLogin.jpg);                     
     background-repeat:   no-repeat;
-    background-position: center center;              
 }
+
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -30,7 +29,7 @@ body {
 
 			<div class="form-group ">
 				<input type="text" class="form-control"
-					placeholder="nombre o correo" name="user" id="UserName" autofocus>
+					placeholder="nombre o correo" name="username" id="UserName" autofocus>
 				<i class="fa fa-user"></i>
 			</div>
 			<div class="form-group log-status">
@@ -38,9 +37,11 @@ body {
 					name="password" id="Passwod"> <i class="fa fa-lock"></i>
 			</div>
 			<span class="alert">Credenciales inválidos</span> <a class="link"
-				href="#">¿Olvidaste la contraseña?</a>
-			<button type="submit" class="log-btn">Acceder</button>
+				href="#">¿Olvidaste la contraseña?</a><br/><br/>
+			<button type="submit" class="log-btn">Acceder</button><br/><br/>
+			
 		</form>
+		<a class="link" href="create_user.html">Registrarse</a>
 		<div id="loader"
 			style="display: none; text-align: center; width: 100%;">
 			<img alt="" src="assets/images/loader.gif" style="height: 50px;">
