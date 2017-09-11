@@ -49,10 +49,10 @@ public class ConceptDAO implements IConceptDAO {
 	 */
 	@Override
 	public void delete(Concept concept) {
-		String sql = "DELETE FROM concepts WHERE name_concept = ?";
+		String sql = "DELETE FROM concepts WHERE name = ?";
 		try{
 			jdbcTemplateObject.update(sql, concept.getNameConcept());
-			System.out.println("deleted record with id = " + concept.getNameConcept());
+			System.out.println("deleted record with id = " + concept.getName());
 		}catch (Exception e) {
 			System.out.println("excepcion " + e);
 		}
@@ -63,11 +63,11 @@ public class ConceptDAO implements IConceptDAO {
 	 */
 	@Override
 	public void add(Concept concept) {
-		String sql = "INSERT INTO users VALUES (?)";
+		String sql = "INSERT INTO concepts "
+				+ "		VALUES (?)";
 		
 		try{
-			jdbcTemplateObject.update(sql,concept.getNameConcept());
-			System.out.println("created record");
+			jdbcTemplateObject.update(sql,concept.getName());
 			
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -79,10 +79,12 @@ public class ConceptDAO implements IConceptDAO {
 	 */
 	@Override
 	public void update(Concept concept) {
-		String sql = "UPDATE concepts SET name_concept= ? WHERE name_concept=?;";
+		String sql = "UPDATE concepts "
+				+ "		SET name= ? "
+				+ "		WHERE name=?;";
 		try{
-			jdbcTemplateObject.update(sql, concept.getNameConcept(), concept.getNameConcept());
-			System.out.println("updated record with name = " + concept.getNameConcept());
+			jdbcTemplateObject.update(sql, concept.getName(), concept.getName());
+			System.out.println("updated record with name = " + concept.getName());
 		}catch (Exception e) {
 			System.out.println("excepcion " + e);
 		}
@@ -93,7 +95,8 @@ public class ConceptDAO implements IConceptDAO {
 	 */
 	@Override
 	public List<Concept> list() {
-		String sql = "SELECT * FROM concepts";
+		String sql = "SELECT * "
+				+ "		FROM concepts";
 		List<Concept> listConcepts = null;
 		try{
 			listConcepts = (List<Concept>)jdbcTemplateObject.query(sql, new ConceptMapper());
