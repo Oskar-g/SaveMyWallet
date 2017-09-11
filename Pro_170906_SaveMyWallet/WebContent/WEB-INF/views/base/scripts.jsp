@@ -29,6 +29,13 @@
 	<script src="assets/plugins/raphael/raphael-min.js"></script>
 </c:if>
 
+<!--  -->
+<c:if test="${script_modal == true}">
+	<script src="assets/plugins/custombox/dist/custombox.min.js"></script>
+	<script src="assets/plugins/custombox/dist/legacy.min.js"></script>
+</c:if>
+
+
 <!-- Datatables-->
 <c:if test="${script_datatables == true}">
 	<script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
