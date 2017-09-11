@@ -194,7 +194,7 @@ public class MovementController {
 	 * @param quantity
 	 * @return
 	 */
-	@RequestMapping(value = "/update_movement", method = RequestMethod.GET)
+	@RequestMapping(value = "/update_movement", method = RequestMethod.POST)
 	public ModelAndView editMovement(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam("wallet_id") int walletId, @RequestParam("concept") String conceptString,
 			@RequestParam("date") String dateMovementForm, @RequestParam("quantity") double quantity) {

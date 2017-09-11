@@ -15,7 +15,7 @@
 							a mis Movimientos</button>
 					</a><br/><br/>
 					<h4 class="m-b-30 m-t-0 header-title">
-						<b>${pageTitle} "${movement.getName()}"</b>
+						<b>${pageTitle} "${movement.getConcept().getName()}"</b>
 					</h4>
 
 					<form class="form-horizontal" action="update_movement.html"
@@ -26,8 +26,8 @@
 								<input type="hidden" name="id"
 									value="${movement.getIdMovement()}"> <input
 									class="form-control" name="date"
-									placeholder="Nombre de usuario"
-									value="${movemente.getDate()}" />
+									placeholder="Fecha del movimiento"
+									value="${movement.getDate()}" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -35,7 +35,7 @@
 							<div class="col-sm-7">
 								<input class="form-control" name="concept"
 									placeholder="Concepto"
-									value="${movement.getConcept()}" />
+									value="${movement.getConcept().getName()}" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -53,14 +53,9 @@
 									placeholder="Cantidad"
 									value="${movement.getQuantity()}" />
 							</div>
+							<label class="col-sm-0.5 control-label">&euro;</label>
 						</div>
-						<div class="form-group">
-							<label class="col-sm-4 control-label">Confirmar contraseña</label>
-							<div class="col-sm-7">
-								<input type="password" class="form-control" name="password"
-									placeholder="Confirmar contraseña" />
-							</div>
-						</div><br/>
+						<br/>
 						<div align="center"><button type="submit"
 							class="btn btn-purple waves-effect waves-light">Submit</button>
 						</div>
