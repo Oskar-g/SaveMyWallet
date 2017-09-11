@@ -77,7 +77,6 @@
 	$(document).ready(function() {
 		$("#datepicker-autoclose").datepicker({
 			formatDate : "yyyy-mm-dd",
-			dateFormat : "yyyy-mm-dd",
 			format : "yyyy-mm-dd",
 			autoclose : true,
 			todayHighlight : true
