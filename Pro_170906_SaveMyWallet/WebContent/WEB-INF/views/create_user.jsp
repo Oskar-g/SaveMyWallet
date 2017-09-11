@@ -18,35 +18,35 @@
 						method="post">
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Nombre de ususario</label>
-							<div class="col-sm-10">
+							<div class="col-sm-8">
 								<input class="form-control" name="username"
 									placeholder="Nombre de usuario" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Nombre</label>
-							<div class="col-sm-10">
+							<div class="col-sm-8">
 								<input class="form-control" name="name"
 									placeholder="Nombre" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Apellidos</label>
-							<div class="col-sm-10">
+							<div class="col-sm-8">
 								<input class="form-control" name="surname"
 									placeholder="Apellidos" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Email</label>
-							<div class="col-sm-10">
+							<div class="col-sm-8">
 								<input class="form-control" name="email"
 									placeholder="Email" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Contraseña</label>
-							<div class="col-sm-10">
+							<div class="col-sm-8">
 								<input type="password" class="form-control" name="password"
 									placeholder="Contraseña" />
 							</div>
