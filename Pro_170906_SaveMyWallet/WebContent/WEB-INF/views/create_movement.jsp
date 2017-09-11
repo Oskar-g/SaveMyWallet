@@ -16,7 +16,7 @@
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
 							a mis Carteras</button>
-					</a><br/><br/>
+					</a><br /> <br />
 					<h4 class="m-b-30 m-t-0 header-title">
 						<b>${pageTitle} a la cartera ${wallet.getName()}</b>
 					</h4>
@@ -47,9 +47,8 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Fecha</label>
 							<div class="col-sm-4">
-								<input type="date" id="datepicker-autoclose"
-									class="form-control" name="date_movement"
-									placeholder="YYYY-MM-DD" />
+								<input type="text" class="form-control" placeholder="mm/dd/yyyy"
+									id="datepicker-autoclose">
 							</div>
 						</div>
 						<div class="form-group">
@@ -62,7 +61,7 @@
 						</div>
 						<div align="center">
 							<button type="submit"
-							class="btn btn-success waves-effect waves-light">Añadir</button>
+								class="btn btn-success waves-effect waves-light">Añadir</button>
 						</div>
 					</form>
 				</div>
@@ -74,13 +73,13 @@
 	<!-- end col -->
 </div>
 <!-- end row -->
-<script id="datepicker-autoclose">
-$(document).ready(function{
-	
-	jQuery('#datepicker-autoclose').datepicker({
-		 format: "yyyy/mm/dd",
-	    autoclose: true,
-	    todayHighlight: true
+<script type="text/javascript">
+	$(document).ready(function() {
+		alert("as")
+		jQuery("datepicker-autoclose").datepicker({
+			format : "yyyy/mm/dd",
+			autoclose : true,
+			todayHighlight : true
+		});
 	});
-});
 </script>

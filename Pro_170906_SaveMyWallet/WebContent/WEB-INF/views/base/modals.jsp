@@ -17,17 +17,15 @@
 			</div>
 			<div class="modal-body">
 				<div class="row">Estás apunto de eliminar esta cartera.
-					¿Deseas continuar?
-				</div>
+					¿Deseas continuar?</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default waves-effect"
 					data-dismiss="modal">Cancelar</button>
-			<a id="delete_wallet_button">
-				<button type="button" class="btn btn-info waves-effect waves-light">
-				Aceptar
-				</button>
-			</a>
+				<a id="delete_wallet_button">
+					<button type="button" class="btn btn-info waves-effect waves-light">
+						Aceptar</button>
+				</a>
 			</div>
 		</div>
 		<!-- /.modal-content -->
@@ -51,16 +49,14 @@
 			</div>
 			<div class="modal-body">
 				<div class="row">Estás apunto de eliminar este movimiento.
-					¿Deseas continuar?
-				</div>
+					¿Deseas continuar?</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default waves-effect"
 					data-dismiss="modal">Cancelar</button>
 				<a id="delete_movement_button">
-					<button type="button" class="btn btn-info waves-effect waves-light" >
-					Aceptar
-					</button>
+					<button type="button" class="btn btn-info waves-effect waves-light">
+						Aceptar</button>
 				</a>
 			</div>
 		</div>
