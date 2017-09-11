@@ -93,8 +93,8 @@ public class WalletController {
 			User user = (User) session.getAttribute("user");
 		
 		Wallet wallet = new Wallet();
-		wallet.setIdUser(user.getIdUser());
-		wallet.setNameWallet(nameWallet);
+		wallet.setUserId(user.getId());
+		wallet.setName(nameWallet);
 		wallet.setDescription(descriptionWallet);
 		
 		WalletService walletService = new WalletService();
@@ -180,8 +180,8 @@ public class WalletController {
 		
 		Wallet wallet = new Wallet();
 		wallet.setIdWallet(idWallet);
-		wallet.setIdUser(user.getIdUser());
-		wallet.setNameWallet(nameWallet);
+		wallet.setUserId(user.getId());
+		wallet.setName(nameWallet);
 		wallet.setDescription(description);
 		
 		WalletService walletService = new WalletService();
@@ -270,10 +270,10 @@ public class WalletController {
 		//-CONTROLLER FUNCTIONS
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
-		int id_user = user.getIdUser();
+		int userId = user.getId();
 
 		WalletService walletService = new WalletService();
-		List<Wallet> list = walletService.listWallet(id_user);
+		List<Wallet> list = walletService.listWallet(userId);
 
 		modelAndView.addObject("list", list);
 			
