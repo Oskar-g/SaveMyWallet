@@ -10,12 +10,17 @@
 				<div class="col-lg-6">
 					<a href="list_movement.html?wallet=${wallet.getId()}">
 						<button type="button"
-							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
-							a mis movimientos</button>
-					</a> <a href="list_wallet.html">
+							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp; Volver
+							a mis movimientos
+						</button>
+					</a> 
+					<a href="list_wallet.html">
 						<button type="button"
-							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
-							a mis Carteras</button>
+							class="btn btn-custom btn-bordred waves-effect w-md waves-light m-b-5">
+							<i class="fa fa-list-alt" aria-hidden="true"></i> &nbsp; Volver a
+							mis Carteras
+						</button>
 					</a><br /> <br />
 					<h4 class="m-b-30 m-t-0 header-title">
 						<b>${pageTitle} a la cartera ${wallet.getName()}</b>
@@ -26,8 +31,8 @@
 							<input type="hidden" name="wallet_id" value="${wallet.getId()}">
 							<label class="col-sm-4 control-label">Concepto</label>
 							<div class="col-sm-7">
-								<input list="concepts" name="concept" class="form-control"
-									autocomplete="off" placeholder="Ej: ingreso de nómina">
+								<input list="concepts" required maxlength="40" name="concept" class="form-control"
+									autocomplete="on" placeholder="Ej: ingreso de nómina">
 								<datalist id="concepts">
 									<c:forEach items="${concepts}" var="concept">
 										<option value="${concept.getName()}">
@@ -47,21 +52,25 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Fecha</label>
 							<div class="col-sm-7">
-								<input type="text" name="date" class="form-control" placeholder="YYYY-MM-DD"
-									id="datepicker-autoclose"/>
+								<input type="text" name="date" class="form-control"
+									placeholder="YYYY-MM-DD" id="datepicker-autoclose" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Cantidad</label>
 							<div class="col-sm-7">
-								<input type="number" class="form-control" name="quantity" />
+								<input type="number" id="num" min="1" step="0.01" required class="form-control"
+									name="quantity" />
 							</div>
 							<label class="col-sm-0.5 control-label">&euro;</label>
 
 						</div>
 						<div align="center">
 							<button type="submit"
-								class="btn btn-success waves-effect waves-light">Agregar</button>
+								class="btn btn-success waves-effect waves-light">
+								<i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp;
+								Agregar
+							</button>
 						</div>
 					</form>
 				</div>

@@ -12,31 +12,21 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="card-box table-responsive">
-			<!-- 
-                                    <div class="dropdown pull-right">
-                                        <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
-                                            <i class="zmdi zmdi-more-vert"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Another action</a></li>
-                                            <li><a href="#">Something else here</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Separated link</a></li>
-                                        </ul>
-                                    </div>
-                                 -->
-
-
-			<a href="create_movement.html?wallet=${wallet.getId()}">
+				<a href="create_movement.html?wallet=${wallet.getId()}">
 				<button type="button"
-					class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Agregar
+					class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5"><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp; Agregar
 					movimiento</button>
-			</a> <a href="list_wallet.html">
+			</a> 
+			<a href="list_wallet.html">
 				<button type="button"
-					class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
+					class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp; Volver
 					a mis Carteras</button>
-			</a><br /> <br />
+			</a>
+			<a href="statistics.html?wallet=${wallet.getId()}">
+				<button type="button"
+					class="btn btn-warning btn-bordred waves-effect w-md waves-light m-b-5"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; Ver estadísticas</button>
+			</a>
+			<br /> <br />
 			<h4 class="header-title m-t-0 m-b-30">Movimientos de la Cartera
 				"${wallet.getName()}"</h4>
 
@@ -67,13 +57,19 @@
 								</c:when>
 							</c:choose>
 							<td>
+
 								<button
 									class="btn btn-icon waves-effect waves-light btn-danger m-b-5"
-									data-toggle="modal" data-target="#dropMovement" data_identifier="${movement.getId()}">
+									data-toggle="modal" data-target="#dropMovement"
+									data_identifier="${movement.getId()}">
 									<i class="fa fa-remove"></i>
-								</button>
-							<a href="edit_movement.html?wallet=${wallet.getId()}&movement=${movement.getId()}">
-								<button class="btn btn-icon waves-effect waves-light btn-primary m-b-5" data-toggle="modal" data-target="#con-close-modal"><i class="fa fa-wrench"></i></button>
+								</button> <a
+								href="edit_movement.html?wallet=${wallet.getId()}&movement=${movement.getId()}">
+									<button
+										class="btn btn-icon waves-effect waves-light btn-primary m-b-5"
+										data-toggle="modal" data-target="#con-close-modal">
+										<i class="fa fa-wrench"></i>
+									</button>
 							</a>
 							</td>
 						</tr>
@@ -87,17 +83,18 @@
 <!-- end row -->
 
 <script type="text/javascript">
-	jQuery(document).ready(function() {
-		$('#datatable').dataTable();
-		
+	$(document).ready(function() {
+		$('#datatable').dataTable({
+			"bSort" : false
+		});
+
 		//Listener de clic en botones
-		$(".btn-icon").on("click",function(){
+		$(".btn-icon").on("click", function() {
 			var rowId = $(this).attr("data_identifier");
 			var wallet = $("#wallet_id").attr("data_identifier");
-			var location = "delete_movement.html?wallet="+wallet+"&movement="+rowId;
+			var location = "delete_movement.html?wallet=" + wallet + "&movement=" + rowId;
 			$("#delete_movement_button").attr("href", location);
 		});
-		
 	});
 </script>
 
