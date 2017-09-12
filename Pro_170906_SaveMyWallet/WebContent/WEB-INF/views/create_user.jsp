@@ -61,6 +61,10 @@
 						<div align="center">
 						<button type="submit"
 							class="btn btn-success waves-effect waves-light">Confirmar</button>
+							
+						<a href="login.html"><button type="button"
+							class="btn btn-purple waves-effect waves-light">Volver</button></a>
+							
 						</div>
 					</form>
 				</div>
