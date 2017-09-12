@@ -65,6 +65,11 @@ public class MovementController {
 		Wallet wallet = walletService.findByPrimaryIdWallet(walletId);
 		modelAndView.addObject("wallet", wallet);
 		
+		ConceptService conceptService = new ConceptService();
+		List<Concept> concepts = conceptService.listConcept();
+		modelAndView.addObject("concepts", concepts);
+
+		
 		return modelAndView;
 	}
 
@@ -186,6 +191,10 @@ public class MovementController {
 		MovementService movementService = new MovementService();
 		Movement movement = movementService.findByPrimaryIdMovement(idMovement);
 		modelAndView.addObject("movement", movement);
+		
+		ConceptService conceptService = new ConceptService();
+		List<Concept> concepts = conceptService.listConcept();
+		modelAndView.addObject("concepts", concepts);
 
 		return modelAndView;
 	}
