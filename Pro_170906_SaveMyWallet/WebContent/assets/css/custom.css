@@ -2,3 +2,8 @@
 	box-shadow: 0 0px 8px 0 rgba(0, 200, 0, .6), 0 1px 0px 0 rgba(0, 200, 0, .7);
 	cursor: pointer;
 }
+
+
+.dropdown-wallet:HOVER {
+	background-color: #c1fbbb
+}
