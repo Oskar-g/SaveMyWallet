@@ -16,6 +16,7 @@
 							a mis movimientos
 						</button>
 					</a>
+					<br><br>
 					<h4 class="m-b-30 m-t-0 header-title">
 						<b>${pageTitle} "${movement.getConcept().getName()}"</b>
 					</h4>
@@ -60,12 +61,11 @@
 									</c:when>
 
 									<c:when test="${movement.getType()=='gasto'}">
-										<input id="ingreso" type="radio" name="type" value="ingreso" /> Ingreso									
+										<input id="ingreso" type="radio" name="type" value="ingreso" />									
 										<label for="ingreso">Ingreso</label>
 										<br>
 										<input id="gasto" type="radio" checked name="type" value="gasto" /> 
 										<label for="gasto">Gasto</label>									
-						
 									</c:when>
 								</c:choose>
 							</div>

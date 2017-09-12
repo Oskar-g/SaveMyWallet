@@ -14,8 +14,7 @@
 							<i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp; Volver
 							a mis movimientos
 						</button>
-					</a> 
-					<a href="list_wallet.html">
+					</a> <a href="list_wallet.html">
 						<button type="button"
 							class="btn btn-custom btn-bordred waves-effect w-md waves-light m-b-5">
 							<i class="fa fa-list-alt" aria-hidden="true"></i> &nbsp; Volver a
@@ -31,8 +30,9 @@
 							<input type="hidden" name="wallet_id" value="${wallet.getId()}">
 							<label class="col-sm-4 control-label">Concepto</label>
 							<div class="col-sm-7">
-								<input list="concepts" required maxlength="40" name="concept" class="form-control"
-									autocomplete="off" placeholder="Ej: ingreso de nómina">
+								<input list="concepts" required maxlength="40" name="concept"
+									class="form-control" autocomplete="off"
+									placeholder="Ej: ingreso de nómina">
 								<datalist id="concepts">
 									<c:forEach items="${concepts}" var="concept">
 										<option value="${concept.getName()}">
@@ -44,9 +44,10 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Tipo de operacion</label>
 							<div class="col-sm-7">
-								<input type="radio" checked name="type" value="ingreso" />
-								Ingreso <br> <input type="radio" name="type" value="gasto" />
-								Gasto
+								<input id="ingreso" type="radio" checked name="type"
+									value="ingreso" /> <label for="ingreso">Ingreso</label> <br>
+								<input id="gasto" type="radio" name="type" value="gasto" /> <label
+									for="gasto">Gasto</label>
 							</div>
 						</div>
 						<div class="form-group">
@@ -59,8 +60,8 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Cantidad</label>
 							<div class="col-sm-7">
-								<input type="number" id="num" min="1" step="0.01" required class="form-control"
-									name="quantity" />
+								<input type="number" id="num" min="1" step="0.01" required
+									class="form-control" name="quantity" />
 							</div>
 							<label class="col-sm-0.5 control-label">&euro;</label>
 
