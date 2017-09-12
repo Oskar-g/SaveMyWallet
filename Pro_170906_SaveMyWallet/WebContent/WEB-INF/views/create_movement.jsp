@@ -32,7 +32,7 @@
 							<label class="col-sm-4 control-label">Concepto</label>
 							<div class="col-sm-7">
 								<input list="concepts" required maxlength="40" name="concept" class="form-control"
-									autocomplete="on" placeholder="Ej: ingreso de nómina">
+									autocomplete="off" placeholder="Ej: ingreso de nómina">
 								<datalist id="concepts">
 									<c:forEach items="${concepts}" var="concept">
 										<option value="${concept.getName()}">

@@ -29,7 +29,7 @@
 								<input type="hidden" name="wallet_id" value="${wallet.getId()}">
 								<input list="concepts" class="form-control" name="concept"
 								required maxlength="40"
-									placeholder="Concepto" autocomplete="on"
+									placeholder="Concepto" autocomplete="off"
 									value="${movement.getConcept().getName()}"
 									placeholder="Ej: ingreso de nómina" />
 								<datalist id="concepts">
