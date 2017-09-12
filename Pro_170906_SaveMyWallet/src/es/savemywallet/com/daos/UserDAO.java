@@ -114,7 +114,7 @@ public class UserDAO implements IUserDAO {
 				+ "		surname = ?, "
 				+ "		surname = ?, "
 				+ "		email = ?, "
-				+ "		password = ? "
+				+ "		password = md5(?) "
 				+ "		WHERE id = ?";
 		try{
 			JdbcTemplateObject.update(sql, user.getUsername(), user.getName(), user.getSurname(), user.getEmail(), user.getPassword(), user.getId());
