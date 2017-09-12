@@ -28,12 +28,12 @@ body {
 				<br>
 
 			<div class="form-group ">
-				<input type="text" class="form-control"
+				<input type="text" class="form-control" required maxlength="20"
 					placeholder="nombre o correo" name="username" id="UserName" autofocus>
 				<i class="fa fa-user"></i>
 			</div>
 			<div class="form-group log-status">
-				<input type="password" class="form-control" placeholder="Password"
+				<input type="password" class="form-control"  required placeholder="Password"
 					name="password" id="Passwod"> <i class="fa fa-lock"></i>
 			</div>
 			<span class="alert">Credenciales inválidos</span> <a class="link"

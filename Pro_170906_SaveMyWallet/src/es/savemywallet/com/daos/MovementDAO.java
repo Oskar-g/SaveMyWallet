@@ -83,14 +83,16 @@ public class MovementDAO implements IMovementDAO{
 	 */
 	@Override
 	public void update(Movement movement) {
+		System.out.println("AQUI"+movement);
 		String sql = "UPDATE movements "
 				+ "		SET wallet_id = ?, "
 				+ "		concept = ?, "
 				+ "		date = ?, "
+				+ "		type = ?, "
 				+ "		quantity = ? "
 				+ "		WHERE id = ?;";
 		try{
-			JdbcTemplateObject.update(sql, movement.getWalletId(), movement.getConcept(), movement.getDate(), movement.getQuantity(), movement.getId());
+			JdbcTemplateObject.update(sql, movement.getWalletId(), movement.getConcept().getName(), movement.getDate(), movement.getType(), movement.getQuantity(), movement.getId());
 			System.out.println("updated record with id = " + movement.getId());
 		}catch (Exception e) {
 			System.out.println("excepcion " + e);
@@ -104,7 +106,8 @@ public class MovementDAO implements IMovementDAO{
 	public List<Movement> list(int walletId) {
 		String sql = "SELECT * "
 				+ "		FROM movements "
-				+ "WHERE  wallet_id = ?";
+				+ "WHERE  wallet_id = ? "
+				+ "ORDER BY date";
 		List<Movement>movements = null;
 		try{
 			movements = (List<Movement>)JdbcTemplateObject.query(sql,new Object[]{walletId}, new MovementMapper());
