@@ -142,8 +142,8 @@ public class MovementController {
 	}
 
 	/*
-	 * ------------------------------------------------------------------ EDIT
-	 * MOVEMENTS
+	 * ------------------------------------------------------------------ 
+	 * EDIT MOVEMENTS
 	 * -------------------------------------------------------------------
 	 */
 
@@ -154,7 +154,8 @@ public class MovementController {
 	 */
 	@RequestMapping(value = "/edit_movement", method = RequestMethod.GET)
 	public ModelAndView editMovement(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam("idMovement") int idMovement) {
+			@RequestParam("movement") int idMovement,
+			@RequestParam("wallet") int idWallet) {
 		// - TEMPLATE LOADER
 		String view = "edit_movement.jsp";
 		String title = "Editar Movimiento";
@@ -174,6 +175,10 @@ public class MovementController {
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
 		modelAndView.addObject("user", user);
+
+		WalletService walletService = new WalletService();
+		Wallet wallet = walletService.findByPrimaryIdWallet(idWallet);
+		modelAndView.addObject("wallet", wallet);
 
 		MovementService movementService = new MovementService();
 		Movement movement = movementService.findByPrimaryIdMovement(idMovement);
@@ -273,7 +278,7 @@ public class MovementController {
 
 		try {
 
-			response.sendRedirect("list_movement.html?wallet=12");
+			response.sendRedirect("list_movement.html?wallet="+walletId);
 
 		} catch (IOException e) {
 
