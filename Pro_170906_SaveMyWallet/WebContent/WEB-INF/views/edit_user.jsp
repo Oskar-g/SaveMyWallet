@@ -63,7 +63,7 @@
 							<label class="col-sm-4 control-label">Confirmar
 								contraseña</label>
 							<div class="col-sm-7">
-								<input required  type="password" class="form-control" name="password"
+								<input required  type="password" class="form-control" name="password_repeat"
 									placeholder="Confirmar contraseña" />
 							</div>
 						</div>
