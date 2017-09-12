@@ -9,11 +9,14 @@
 		<div class="card-box">
 			<div class="row">
 				<div class="col-lg-6">
-					<a href="list_wallet.html">
+					</a> <a href="list_wallet.html">
 						<button type="button"
-							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">Volver
-							a mis Carteras</button>
-					</a><br/><br/>
+							class="btn btn-custom btn-bordred waves-effect w-md waves-light m-b-5">
+							<i class="fa fa-list-alt" aria-hidden="true"></i> &nbsp; Volver a
+							mis Carteras
+						</button>
+					</a><br /> <br />
+
 					<h4 class="m-b-30 m-t-0 header-title">
 						<b>${pageTitle} "${user.getName()}"</b>
 					</h4>
@@ -23,56 +26,56 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Nombre de usuario</label>
 							<div class="col-sm-7">
-								<input type="hidden" name="id"
-									value="${user.getId()}"> <input
-									class="form-control" name="username"
-									placeholder="Nombre de usuario"
-									value="${user.getUsername()}" />
+								<input type="hidden" name="id" value="${user.getId()}">
+								<input required class="form-control" name="username"
+									placeholder="Nombre de usuario" value="${user.getUsername()}" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Nombre</label>
 							<div class="col-sm-7">
-								<input class="form-control" name="name"
-									placeholder="Nombre"
+								<input required class="form-control" name="name" placeholder="Nombre"
 									value="${user.getName()}" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Apellidos</label>
 							<div class="col-sm-7">
-								<input class="form-control" name="surname"
-									placeholder="Apellidos"
-									value="${user.getSurname()}" />
+								<input required  class="form-control" name="surname"
+									placeholder="Apellidos" value="${user.getSurname()}" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Email</label>
 							<div class="col-sm-7">
-								<input class="form-control" name="email"
-									placeholder="Email"
+								<input required class="form-control" name="email" placeholder="Email"
 									value="${user.getEmail()}" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Contraseña</label>
 							<div class="col-sm-7">
-								<input type="password" class="form-control" name="password"
-									placeholder="Contraseña"
-									value="${wallet.getPassword()}" />
+								<input type="password" required class="form-control" name="password"
+									placeholder="Contraseña" value="${wallet.getPassword()}" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-4 control-label">Confirmar contraseña</label>
+							<label class="col-sm-4 control-label">Confirmar
+								contraseña</label>
 							<div class="col-sm-7">
-								<input type="password" class="form-control" name="password"
+								<input required  type="password" class="form-control" name="password"
 									placeholder="Confirmar contraseña" />
 							</div>
-						</div><br/>
-						<div align="center"><button type="submit"
-							class="btn btn-success waves-effect waves-light">Aceptar</button>
 						</div>
-						
+						<br />
+						<div align="center">
+							<button type="submit"
+								class="btn btn-success waves-effect waves-light">
+								<i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;
+								Editar
+							</button>
+						</div>
+
 					</form>
 				</div>
 				<!-- end col -->
