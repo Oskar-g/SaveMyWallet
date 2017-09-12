@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import es.savemywallet.com.beans.Wallet;
 import es.savemywallet.com.interfaces.IWalletDAO;
+import es.savemywallet.com.mappers.WalletBalanceMapper;
 import es.savemywallet.com.mappers.WalletMapper;
 
 public class WalletDAO implements IWalletDAO {
@@ -109,12 +110,15 @@ public class WalletDAO implements IWalletDAO {
 	 */
 	@Override
 	public List<Wallet> list(int idUser) {
-		String SQL = "SELECT * "
+		String SQL = "SELECT wallets.*, IFNULL(SUM(movements.quantity),0) as balance "
 					+ "FROM wallets "
-					+ "WHERE user_id = ?";
+					+ "LEFT JOIN movements ON wallets.id = movements.wallet_id "
+					+ "WHERE user_id = ? "
+					+ "GROUP BY wallets.id "
+					;
 		List<Wallet> listWallet = null;
 		try{
-			listWallet = jdbcTemplateObject.query(SQL, new Object[]{idUser},new WalletMapper());
+			listWallet = jdbcTemplateObject.query(SQL, new Object[]{idUser},new WalletBalanceMapper());
 		}catch(Exception e){
 			System.out.println(e);
 		}

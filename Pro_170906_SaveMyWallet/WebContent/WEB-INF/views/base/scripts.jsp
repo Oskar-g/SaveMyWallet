@@ -23,13 +23,15 @@
 
 <!-- Dashboard init -->
 
-<!--Morris Chart-->
+<!--Chart chartjs-->
 <c:if test="${script_chart == true}">
-	<script src="assets/plugins/morris/morris.min.js"></script>
-	<script src="assets/plugins/raphael/raphael-min.js"></script>
+
+	<script src="assets/plugins/chartjs-chart/Chart.min.js"></script>
+	<script src="assets/plugins/chartjs-chart/Chart.js"></script>
+	
 </c:if>
 
-<!--  -->
+<!-- modals -->
 <c:if test="${script_modal == true}">
 	<script src="assets/plugins/custombox/dist/custombox.min.js"></script>
 	<script src="assets/plugins/custombox/dist/legacy.min.js"></script>

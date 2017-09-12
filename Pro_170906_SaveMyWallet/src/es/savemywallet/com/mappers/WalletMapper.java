@@ -13,7 +13,7 @@ public class WalletMapper implements RowMapper<Wallet> {
 	public Wallet mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Wallet wallet = new Wallet();
 		
-		wallet.setIdWallet(rs.getInt("id"));
+		wallet.setId(rs.getInt("id"));
 		wallet.setUserId(rs.getInt("user_id"));
 		wallet.setName(rs.getString("name"));
 		wallet.setDescription(rs.getString("description"));
