@@ -11,14 +11,14 @@
 					<a href="list_movement.html?wallet=${wallet.getId()}">
 						<button type="button"
 							class="btn btn-primary btn-bordred waves-effect w-md waves-light m-b-5">
-							<i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp Volver
+							<i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp; Volver
 							a mis movimientos
 						</button>
 					</a> 
 					<a href="list_wallet.html">
 						<button type="button"
 							class="btn btn-custom btn-bordred waves-effect w-md waves-light m-b-5">
-							<i class="fa fa-list-alt" aria-hidden="true"></i> &nbsp Volver a
+							<i class="fa fa-list-alt" aria-hidden="true"></i> &nbsp; Volver a
 							mis Carteras
 						</button>
 					</a><br /> <br />
@@ -59,7 +59,7 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Cantidad</label>
 							<div class="col-sm-7">
-								<input type="number" step="0.01" required class="form-control"
+								<input type="number" id="num" min="1" step="0.01" required class="form-control"
 									name="quantity" />
 							</div>
 							<label class="col-sm-0.5 control-label">&euro;</label>

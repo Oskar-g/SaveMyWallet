@@ -73,7 +73,7 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Cantidad</label>
 							<div class="col-sm-7">
-								<input class="form-control" required name="quantity"
+								<input type="number" id="num" step="0.01" min="1" class="form-control" required name="quantity"
 									placeholder="Cantidad" value="${movement.getQuantity()}" />
 							</div>
 							<label class="col-sm-0.5 control-label">&euro;</label>
@@ -105,5 +105,14 @@
 			autoclose : true,
 			todayHighlight : true
 		});
+		
+		
+		if ($('#num').val() == 0)
+			$('#num').val(1);
+		if ($('#num').val() < 0){			
+			var curr = $('#num').val();
+			var conv = curr - (curr*2);
+			$('#num').val(conv);
+		}
 	});
 </script>
